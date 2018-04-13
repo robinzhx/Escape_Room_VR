@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
@@ -8,6 +10,7 @@ public class AutoTagAttachScripts : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+#if UNITY_EDITOR
         GameObject.FindGameObjectsWithTag("PickUpObj");
         GameObject[] allObjects = (GameObject[])Editor.FindObjectsOfType(typeof(GameObject));
         foreach (GameObject obj in allObjects)
@@ -22,7 +25,7 @@ public class AutoTagAttachScripts : MonoBehaviour {
                 if (!th)
                     obj.AddComponent(typeof(Throwable));
             }
-
+#endif
     }
 	
 	// Update is called once per frame
