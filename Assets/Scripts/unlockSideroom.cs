@@ -7,6 +7,12 @@ using Valve.VR.InteractionSystem;
 public class unlockSideroom : MonoBehaviour
 {
     Transform originalParent;
+    public Transform KeySnapPosition;
+    public AudioClip unlockSound;
+    public AudioClip lockSound;
+    public AudioSource source;
+
+    private bool keyAttached = false;
 
     // Use this for initialization
     void Start()
@@ -24,19 +30,35 @@ public class unlockSideroom : MonoBehaviour
     {
         if (col.gameObject.name == "key_black" || col.gameObject.name == "key_grey" || col.gameObject.name == "key_gold" || col.gameObject.name == "key")
         {
-            col.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            
 
-            col.gameObject.transform.rotation = Quaternion.Euler(0f, -180f, 90f);
-            originalParent = col.gameObject.transform.parent;
-            col.gameObject.transform.parent = this.transform;
-            col.gameObject.transform.localPosition = new Vector3(-0.0178f, -0.0872f, 0.005059996f);
+            
 
-            if (col.gameObject.name == "key_black")
+            if (col.gameObject.name == "key_gold")
             {
+                col.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                originalParent = col.gameObject.transform.parent;
+                col.gameObject.transform.rotation = KeySnapPosition.rotation;
+                col.gameObject.transform.parent = this.transform;
+                
+                col.gameObject.transform.localPosition = KeySnapPosition.localPosition;
                 col.gameObject.GetComponent<BoxCollider>().enabled = false;
+
+                col.gameObject.GetComponent<NVRInteractableItem>().CanAttach = false;
                 NVRInteractableItem driveScript = GetComponent<NVRInteractableItem>();
                 driveScript.CanAttach = true;
+                GetComponent<Rigidbody>().useGravity = true;
+                GetComponent<Rigidbody>().isKinematic = false;
+                source.PlayOneShot(unlockSound, 1.0f);
             }
+            else
+            {
+                source.PlayOneShot(lockSound, 1.0f);
+            }
+        }
+        if (col.gameObject.name == "trackhat" || col.gameObject.name == "LeftHand")
+        {
+            source.PlayOneShot(lockSound, 1.0f);
         }
     }
 

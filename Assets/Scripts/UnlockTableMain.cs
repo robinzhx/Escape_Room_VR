@@ -9,6 +9,10 @@ public class UnlockTableMain : MonoBehaviour {
     bool unlocked2 = false;
     bool unlocked3 = false;
 
+    public AudioClip unlockSound;
+    public AudioClip lockSound;
+    public AudioSource source;
+
     // Use this for initialization
     void Start () {
 		
@@ -46,6 +50,7 @@ public class UnlockTableMain : MonoBehaviour {
         {
             NVRInteractableItem driveScript = GetComponent<NVRInteractableItem>();
             driveScript.CanAttach = true;
+            source.PlayOneShot(unlockSound, 1.0f);
         }
     }
 }
