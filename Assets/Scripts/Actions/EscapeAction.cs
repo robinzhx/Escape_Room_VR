@@ -20,4 +20,9 @@ public abstract class EscapeAction : MonoBehaviour
         if (++triggeredCount >= triggers.Count)
             DoAction();
     }
+
+    public void OnTriggerClear(GameObject trigger)
+    {
+        triggeredCount--;
+    }
 }

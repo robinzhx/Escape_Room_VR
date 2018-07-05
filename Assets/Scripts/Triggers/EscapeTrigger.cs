@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,5 +28,15 @@ public class EscapeTrigger : MonoBehaviour {
         }
 
         triggered = true;
+    }
+
+    protected void Clear()
+    {
+        foreach(var action in actions)
+        {
+            action.OnTriggerClear(gameObject);
+        }
+
+        triggered = false;
     }
 }
