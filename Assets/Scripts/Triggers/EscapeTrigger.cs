@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EscapeTrigger : MonoBehaviour {
     private List<EscapeAction> actions;
-    public bool triggered = false;
+    private bool triggered = false;
+    public bool fireOnce = true;
 
     private void Awake()
     {
@@ -18,7 +19,7 @@ public class EscapeTrigger : MonoBehaviour {
 
     protected void Trigger()
     {
-        if (triggered)
+        if (fireOnce && triggered)
             return;
 
         foreach(var action in actions)

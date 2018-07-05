@@ -37,4 +37,9 @@ class EscapeUtil {
         b = ClampAngle(b);
         return EpsilonEquals(a, b, epsilon);
     }
+
+    public static bool LessThan(Vector3 a, Vector3 b)
+    {
+        return a.x < b.x && a.y < b.y && a.z < b.z;
+    }
 }
