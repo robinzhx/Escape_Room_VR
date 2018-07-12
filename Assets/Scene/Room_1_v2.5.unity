@@ -34563,6 +34563,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114051346670398080, guid: e4555fcb5ad246948beaa105efb6420b,
+        type: 2}
+      propertyPath: lighter
+      value: 
+      objectReference: {fileID: 1191086365}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4555fcb5ad246948beaa105efb6420b, type: 2}
   m_IsPrefabParent: 0
@@ -47679,6 +47684,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Material: 4
+--- !u!1 &1191086365 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1813311499974796, guid: e4555fcb5ad246948beaa105efb6420b,
+    type: 2}
+  m_PrefabInternal: {fileID: 889164177}
 --- !u!1 &1204643302
 GameObject:
   m_ObjectHideFlags: 0

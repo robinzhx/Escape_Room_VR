@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class LightDir : MonoBehaviour {
 
-    GameObject lighter;
+    public GameObject lighter = GameObject.Find("Light");
     public GameObject vrViewer;
 	// Use this for initialization
 	void Start () {
-        lighter = GameObject.Find("Light");
+
 	}
 	
 	// Update is called once per frame
