@@ -83,25 +83,40 @@ public class LightDir : MonoBehaviour {
 
     protected virtual void ChangeToHighlightColor(GameObject obj)
     {
-        Renderer[] renderers = obj.GetComponentsInChildren<Renderer>(true);
-        for (int j = 0; j < renderers.Length; j++)
+        MeshRenderer renderer = obj.GetComponent<MeshRenderer>();
+        Material[] swapCustomMaterials = new Material[renderer.materials.Length + 1];
+
+        for (int i = 0; i < renderer.materials.Length; i++)
         {
-            Renderer renderer = renderers[j];
-            Material[] swapCustomMaterials = new Material[renderer.materials.Length+1];
-
-            for (int i = 0; i < renderer.materials.Length; i++)
-            {
-                Material material = renderer.materials[i];
-                swapCustomMaterials[i] = material;
-            }
-
-            swapCustomMaterials[renderer.materials.Length] = customMaterial;
-
-            if (customMaterial != null)
-            {
-                renderer.materials = swapCustomMaterials;
-            }
+            Material material = renderer.materials[i];
+            swapCustomMaterials[i] = material;
         }
+
+        swapCustomMaterials[renderer.materials.Length] = customMaterial;
+
+        if (customMaterial != null)
+        {
+            renderer.materials = swapCustomMaterials;
+        }
+        //Renderer[] renderers = obj.GetComponentsInChildren<Renderer>(true);
+        //for (int j = 0; j < renderers.Length; j++)
+        //{
+        //    Renderer renderer = renderers[j];
+        //    Material[] swapCustomMaterials = new Material[renderer.materials.Length+1];
+
+        //    for (int i = 0; i < renderer.materials.Length; i++)
+        //    {
+        //        Material material = renderer.materials[i];
+        //        swapCustomMaterials[i] = material;
+        //    }
+
+        //    swapCustomMaterials[renderer.materials.Length] = customMaterial;
+
+        //    if (customMaterial != null)
+        //    {
+        //        renderer.materials = swapCustomMaterials;
+        //    }
+        //}
     }
 
 
