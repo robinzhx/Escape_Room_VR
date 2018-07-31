@@ -6,7 +6,7 @@ using System;
 
 public class LightDir : MonoBehaviour {
 
-    public GameObject lighter = GameObject.Find("Light");
+    public GameObject lighter;
     public GameObject vrViewer;
 
     private RaycastHit hit;
@@ -15,12 +15,22 @@ public class LightDir : MonoBehaviour {
 
     private float secondsCount = 0.0f;
 
+    public Material customMaterial;
+
+    protected Dictionary<string, Material[]> originalSharedRendererMaterials = new Dictionary<string, Material[]>();
+    protected Dictionary<string, Material[]> originalRendererMaterials = new Dictionary<string, Material[]>();
+
     // Use this for initialization
     void Start () {
+        lighter = GameObject.Find("Light");
         string filename = String.Format("{1}_{0:MMddyyyy-HHmmss}{2}", DateTime.Now, "GazeRecord", ".txt");
-        string path = Path.Combine(@"C:\", filename);
+        Directory.CreateDirectory(@"C:\EscapeRoomData");
+        string path = Path.Combine(@"C:\EscapeRoomData", filename);
         _writer = File.CreateText(path);
         _writer.Write("\n\n=============== Game started ================\n\n");
+
+        originalSharedRendererMaterials = new Dictionary<string, Material[]>();
+        originalRendererMaterials = new Dictionary<string, Material[]>();
     }
 	
 	// Update is called once per frame
@@ -33,6 +43,8 @@ public class LightDir : MonoBehaviour {
         {
             if (currObjLookAtStr != hit.collider.gameObject.name)
             {
+                //StoreOriginalMaterials(hit.collider.gameObject);
+                //ChangeToHighlightColor(hit.collider.gameObject);
                 if (currObjLookAtStr != "")
                 {
                     _writer.WriteLine(" : " + secondsCount);
@@ -53,4 +65,44 @@ public class LightDir : MonoBehaviour {
         _writer.WriteLine(" : " + secondsCount);
         _writer.Close();
     }
+
+    protected virtual void StoreOriginalMaterials(GameObject obj)
+    {
+        originalSharedRendererMaterials.Clear();
+        originalRendererMaterials.Clear();
+        Renderer[] renderers = obj.GetComponentsInChildren<Renderer>(true);
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            Renderer renderer = renderers[i];
+            string objectReference = renderer.gameObject.GetInstanceID().ToString();
+            originalSharedRendererMaterials[objectReference] = renderer.sharedMaterials;
+            originalRendererMaterials[objectReference] = renderer.materials;
+            renderer.sharedMaterials = originalSharedRendererMaterials[objectReference];
+        }
+    }
+
+    protected virtual void ChangeToHighlightColor(GameObject obj)
+    {
+        Renderer[] renderers = obj.GetComponentsInChildren<Renderer>(true);
+        for (int j = 0; j < renderers.Length; j++)
+        {
+            Renderer renderer = renderers[j];
+            Material[] swapCustomMaterials = new Material[renderer.materials.Length+1];
+
+            for (int i = 0; i < renderer.materials.Length; i++)
+            {
+                Material material = renderer.materials[i];
+                swapCustomMaterials[i] = material;
+            }
+
+            swapCustomMaterials[renderer.materials.Length] = customMaterial;
+
+            if (customMaterial != null)
+            {
+                renderer.materials = swapCustomMaterials;
+            }
+        }
+    }
+
+
 }
