@@ -15,7 +15,9 @@ public class GameGaze : MonoBehaviour
     void Start()
     {
         print(aGlass.Instance.aGlassStart());
-        _writer = new StreamWriter("Roupeiro_camisa.txt");
+        string filename = String.Format("{1}_{0:MMddyyyy-HHmmss}{2}", DateTime.Now, "aGlassData", ".txt");
+        string path = Path.Combine(@"C:\", filename);
+        _writer = File.CreateText(path);
         _writer.Write("\n\n=============== Game started ================\n\n");
     }
 
@@ -39,6 +41,7 @@ public class GameGaze : MonoBehaviour
     {
         print(aGlass.Instance.aGlassStop());
         _writer.Close();
+        
     }
 
     public void GetPos(GameObject c, ref float cx, ref float cy)
