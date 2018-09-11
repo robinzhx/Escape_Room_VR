@@ -29,7 +29,7 @@ MonoBehaviour:
     m_Settings:
       excludeSkybox: 1
   antialiasing:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       method: 0
       fxaaSettings:
@@ -124,8 +124,8 @@ MonoBehaviour:
         temperature: 4
         tint: 0
         hueShift: 0
-        saturation: 0.83
-        contrast: 0.86
+        saturation: 0.919
+        contrast: 0.851
       channelMixer:
         red: {x: 1, y: 0, z: 0}
         green: {x: 0, y: 1, z: 0}

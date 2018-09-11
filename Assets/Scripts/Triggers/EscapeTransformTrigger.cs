@@ -5,11 +5,12 @@ using UnityEngine;
 public class EscapeTransformTrigger : EscapeTrigger
 {
     public Transform target;
-    private Vector3 currentRotation;
-    private Vector3 currentLocation;
+    public Vector3 currentLocation;
     public Vector3 expectedPosition;
+    public bool inversePositioncheck;
     public bool checkPosition;
     public bool istriggered;
+    public Vector3 currentRotation;
     public Vector3 expectedAngle;
     public bool checkRotation;
     public float epsilon = 5.0f;
@@ -47,7 +48,19 @@ public class EscapeTransformTrigger : EscapeTrigger
             istriggered = false;
             return;
         }
-          
+
+
+        if (inversePositioncheck && !istriggered && EscapeUtil.EpsilonEquals(target.position, expectedPosition, epsilon))
+        {
+            return;
+        }
+
+        if (inversePositioncheck && istriggered && !EscapeUtil.EpsilonEquals(target.position, expectedPosition, epsilon))
+        {
+            Clear();
+            istriggered = false;
+            return;
+        }
 
         Trigger();
         istriggered = true;
