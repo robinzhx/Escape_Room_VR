@@ -10,6 +10,8 @@ public class GameGaze : MonoBehaviour
 {
     int count = 0;
     private StreamWriter _writer;
+    float aGlassX = 0;
+    float aGlassY = 0;
 
     // Use this for initialization
     void Start()
@@ -30,11 +32,23 @@ public class GameGaze : MonoBehaviour
         }
         if (aGlass.Instance.GetEyeValid())
         {
-            
-            print(Time.time.ToString() + " -- Eye X: " + aGlass.Instance.GetGazePoint().x + "  Y: " + aGlass.Instance.GetGazePoint().y);
-            _writer.WriteLine(Time.time.ToString() + " -- Eye X: " + aGlass.Instance.GetGazePoint().x + "  Y: " + aGlass.Instance.GetGazePoint().y);
+
+            // print(Time.time.ToString() + " -- Eye X: " + aGlass.Instance.GetGazePoint().x + "  Y: " + aGlass.Instance.GetGazePoint().y);
+            aGlassX = aGlass.Instance.GetGazePoint().x;
+            aGlassY = aGlass.Instance.GetGazePoint().y;
+            _writer.WriteLine(String.Format("{0:HH:mm:ss.fff}", DateTime.Now) + " - " + Time.time.ToString() + " -- Eye X: " + aGlassX + "  Y: " + aGlassY);
 
         }
+    }
+
+    public float getCurrX ()
+    {
+        return aGlassX;
+    }
+
+    public float getCurrY()
+    {
+        return aGlassY;
     }
 
     void OnDestroy()

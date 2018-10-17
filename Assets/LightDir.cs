@@ -13,6 +13,8 @@ public class LightDir : MonoBehaviour {
     private StreamWriter _writer;
     private string currObjLookAtStr = "";
 
+    private string monitorData = "";
+
     private float secondsCount = 0.0f;
 
     public Material customMaterial;
@@ -47,23 +49,30 @@ public class LightDir : MonoBehaviour {
                 //ChangeToHighlightColor(hit.collider.gameObject);
                 if (currObjLookAtStr != "")
                 {
-                    _writer.WriteLine(" : " + secondsCount);
+                    _writer.WriteLine("\t\t\t" + secondsCount);
                     secondsCount = 0.0f;
                 }
                 
                 currObjLookAtStr = hit.collider.gameObject.name;
-                print(currObjLookAtStr + " : " + secondsCount);
-                _writer.Write(String.Format("{0:HH:mm:ss.fff}", DateTime.Now) + " - " + currObjLookAtStr);
+                //print(currObjLookAtStr + " : " + secondsCount);
+                monitorData = String.Format(String.Format("{0:HH:mm:ss.fff}", DateTime.Now) 
+                                            + "\t" + Time.time.ToString() + "\t\t" + currObjLookAtStr);
+                _writer.Write(monitorData);
             }
             secondsCount += Time.deltaTime;
-            print(currObjLookAtStr + " : " + secondsCount);
+            //print(currObjLookAtStr + " : " + secondsCount);
         }
     }
 
     void OnDestroy()
     {
-        _writer.WriteLine(" : " + secondsCount);
+        _writer.WriteLine("\t\t\t" + secondsCount);
         _writer.Close();
+    }
+
+    public string getCurrGazeObjName()
+    {
+        return monitorData;
     }
 
     protected virtual void StoreOriginalMaterials(GameObject obj)
