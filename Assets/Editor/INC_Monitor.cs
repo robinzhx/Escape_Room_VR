@@ -140,7 +140,7 @@ public class INC_Monitor : EditorWindow
         GUILayout.FlexibleSpace();
         backupColor = GUI.color;
         GUI.color = currColor;
-        GUILayout.Box("", GUILayout.Width(400), GUILayout.Height(200));
+        GUILayout.Box(Resources.Load("SpectatorRT") as Texture, GUILayout.Width(500), GUILayout.Height(300));
         lastRect = GUILayoutUtility.GetLastRect();
         GUI.color = backupColor;
         GUILayout.FlexibleSpace();
@@ -160,6 +160,7 @@ public class INC_Monitor : EditorWindow
         EditorGUILayout.IntField((int)sinceLastAction);
         
         GUILayout.Label((isSurveyEnable ? "Status: On" : "Status: Off"));
+
         if (GUILayout.Button("Post Survey Now"))
         {
             GameObject tmp;
@@ -181,6 +182,7 @@ public class INC_Monitor : EditorWindow
         ScrollPos = EditorGUILayout.BeginScrollView(ScrollPos, GUILayout.Height(80));
         GUILayout.TextArea(SurveyRecordList, GUILayout.ExpandHeight(true));
         EditorGUILayout.EndScrollView();
+
     }
 
     void Update()
