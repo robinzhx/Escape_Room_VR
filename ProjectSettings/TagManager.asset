@@ -13,6 +13,9 @@ TagManager:
   - key
   - lock
   - organ_keys
+  - ExcludeTeleport
+  - TeleportIgnore
+  - MeleeEnemy
   layers:
   - Default
   - TransparentFX
@@ -24,7 +27,7 @@ TagManager:
   - 
   - Monster
   - StereoRender_Ignore
-  - 
+  - SpectatorViewOnly
   - 
   - 
   - 
