@@ -13,7 +13,7 @@ public class INC_Monitor : EditorWindow
 
 
     List<string> sceneName;
-    string[] sc;
+    string[] sc = new string[2] { "Tutorial", "Room_1_v3" };
 
     string currGazeObj;
     string gazeStringData;
@@ -38,7 +38,8 @@ public class INC_Monitor : EditorWindow
     private Color currColor;
     Rect lastRect;
 
-    Vector2 ScrollPos;
+    Vector2 ScrollPos1;
+    Vector2 ScrollPos2;
 
     // Add menu item named "My Window" to the Window menu
     [MenuItem("Window/INC Monitor")]
@@ -116,7 +117,7 @@ public class INC_Monitor : EditorWindow
         GUILayout.Label("ObjectName");
         GUILayout.EndHorizontal();
         
-        ScrollPos = EditorGUILayout.BeginScrollView(ScrollPos, GUILayout.Height(200));
+        ScrollPos1 = EditorGUILayout.BeginScrollView(ScrollPos1, GUILayout.Height(200));
         GUILayout.TextArea(gazeStringData, GUILayout.ExpandHeight(true));
         EditorGUILayout.EndScrollView();
 
@@ -140,27 +141,55 @@ public class INC_Monitor : EditorWindow
         GUILayout.FlexibleSpace();
         backupColor = GUI.color;
         GUI.color = currColor;
-        GUILayout.Box(Resources.Load("SpectatorRT") as Texture, GUILayout.Width(500), GUILayout.Height(300));
+        GUILayout.Box(Resources.Load("SpectatorRT") as Texture, GUILayout.Width(300), GUILayout.Height(300));
+        lastRect = GUILayoutUtility.GetLastRect();
+        GUI.color = backupColor;
+        foreach (Vector2 g in oldGazePoints)
+            if (g.x != 0 && g.y != 0)
+                Handles.DrawSolidDisc(new Vector3(g.x * 500 + lastRect.center.x - 250, g.y * 300 + lastRect.center.y - 150, 0), new Vector3(0.0f, 0.0f, 1.0f), 3.0f);
+
+        if (gazeX != 0 && gazeY != 0)
+        {
+            Handles.color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
+            Handles.DrawSolidDisc(new Vector3(gazeX * 500 + lastRect.center.x - 250, gazeY * 300 + lastRect.center.y - 150, 0), new Vector3(0.0f, 0.0f, 1.0f), 10.0f);
+            Handles.color = Color.red;
+            // Handles.DrawLine(new Vector3(0, 0.0f, 0), new Vector3(20.0f, 20.0f, 0));
+            Handles.DrawSolidDisc(new Vector3(gazeX * 500 + lastRect.center.x - 250, gazeY * 300 + lastRect.center.y - 150, 0), new Vector3(0.0f, 0.0f, 1.0f), 5.0f);
+        }
+        
+
+        GUILayout.FlexibleSpace();
+        backupColor = GUI.color;
+        GUI.color = currColor;
+        GUILayout.Box(Resources.Load("SpectatorRT") as Texture, GUILayout.Width(300), GUILayout.Height(300));
         lastRect = GUILayoutUtility.GetLastRect();
         GUI.color = backupColor;
         GUILayout.FlexibleSpace();
         Handles.color = Color.yellow;
+
         foreach (Vector2 g in oldGazePoints)
-            Handles.DrawSolidDisc(new Vector3(g.x * 400 + lastRect.center.x - 200, g.y * 200 + lastRect.center.y - 100, 0), new Vector3(0.0f, 0.0f, 1.0f), 3.0f);
-        Handles.color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
-        Handles.DrawSolidDisc(new Vector3(gazeX * 400 + lastRect.center.x - 200, gazeY * 200 + lastRect.center.y - 100, 0), new Vector3(0.0f, 0.0f, 1.0f), 10.0f);
-        Handles.color = Color.red;
-        // Handles.DrawLine(new Vector3(0, 0.0f, 0), new Vector3(20.0f, 20.0f, 0));
-        Handles.DrawSolidDisc(new Vector3(gazeX * 400 + lastRect.center.x - 200 , gazeY * 200 + lastRect.center.y - 100, 0), new Vector3(0.0f, 0.0f, 1.0f), 5.0f);
+            if (g.x != 0 && g.y != 0)
+                Handles.DrawSolidDisc(new Vector3(g.x * 500 + lastRect.center.x - 250, g.y * 300 + lastRect.center.y - 150, 0), new Vector3(0.0f, 0.0f, 1.0f), 3.0f);
+
+        if (gazeX != 0 && gazeY != 0)
+        {
+            Handles.color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
+            Handles.DrawSolidDisc(new Vector3(gazeX * 500 + lastRect.center.x - 250, gazeY * 300 + lastRect.center.y - 150, 0), new Vector3(0.0f, 0.0f, 1.0f), 10.0f);
+            Handles.color = Color.red;
+            // Handles.DrawLine(new Vector3(0, 0.0f, 0), new Vector3(20.0f, 20.0f, 0));
+            Handles.DrawSolidDisc(new Vector3(gazeX * 500 + lastRect.center.x - 250, gazeY * 300 + lastRect.center.y - 150, 0), new Vector3(0.0f, 0.0f, 1.0f), 5.0f);
+        }
         EditorGUILayout.EndHorizontal();
 
         GUILayout.Label("Survey Control", EditorStyles.boldLabel);
         GUILayout.BeginHorizontal();
-        lapsTime = EditorGUILayout.DelayedIntField("Lapse Time(s)", lapsTime);
-        EditorGUILayout.IntField((int)sinceLastAction);
-        
+        GUILayout.Label("Lapse Time(s)", GUILayout.Width(100));
+        lapsTime = EditorGUILayout.DelayedIntField(lapsTime, GUILayout.Width(50));
+        GUILayout.FlexibleSpace();
+        GUILayout.Label("Countdown: " + (int)sinceLastAction + " s");
+        GUILayout.FlexibleSpace();
         GUILayout.Label((isSurveyEnable ? "Status: On" : "Status: Off"));
-
+        GUILayout.FlexibleSpace();
         if (GUILayout.Button("Post Survey Now"))
         {
             GameObject tmp;
@@ -179,7 +208,7 @@ public class INC_Monitor : EditorWindow
             }
         }
         GUILayout.EndHorizontal();
-        ScrollPos = EditorGUILayout.BeginScrollView(ScrollPos, GUILayout.Height(80));
+        ScrollPos2 = EditorGUILayout.BeginScrollView(ScrollPos2, GUILayout.Height(80));
         GUILayout.TextArea(SurveyRecordList, GUILayout.ExpandHeight(true));
         EditorGUILayout.EndScrollView();
 
@@ -226,7 +255,7 @@ public class INC_Monitor : EditorWindow
                 }
             }
 
-            //oldGazePoints.Add(new Vector2(gazeX, gazeY));
+            oldGazePoints.Add(new Vector2(gazeX, gazeY));
 
             if (oldGazePoints.Count > 150)
             {

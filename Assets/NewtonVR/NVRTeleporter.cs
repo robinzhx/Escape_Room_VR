@@ -20,7 +20,7 @@ namespace NewtonVR
 		public bool LimitToHorizontal = false;
 		public float LimitSensitivity = 45f;
 
-		public NVRButtons TeleportButton = NVRButtons.ApplicationMenu;
+		public NVRButtons TeleportButton = NVRButtons.Touchpad;
 
 		public LayerMask TeleportSurfaceMask;
 		public LayerMask TeleportBlockMask;

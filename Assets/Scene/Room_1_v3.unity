@@ -12957,7 +12957,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 128202, guid: d5fe2f7f9d3e98a478d151422643620c, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11446826, guid: d5fe2f7f9d3e98a478d151422643620c, type: 2}
       propertyPath: events
@@ -47744,7 +47744,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 128202, guid: d5fe2f7f9d3e98a478d151422643620c, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11446826, guid: d5fe2f7f9d3e98a478d151422643620c, type: 2}
       propertyPath: events
@@ -55859,6 +55859,66 @@ Prefab:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1895981570}
+    - target: {fileID: 114704323555504664, guid: ea0425ca82785d64b8908b108ff3e4a6,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114704323555504664, guid: ea0425ca82785d64b8908b108ff3e4a6,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114704323555504664, guid: ea0425ca82785d64b8908b108ff3e4a6,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114230563946570550, guid: ea0425ca82785d64b8908b108ff3e4a6,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114230563946570550, guid: ea0425ca82785d64b8908b108ff3e4a6,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114230563946570550, guid: ea0425ca82785d64b8908b108ff3e4a6,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114627386496062776, guid: ea0425ca82785d64b8908b108ff3e4a6,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114627386496062776, guid: ea0425ca82785d64b8908b108ff3e4a6,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114627386496062776, guid: ea0425ca82785d64b8908b108ff3e4a6,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114004556689160626, guid: ea0425ca82785d64b8908b108ff3e4a6,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114004556689160626, guid: ea0425ca82785d64b8908b108ff3e4a6,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114004556689160626, guid: ea0425ca82785d64b8908b108ff3e4a6,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea0425ca82785d64b8908b108ff3e4a6, type: 2}
   m_IsPrefabParent: 0
@@ -71356,7 +71416,7 @@ MonoBehaviour:
   TargetDisplay: {fileID: 1786687662}
   LimitToHorizontal: 1
   LimitSensitivity: 45
-  TeleportButton: 1
+  TeleportButton: 16
   TeleportSurfaceMask:
     serializedVersion: 2
     m_Bits: 4294967295
