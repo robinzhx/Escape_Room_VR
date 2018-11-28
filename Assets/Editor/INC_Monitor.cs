@@ -7,13 +7,16 @@ using UnityEditor;
 public class INC_Monitor : EditorWindow
 {
     int currLevel;
+    int currSurvey;
 
     int lapsTime;
     float sinceLastAction;
 
 
     List<string> sceneName;
-    string[] sc = new string[2] { "Tutorial", "Room_1_v3" };
+    string[] sc;
+
+    List<string> surveyName;
 
     string currGazeObj;
     string gazeStringData;
@@ -54,7 +57,8 @@ public class INC_Monitor : EditorWindow
     public void start()
     {
         currLevel = 0;
-        
+        currSurvey = 0;
+
         sceneName = new List<string>(2);
 
         sc = new string[2] { "Tutorial", "Room_1_v3" };
@@ -190,12 +194,14 @@ public class INC_Monitor : EditorWindow
         GUILayout.FlexibleSpace();
         GUILayout.Label((isSurveyEnable ? "Status: On" : "Status: Off"));
         GUILayout.FlexibleSpace();
+        //currSurvey = EditorGUILayout.Popup(currSurvey, new string[3] { "Emotion", "Experience", "Flow" });
+        GUILayout.FlexibleSpace();
         if (GUILayout.Button("Post Survey Now"))
         {
             GameObject tmp;
             if (tmp = GameObject.Find("HeadMenus"))
             {
-                tmp.GetComponent<SurveyController>().toggle(true);
+                tmp.GetComponent<SurveyController>().toggle(true, currSurvey);
                 
             }
         }
@@ -204,7 +210,7 @@ public class INC_Monitor : EditorWindow
             GameObject tmp;
             if (tmp = GameObject.Find("HeadMenus"))
             {
-                tmp.GetComponent<SurveyController>().toggle(false);
+                tmp.GetComponent<SurveyController>().toggle(false, currSurvey);
             }
         }
         GUILayout.EndHorizontal();
@@ -248,7 +254,7 @@ public class INC_Monitor : EditorWindow
                 {
                     if (tmp)
                     {
-                        tmp.GetComponent<SurveyController>().toggle(true);
+                        tmp.GetComponent<SurveyController>().toggle(true, currSurvey);
                         isSurveyEnable = tmp.GetComponent<SurveyController>().getStatus();
                     }
                     sinceLastAction -= lapsTime;

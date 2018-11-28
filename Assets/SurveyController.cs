@@ -6,13 +6,17 @@ using System;
 
 public class SurveyController : MonoBehaviour {
 
-    public bool isEnable = false;
-    public GameObject surveyObject;
+    
+    public int whichToEnable = 0;
+    public GameObject[] surveyObject = new GameObject[3];
+    bool[] isEnable = {false, false, false};
     private StreamWriter _writer;
     private string SurveyResult = "";
 
     public GameObject mood;
     public GameObject intensity;
+    public GameObject experience;
+    public GameObject flow;
 
     // Use this for initialization
     void Start () {
@@ -26,7 +30,10 @@ public class SurveyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        surveyObject.SetActive(isEnable);
+
+        surveyObject[0].SetActive(isEnable[0]);
+        surveyObject[1].SetActive(isEnable[1]);
+        surveyObject[2].SetActive(isEnable[2]);
         //if (gameObject.activeSelf != isEnable)
         //    gameObject.SetActive(isEnable);
     }
@@ -39,21 +46,53 @@ public class SurveyController : MonoBehaviour {
 
     public bool getStatus()
     {
-        return surveyObject.activeSelf;
+        bool isActive = false;
+        foreach (GameObject obj in surveyObject) {
+            isActive = isActive || obj.activeSelf;
+        }
+        return isActive;
     }
 
-    public void toggle(bool b)
+    public void toggle(bool b, int choice)
     {
-        isEnable = b;
+        isEnable[choice] = b;
     }
 
     public void report()
     {
         SurveyResult = String.Format(String.Format("{0:HH:mm:ss.fff}", DateTime.Now)
-                                            + "\t" + mood.GetComponent<UnityEngine.UI.Text>().text 
-                                            + "\t" + intensity.GetComponent<UnityEngine.UI.Text>().text);
+                                            + "\tm:" + mood.GetComponent<UnityEngine.UI.Text>().text 
+                                            + " " + intensity.GetComponent<UnityEngine.UI.Text>().text
+                                            + "\te:" + experience.GetComponent<UnityEngine.UI.Text>().text
+                                            + "\tf:" + flow.GetComponent<UnityEngine.UI.Text>().text);
         _writer.Write(SurveyResult);
-        isEnable = false;
+        isEnable[0] = false;
+        isEnable[1] = false;
+        isEnable[2] = false;
+    }
+
+    public void nextpanel()
+    {
+        int i = 0;
+        while (i < isEnable.Length)
+        {
+            if (isEnable[i] == true)
+            {
+                toggle(false, i);
+                i++;
+                break;
+            }
+            i++;
+        }
+        if (i < isEnable.Length)
+        {
+            isEnable[i] = true;
+        }
+        else
+        {
+            i = 0;
+            report();
+        }
     }
 
     public string getSurveyResult()

@@ -8316,6 +8316,11 @@ Transform:
   m_Father: {fileID: 1646660595}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &963033750 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1097239873006294, guid: 3e190cbed3deb7848823b41a562a7f17,
+    type: 2}
+  m_PrefabInternal: {fileID: 1786084271}
 --- !u!1001 &966181676
 Prefab:
   m_ObjectHideFlags: 0
@@ -19564,6 +19569,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 667559966}
     m_Modifications:
+    - target: {fileID: 114215769907445228, guid: 3e190cbed3deb7848823b41a562a7f17,
+        type: 2}
+      propertyPath: surveyObject.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 224598510211588934, guid: 3e190cbed3deb7848823b41a562a7f17,
         type: 2}
       propertyPath: m_AnchorMax.x
@@ -19621,6 +19631,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114215769907445228, guid: 3e190cbed3deb7848823b41a562a7f17,
+        type: 2}
+      propertyPath: surveyObject.Array.data[0]
+      value: 
+      objectReference: {fileID: 963033750}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e190cbed3deb7848823b41a562a7f17, type: 2}
   m_IsPrefabParent: 0
