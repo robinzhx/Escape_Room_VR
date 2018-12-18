@@ -54,16 +54,18 @@ public class INC_Monitor : EditorWindow
 
     }
 
-    public void start()
+    public void Awake()
     {
         currLevel = 0;
         currSurvey = 0;
 
-        sceneName = new List<string>(2);
+        sceneName = new List<string>(4);
 
-        sc = new string[2] { "Tutorial", "Room_1_v3" };
+        sc = new string[4] { "Tutorial", "Room_1_v3", "Room_2_v2", "Room_3_v1" };
         sceneName.Add(sc[0]);
         sceneName.Add(sc[1]);
+        sceneName.Add(sc[2]);
+        sceneName.Add(sc[3]);
 
         currGazeObj = "";
         gazeStringData = "";

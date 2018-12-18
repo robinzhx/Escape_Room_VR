@@ -8314,7 +8314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5837af0260a118e4d808bfe0405429a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  persistOnLoad: 0
   autoManageScriptDefines: 0
   activeScriptingDefineSymbolsWithoutSDKClasses:
   - symbol: VRTK_DEFINE_SDK_OCULUS_AVATAR
@@ -8325,6 +8324,8 @@ MonoBehaviour:
   autoLoadSetup: 1
   setups:
   - {fileID: 1523574346}
+  excludeTargetGroups: 1b0000001a000000
+  persistOnLoad: 0
 --- !u!4 &178800966
 Transform:
   m_ObjectHideFlags: 0
@@ -15512,6 +15513,7 @@ MonoBehaviour:
   timeTillFade: 0
   blinkTransitionSpeed: 0.1
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  targetListPolicy: {fileID: 0}
   headsetCollision: {fileID: 0}
   headsetFade: {fileID: 0}
 --- !u!114 &385068050
@@ -17384,9 +17386,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 1
   target: {fileID: 0}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: 0, y: 0, z: 0}
+  inversePositioncheck: 0
   checkPosition: 0
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: -90, y: 180, z: 0}
   checkRotation: 1
   epsilon: 10
@@ -24504,7 +24509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &569981764
 AudioSource:
   m_ObjectHideFlags: 0
@@ -25967,9 +25972,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 1
   target: {fileID: 0}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: 0, y: 0, z: 0}
+  inversePositioncheck: 0
   checkPosition: 0
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: 0, y: 180, z: 90}
   checkRotation: 1
   epsilon: 20
@@ -35410,9 +35418,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 1
   target: {fileID: 0}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: 0, y: 0, z: 0}
+  inversePositioncheck: 0
   checkPosition: 0
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: 90, y: 180, z: 0}
   checkRotation: 1
   epsilon: 10
@@ -39471,9 +39482,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 1
   target: {fileID: 0}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: 0, y: 0, z: 0}
+  inversePositioncheck: 0
   checkPosition: 0
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: -90, y: 180, z: 0}
   checkRotation: 1
   epsilon: 10
@@ -40832,9 +40846,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 1
   target: {fileID: 0}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: 0, y: 0, z: 0}
+  inversePositioncheck: 0
   checkPosition: 0
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: 0, y: 180, z: -270}
   checkRotation: 1
   epsilon: 20
@@ -42549,9 +42566,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 1
   target: {fileID: 0}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: -5.76, y: 0.25, z: -5.85}
+  inversePositioncheck: 0
   checkPosition: 1
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: 0, y: 0, z: 0}
   checkRotation: 0
   epsilon: 0.05
@@ -42568,9 +42588,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 1
   target: {fileID: 0}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: -5.49, y: 0.25, z: -5.85}
+  inversePositioncheck: 0
   checkPosition: 1
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: 0, y: 0, z: 0}
   checkRotation: 0
   epsilon: 0.05
@@ -42587,9 +42610,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 1
   target: {fileID: 0}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: -6.02, y: 0.52, z: -5.85}
+  inversePositioncheck: 0
   checkPosition: 1
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: 0, y: 0, z: 0}
   checkRotation: 0
   epsilon: 0.05
@@ -42606,9 +42632,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 1
   target: {fileID: 0}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: -5.755, y: 0.52, z: -5.85}
+  inversePositioncheck: 0
   checkPosition: 1
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: 0, y: 0, z: 0}
   checkRotation: 0
   epsilon: 0.05
@@ -42625,9 +42654,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 1
   target: {fileID: 0}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: -5.49, y: 0.52, z: -5.85}
+  inversePositioncheck: 0
   checkPosition: 1
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: 0, y: 0, z: 0}
   checkRotation: 0
   epsilon: 0.05
@@ -42644,9 +42676,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 1
   target: {fileID: 0}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: -6.02, y: 0.78, z: -5.85}
+  inversePositioncheck: 0
   checkPosition: 1
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: 0, y: 0, z: 0}
   checkRotation: 0
   epsilon: 0.05
@@ -42663,9 +42698,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 1
   target: {fileID: 0}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: -5.755482, y: 0.7829614, z: -5.85}
+  inversePositioncheck: 0
   checkPosition: 1
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: 0, y: 0, z: 0}
   checkRotation: 0
   epsilon: 0.05
@@ -42682,9 +42720,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 1
   target: {fileID: 0}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: -5.489277, y: 0.7829614, z: -5.850899}
+  inversePositioncheck: 0
   checkPosition: 1
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: 0, y: 0, z: 0}
   checkRotation: 0
   epsilon: 0.05
@@ -67903,9 +67944,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 1
   target: {fileID: 0}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: 0, y: 0, z: 0}
+  inversePositioncheck: 0
   checkPosition: 0
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: 0, y: 180, z: 270}
   checkRotation: 1
   epsilon: 20
@@ -67949,9 +67993,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 1
   target: {fileID: 0}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: 0, y: 0, z: 0}
+  inversePositioncheck: 0
   checkPosition: 0
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: 360, y: 180, z: 270}
   checkRotation: 1
   epsilon: 20
@@ -74154,9 +74201,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 0
   target: {fileID: 1960686392}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: -8.01, y: 5.58, z: 8.45}
+  inversePositioncheck: 0
   checkPosition: 1
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: 0, y: 0, z: 0}
   checkRotation: 0
   epsilon: 1.75
@@ -74709,9 +74759,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 1
   target: {fileID: 0}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: 0, y: 0, z: 0}
+  inversePositioncheck: 0
   checkPosition: 0
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: 0, y: 180, z: 90}
   checkRotation: 1
   epsilon: 20
@@ -87202,9 +87255,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 1
   target: {fileID: 0}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: 0, y: 0, z: 0}
+  inversePositioncheck: 0
   checkPosition: 0
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: 90, y: 180, z: 0}
   checkRotation: 1
   epsilon: 10
@@ -89851,9 +89907,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnce: 0
   target: {fileID: 1960686392}
+  currentLocation: {x: 0, y: 0, z: 0}
   expectedPosition: {x: -0.6, y: 0.25, z: 8.6}
+  inversePositioncheck: 0
   checkPosition: 1
   istriggered: 0
+  currentRotation: {x: 0, y: 0, z: 0}
   expectedAngle: {x: 0, y: 0, z: 0}
   checkRotation: 0
   epsilon: 1.75

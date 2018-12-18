@@ -12,10 +12,17 @@ namespace Valve.VR.InteractionSystem
         public AudioClip[] Clip;
         public string[] text;
         public GameObject[] ObjectsToEnable;
+        public CheckIfColliderEnter objToCheckIfTeleportHere;
+        public AudioClip greatClip;
 
         void Start()
         {
             StartCoroutine(playSound());
+        }
+
+        private void Update()
+        {
+
         }
 
         IEnumerator playSound()
@@ -41,7 +48,6 @@ namespace Valve.VR.InteractionSystem
             GetComponent<AudioSource>().clip = Clip[4];
             GetComponent<AudioSource>().Play();
 
-            
             yield return new WaitForSeconds(5.0f);
             foreach (Hand hand in Player.instance.hands)
             {
@@ -52,6 +58,7 @@ namespace Valve.VR.InteractionSystem
             TextInstruction.text = text[5];
             GetComponent<AudioSource>().clip = Clip[5];
             GetComponent<AudioSource>().Play();
+
             yield return new WaitForSeconds(Clip[5].length + 0.5f);
             TextInstruction.text = text[6];
             GetComponent<AudioSource>().clip = Clip[6];
@@ -67,20 +74,29 @@ namespace Valve.VR.InteractionSystem
             GetComponent<AudioSource>().clip = Clip[8];
             GetComponent<AudioSource>().Play();
             yield return new WaitForSeconds(Clip[8].length + 0.5f);
-            TextInstruction.text = text[9];
-            GetComponent<AudioSource>().clip = Clip[9];
-            GetComponent<AudioSource>().Play();
-            yield return new WaitForSeconds(Clip[9].length + 0.5f);
-            TextInstruction.text = text[10];
-            GetComponent<AudioSource>().clip = Clip[10];
-            GetComponent<AudioSource>().Play();
-            yield return new WaitForSeconds(Clip[10].length + 0.5f);
-            TextInstruction.text = text[11];
-            GetComponent<AudioSource>().clip = Clip[11];
-            GetComponent<AudioSource>().Play();
 
+            if (!(objToCheckIfTeleportHere.isEnter))
+            {
+                TextInstruction.text = text[9];
+                GetComponent<AudioSource>().clip = Clip[9];
+                GetComponent<AudioSource>().Play();
+                yield return new WaitForSeconds(Clip[9].length + 0.5f);
+                TextInstruction.text = text[10];
+                GetComponent<AudioSource>().clip = Clip[10];
+                GetComponent<AudioSource>().Play();
+                yield return new WaitForSeconds(Clip[10].length + 0.5f);
+                TextInstruction.text = text[11];
+                GetComponent<AudioSource>().clip = Clip[11];
+                GetComponent<AudioSource>().Play();
+                yield return new WaitForSeconds(5.0f);
+            } else
+            {
+                TextInstruction.text = text[11];
+                GetComponent<AudioSource>().clip = greatClip;
+                GetComponent<AudioSource>().Play();
+                yield return new WaitForSeconds(greatClip.length + 0.5f);
+            }
 
-            yield return new WaitForSeconds(5.0f);
             foreach (Hand hand in Player.instance.hands)
             {
                 ControllerButtonHints.HideAllButtonHints(hand);
