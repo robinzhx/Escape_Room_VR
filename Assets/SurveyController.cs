@@ -64,7 +64,7 @@ public class SurveyController : MonoBehaviour {
                                             + "\tm:" + mood.GetComponent<UnityEngine.UI.Text>().text 
                                             + " " + intensity.GetComponent<UnityEngine.UI.Text>().text
                                             + "\te:" + experience.GetComponent<UnityEngine.UI.Text>().text
-                                            + "\tf:" + flow.GetComponent<UnityEngine.UI.Text>().text);
+                                            + "\tf:" + flow.GetComponent<UnityEngine.UI.Text>().text+"\n");
         _writer.Write(SurveyResult);
         isEnable[0] = false;
         isEnable[1] = false;

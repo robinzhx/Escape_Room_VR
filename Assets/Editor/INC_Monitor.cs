@@ -6,14 +6,14 @@ using UnityEditor;
 
 public class INC_Monitor : EditorWindow
 {
-    int currLevel;
+    public int currLevel;
     int currSurvey;
 
     int lapsTime;
     float sinceLastAction;
 
 
-    List<string> sceneName;
+    public List<string> sceneName;
     string[] sc;
 
     List<string> surveyName;
@@ -56,7 +56,7 @@ public class INC_Monitor : EditorWindow
 
     public void Awake()
     {
-        currLevel = 0;
+        currLevel = 1;
         currSurvey = 0;
 
         sceneName = new List<string>(4);
@@ -75,7 +75,7 @@ public class INC_Monitor : EditorWindow
         gazeX = 0.0f;
         gazeY = 0.0f;
 
-        lapsTime = 60;
+        lapsTime = 300;
 
         stopConfirm = false;
         isSurveyEnable = false;
@@ -151,7 +151,7 @@ public class INC_Monitor : EditorWindow
         lastRect = GUILayoutUtility.GetLastRect();
         GUI.color = backupColor;
         foreach (Vector2 g in oldGazePoints)
-            if (g.x != 0 && g.y != 0)
+            if (g != null && g.x != 0 && g.y != 0)
                 Handles.DrawSolidDisc(new Vector3(g.x * 500 + lastRect.center.x - 250, g.y * 300 + lastRect.center.y - 150, 0), new Vector3(0.0f, 0.0f, 1.0f), 3.0f);
 
         if (gazeX != 0 && gazeY != 0)
@@ -314,7 +314,7 @@ public class INC_Monitor : EditorWindow
             {
                 currSurveyResult = newSurveyResult;
                 gazeStringData = "*******Survey Mark******\n" + gazeStringData;
-                SurveyRecordList = currSurveyResult + "\n" + SurveyRecordList;
+                SurveyRecordList = currSurveyResult + SurveyRecordList;
             }
         }
     }

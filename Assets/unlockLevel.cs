@@ -26,13 +26,15 @@ public class unlockLevel : MonoBehaviour
 
     }
 
-    void OnCollisionEnter(Collision col)
+    private void OnCollisionEnter(Collision col)
     {
+
+        Debug.Log("dada "+col.gameObject.name);
         if (col.gameObject.name == "key_black" || col.gameObject.name == "key_grey" || col.gameObject.name == "key_gold" || col.gameObject.name == "key")
         {
 
 
-
+            
 
             if (col.gameObject.name == "key_gold")
             {
@@ -42,14 +44,13 @@ public class unlockLevel : MonoBehaviour
                 col.gameObject.transform.parent = this.transform;
 
                 col.gameObject.transform.localPosition = KeySnapPosition.localPosition;
-                col.gameObject.GetComponent<BoxCollider>().enabled = false;
+                //col.gameObject.GetComponent<BoxCollider>().enabled = false;
 
-                col.gameObject.GetComponent<NVRInteractableItem>().CanAttach = false;
-                NVRInteractableItem driveScript = GetComponent<NVRInteractableItem>();
-                driveScript.CanAttach = true;
+                //col.gameObject.GetComponent<Interactable>().enabled = false;
                 GetComponent<Rigidbody>().useGravity = true;
                 GetComponent<Rigidbody>().isKinematic = false;
                 source.PlayOneShot(unlockSound, 1.0f);
+                SteamVR_LoadLevel.Begin("Room_1_v3", false, 1.0f);
             }
             else
             {
@@ -64,6 +65,7 @@ public class unlockLevel : MonoBehaviour
 
     private void OnCollisionExit(Collision col)
     {
+        Debug.Log("nope exit " + col.gameObject.name);
         if (col.gameObject.name == "key_black" || col.gameObject.name == "key_grey" || col.gameObject.name == "key_gold" || col.gameObject.name == "key")
         {
             col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
