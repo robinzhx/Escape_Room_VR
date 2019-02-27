@@ -50,7 +50,7 @@ namespace NewtonVR
 
             if (Rigidbody == null)
             {
-                Debug.LogError("There is no rigidbody attached to this interactable.");
+                Debug.LogError("There is no rigidbody attached to this interactable. " + this.name);
             }
 
         }
