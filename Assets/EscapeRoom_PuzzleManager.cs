@@ -53,8 +53,12 @@ public class EscapeRoom_PuzzleManager : MonoBehaviour
 
             objToUnlock.CanAttach = true;
             source.PlayOneShot(unlockSound, 1.0f);
+            solved = true;
 
 
+        }
+        else {
+            print("Unlock All: " + allUnlock + "  solved?: " + solved );
         }
         
     }
