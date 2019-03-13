@@ -4,6 +4,8 @@ using UnityEngine;
 using System.IO;
 using System;
 
+using LSL;
+
 public class SurveyController : MonoBehaviour {
 
     
@@ -17,6 +19,8 @@ public class SurveyController : MonoBehaviour {
     public GameObject intensity;
     public GameObject experience;
     public GameObject flow;
+    
+    private liblsl.StreamOutlet markerStream;
 
     // Use this for initialization
     void Start () {
@@ -26,6 +30,9 @@ public class SurveyController : MonoBehaviour {
         string path = Path.Combine(@"C:\EscapeRoomData", filename);
         _writer = File.CreateText(path);
         _writer.Write("=============== Game started ================\n\n");
+
+        liblsl.StreamInfo inf = new liblsl.StreamInfo("SurveyReport", "Markers", 1, 0, liblsl.channel_format_t.cf_string, "giu4569");
+        markerStream = new liblsl.StreamOutlet(inf);
     }
 	
 	// Update is called once per frame
@@ -56,6 +63,12 @@ public class SurveyController : MonoBehaviour {
     public void toggle(bool b, int choice)
     {
         isEnable[choice] = b;
+        whichToEnable = choice;
+    }
+
+    public void toggle(bool b)
+    {
+        isEnable[whichToEnable] = b;
     }
 
     public void report()
@@ -66,6 +79,10 @@ public class SurveyController : MonoBehaviour {
                                             + "\te:" + experience.GetComponent<UnityEngine.UI.Text>().text
                                             + "\tf:" + flow.GetComponent<UnityEngine.UI.Text>().text+"\n");
         _writer.Write(SurveyResult);
+
+        string[] tempSample = { SurveyResult };
+        markerStream.push_sample(tempSample);
+
         isEnable[0] = false;
         isEnable[1] = false;
         isEnable[2] = false;
@@ -84,8 +101,10 @@ public class SurveyController : MonoBehaviour {
             }
             i++;
         }
+
         if (i < isEnable.Length)
         {
+            whichToEnable = i;
             isEnable[i] = true;
         }
         else

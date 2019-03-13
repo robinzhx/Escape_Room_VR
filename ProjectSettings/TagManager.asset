@@ -16,6 +16,13 @@ TagManager:
   - ExcludeTeleport
   - TeleportIgnore
   - MeleeEnemy
+  - Leg
+  - SnapCube
+  - Arm
+  - SnapCylinder
+  - Saucers
+  - Torso
+  - Head
   layers:
   - Default
   - TransparentFX

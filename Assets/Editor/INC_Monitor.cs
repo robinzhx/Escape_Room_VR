@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-
 public class INC_Monitor : EditorWindow
 {
     public int currLevel;
@@ -32,6 +31,8 @@ public class INC_Monitor : EditorWindow
     GameGaze aGlassDataProvider;
     SurveyController SurveyDataProvider;
 
+    //LSLMarkerStream markerStream;
+
     GameObject panel;
 
     Texture eyeTex;
@@ -45,7 +46,7 @@ public class INC_Monitor : EditorWindow
     Vector2 ScrollPos2;
 
     // Add menu item named "My Window" to the Window menu
-    [MenuItem("Window/INC Monitor")]
+    [MenuItem("EscapeRoomTools/INC Monitor")]
 
     public static void ShowWindow()
     {
@@ -189,7 +190,7 @@ public class INC_Monitor : EditorWindow
 
         GUILayout.Label("Survey Control", EditorStyles.boldLabel);
         GUILayout.BeginHorizontal();
-        GUILayout.Label("Lapse Time(s)", GUILayout.Width(100));
+        GUILayout.Label("Interval Time(s)", GUILayout.Width(100));
         lapsTime = EditorGUILayout.DelayedIntField(lapsTime, GUILayout.Width(50));
         GUILayout.FlexibleSpace();
         GUILayout.Label("Countdown: " + (int)sinceLastAction + " s");
@@ -299,17 +300,25 @@ public class INC_Monitor : EditorWindow
         GazeDataProvider = FindObjectOfType<LightDir>();
         aGlassDataProvider = FindObjectOfType<GameGaze>();
         SurveyDataProvider = FindObjectOfType<SurveyController>();
-        if (aGlassDataProvider && GazeDataProvider && SurveyDataProvider)
+
+        //markerStream = FindObjectOfType<LSLMarkerStream>();
+
+        if (aGlassDataProvider && GazeDataProvider )
         {
             gazeX = aGlassDataProvider.getCurrX();
             gazeY = aGlassDataProvider.getCurrY();
             string newGazeObj = GazeDataProvider.getCurrGazeObjName();
-            string newSurveyResult = SurveyDataProvider.getSurveyResult();
+            
             if (newGazeObj != currGazeObj)
             {
                 currGazeObj = newGazeObj;
                 gazeStringData = newGazeObj + "\n" + gazeStringData;
             }
+            
+        }
+        if (SurveyDataProvider)
+        {
+            string newSurveyResult = SurveyDataProvider.getSurveyResult();
             if (newSurveyResult != currSurveyResult)
             {
                 currSurveyResult = newSurveyResult;
