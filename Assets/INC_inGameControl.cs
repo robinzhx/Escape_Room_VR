@@ -68,4 +68,18 @@ public class INC_inGameControl : MonoBehaviour {
     {
         SurveyDataProvider.toggle(b);
     }
+
+    public void setTimerforSurveyByStr(string s)
+    {
+        int timeInt = 0;
+        if (int.TryParse(s, out timeInt))
+        {
+            lapsTime = timeInt;
+        }
+        else
+        {
+            Debug.Log("String - " + s + " - is not int");
+        }
+    }
+        
 }
