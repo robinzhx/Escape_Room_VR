@@ -38,11 +38,9 @@ public class INC_inGameControl : MonoBehaviour {
 
                 if (sinceLastAction > lapsTime)
                 {
-                    /*if (tmp)
-                    {
-                        tmp.GetComponent<SurveyController>().toggle(true, currSurvey);
-                        isSurveyEnable = tmp.GetComponent<SurveyController>().getStatus();
-                    }*/
+
+                    SurveyDataProvider.GetComponent<SurveyController>().toggle(true, 0);
+                    isSurveyEnable = SurveyDataProvider.GetComponent<SurveyController>().getStatus();
                     sinceLastAction -= lapsTime;
                 }
             }
@@ -64,5 +62,10 @@ public class INC_inGameControl : MonoBehaviour {
         surveyResultText.text = SurveyRecordList;
         onoffStatusText.text = (isSurveyEnable ? "On" : "Off");
         onoffStatusText.color = (isSurveyEnable ? Color.green : Color.red);
+    }
+
+    public void toggleHeadSurvey(bool b)
+    {
+        SurveyDataProvider.toggle(b);
     }
 }
