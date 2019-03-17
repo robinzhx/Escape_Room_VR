@@ -3128,8 +3128,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1810467443}
   m_HandleRect: {fileID: 1810467442}
   m_Direction: 2
-  m_Value: 0.9999887
-  m_Size: 0.27266738
+  m_Value: 0.9999999
+  m_Size: 0.27266666
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3882,7 +3882,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00364921}
+  m_AnchoredPosition: {x: 0, y: 0.000020742169}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &289469711
@@ -9366,6 +9366,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 20726551208927926, guid: 82371367c2f3b4d4badb4216f4880cdb,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 82371367c2f3b4d4badb4216f4880cdb, type: 2}
   m_IsPrefabParent: 0
@@ -10059,7 +10064,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1588896577}
   m_HandleRect: {fileID: 1588896576}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10246,7 +10251,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 724315259}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.436, y: 14.39, z: 51.966}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1622513061}
@@ -18530,7 +18535,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000048519316}
+  m_AnchoredPosition: {x: 0, y: 0.000020742169}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1458774017
@@ -20228,11 +20233,11 @@ MonoBehaviour:
     m_Options:
     - m_Text: FirstPersonView
       m_Image: {fileID: 0}
-    - m_Text: MidHall
+    - m_Text: Ceiling
       m_Image: {fileID: 0}
     - m_Text: CandleSite
       m_Image: {fileID: 0}
-    - m_Text: BaseRoom
+    - m_Text: Base
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -23400,11 +23405,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400190, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
-      value: 109
+      value: 108
       objectReference: {fileID: 0}
     - target: {fileID: 400188, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
-      value: 110
+      value: 109
       objectReference: {fileID: 0}
     - target: {fileID: 400188, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23512,7 +23517,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400152, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
-      value: 81
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 400142, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
@@ -23540,11 +23545,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400154, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
-      value: 77
+      value: 78
       objectReference: {fileID: 0}
     - target: {fileID: 400168, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
-      value: 107
+      value: 106
       objectReference: {fileID: 0}
     - target: {fileID: 400130, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
@@ -23588,7 +23593,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400186, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
-      value: 106
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 400136, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
@@ -23600,15 +23605,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400162, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
-      value: 83
+      value: 81
       objectReference: {fileID: 0}
     - target: {fileID: 400158, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
-      value: 78
+      value: 77
       objectReference: {fileID: 0}
     - target: {fileID: 400174, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
-      value: 108
+      value: 107
       objectReference: {fileID: 0}
     - target: {fileID: 400156, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
@@ -23620,7 +23625,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400178, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
-      value: 111
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 400128, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
@@ -23792,7 +23797,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
-      value: 105
+      value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 400086, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
@@ -23812,7 +23817,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400112, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
-      value: 80
+      value: 83
       objectReference: {fileID: 0}
     - target: {fileID: 400048, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
       propertyPath: m_RootOrder
@@ -28098,8 +28103,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 521889244}
   m_HandleRect: {fileID: 521889243}
   m_Direction: 2
-  m_Value: 0.9999891
-  m_Size: 0.27266765
+  m_Value: 0.9999999
+  m_Size: 0.27266666
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

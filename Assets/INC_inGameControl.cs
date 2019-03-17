@@ -51,9 +51,14 @@ public class INC_inGameControl : MonoBehaviour {
                 currSurveyResult = newSurveyResult;
                 SurveyRecordList = currSurveyResult + SurveyRecordList;
             }
+            SurveyRecordList = (currSurveyResult == "" ? "Waiting for data" : SurveyRecordList);
+        }
+        else
+        {
+            SurveyRecordList = "Survey has been disable for this scene";
         }
 
-        SurveyRecordList = (SurveyRecordList == "" ? "Waiting for data" : SurveyRecordList);
+        
     }
 
     private void LateUpdate()
