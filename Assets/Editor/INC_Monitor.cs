@@ -33,9 +33,9 @@ public class INC_Monitor : EditorWindow
 
     //LSLMarkerStream markerStream;
 
-    GameObject panel;
+    //GameObject panel;
 
-    Texture eyeTex;
+    //Texture eyeTex;
 
     private Material material;
     private Color backupColor;
@@ -55,7 +55,7 @@ public class INC_Monitor : EditorWindow
 
     }
 
-    public void Awake()
+    public void OnEnable()
     {
         currLevel = 1;
         currSurvey = 0;
@@ -81,7 +81,7 @@ public class INC_Monitor : EditorWindow
         stopConfirm = false;
         isSurveyEnable = false;
 
-        eyeTex = new Texture2D(200, 200);
+        //eyeTex = new Texture2D(200, 200);
         
     }
 
@@ -288,12 +288,12 @@ public class INC_Monitor : EditorWindow
         }
     }
 
-    private void enableSurvey()
+    /*private void enableSurvey()
     {
         //panel = GameObject.Find("SurveyPanel").gameObject;
         panel.gameObject.SetActive(true);
         panel.transform.parent = GameObject.Find("Head").transform;
-    }
+    }*/
 
     void GetGazeData()
     {

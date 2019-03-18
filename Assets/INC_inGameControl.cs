@@ -86,5 +86,12 @@ public class INC_inGameControl : MonoBehaviour {
             Debug.Log("String - " + s + " - is not int");
         }
     }
-        
+
+    public void ShowExplorer(/*string itemPath*/)
+    {
+        string itemPath = "C:/Program Files";
+        itemPath = itemPath.Replace(@"/", @"\");   // explorer doesn't like front slashes
+        System.Diagnostics.Process.Start("explorer.exe", "/select," + itemPath);
+    }
+
 }

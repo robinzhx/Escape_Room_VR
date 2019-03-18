@@ -46,8 +46,9 @@ public class unlockSideroom : MonoBehaviour
 
                 col.gameObject.GetComponent<NVRInteractableItem>().CanAttach = false;
                 NVRInteractableItem driveScript = GetComponent<NVRInteractableItem>();
-                driveScript.CanAttach = true;
-                GetComponent<Rigidbody>().useGravity = true;
+                GetComponent<Animator>().SetTrigger("RotateDoor");
+                //driveScript.CanAttach = true;
+                //GetComponent<Rigidbody>().useGravity = true;
                 GetComponent<Rigidbody>().isKinematic = false;
                 source.PlayOneShot(unlockSound, 1.0f);
             }

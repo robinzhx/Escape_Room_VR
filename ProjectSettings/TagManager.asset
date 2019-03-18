@@ -23,6 +23,7 @@ TagManager:
   - Saucers
   - Torso
   - Head
+  - Heat
   layers:
   - Default
   - TransparentFX

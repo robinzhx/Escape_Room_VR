@@ -15,8 +15,6 @@ public class GameGaze : MonoBehaviour
     float aGlassX = 0;
     float aGlassY = 0;
 
-    public Button btnToMove;
-
     // Use this for initialization
     void Start()
     {
@@ -40,7 +38,6 @@ public class GameGaze : MonoBehaviour
             // print(Time.time.ToString() + " -- Eye X: " + aGlass.Instance.GetGazePoint().x + "  Y: " + aGlass.Instance.GetGazePoint().y);
             aGlassX = aGlass.Instance.GetGazePoint().x;
             aGlassY = aGlass.Instance.GetGazePoint().y;
-            btnToMove.GetComponent<RectTransform>().position.Set(aGlassX+100, aGlassY-100, 0);
             _writer.WriteLine(String.Format("{0:HH:mm:ss.fff}", DateTime.Now) + " - " + Time.time.ToString() + " -- Eye X: " + aGlassX + "  Y: " + aGlassY);
 
         }
