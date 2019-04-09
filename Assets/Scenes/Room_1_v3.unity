@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.14809145, g: 0.15496829, b: 0.18150854, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12327,7 +12327,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1810467442}
   m_Direction: 2
   m_Value: 0.9999999
-  m_Size: 0.27266666
+  m_Size: 0.2726667
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -35467,7 +35467,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1588896577}
   m_HandleRect: {fileID: 1588896576}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -87913,7 +87913,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1289405134}
-        m_MethodName: set_isStatic
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -99312,7 +99312,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 344155542}
         m_MethodName: SetActive
         m_Mode: 6
@@ -104626,7 +104626,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 546030474}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
