@@ -21,6 +21,7 @@ public class SurveyController : MonoBehaviour {
     public GameObject flow;
     
     private liblsl.StreamOutlet markerStream;
+    public VRTK.VRTK_TransformFollow transformFollowController;
 
     // Use this for initialization
     void Start () {
@@ -33,6 +34,10 @@ public class SurveyController : MonoBehaviour {
 
         liblsl.StreamInfo inf = new liblsl.StreamInfo("SurveyReport", "Markers", 1, 0, liblsl.channel_format_t.cf_string, "giu4569");
         markerStream = new liblsl.StreamOutlet(inf);
+        if (!transformFollowController)
+        {
+            transformFollowController = GetComponent<VRTK.VRTK_TransformFollow>();
+        }
     }
 	
 	// Update is called once per frame
@@ -68,6 +73,12 @@ public class SurveyController : MonoBehaviour {
 
     public void toggle(bool b)
     {
+        if (transformFollowController)
+        {
+            float yAngle = transformFollowController.gameObjectToFollow.transform.localEulerAngles.y;
+            Debug.Log(yAngle);
+            this.gameObject.transform.localEulerAngles = new Vector3(0, yAngle, 0);
+        }
         isEnable[whichToEnable] = b;
     }
 
@@ -109,7 +120,7 @@ public class SurveyController : MonoBehaviour {
         }
         else
         {
-            i = 0;
+            whichToEnable = 0;
             report();
         }
     }

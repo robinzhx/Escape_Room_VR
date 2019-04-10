@@ -49,6 +49,8 @@ public class INC_inGameControl : MonoBehaviour {
             if (newSurveyResult != currSurveyResult)
             {
                 currSurveyResult = newSurveyResult;
+                if (SurveyRecordList == "Waiting for data")
+                    SurveyRecordList = "";
                 SurveyRecordList = currSurveyResult + SurveyRecordList;
             }
             SurveyRecordList = (currSurveyResult == "" ? "Waiting for data" : SurveyRecordList);
