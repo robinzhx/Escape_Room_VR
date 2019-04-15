@@ -75,11 +75,16 @@ public class SurveyController : MonoBehaviour {
     {
         if (transformFollowController)
         {
-            float yAngle = transformFollowController.gameObjectToFollow.transform.localEulerAngles.y;
-            Debug.Log(yAngle);
-            this.gameObject.transform.localEulerAngles = new Vector3(0, yAngle, 0);
+            this.gameObject.transform.localEulerAngles = new Vector3(0, transformFollowController.gameObjectToFollow.transform.localEulerAngles.y, 0);
         }
         isEnable[whichToEnable] = b;
+        for (int i = 0; i < isEnable.Length; i++)
+        {
+            if (i == whichToEnable)
+                isEnable[i] = b;
+            else
+                isEnable[i] = false;
+        }
     }
 
     public void report()

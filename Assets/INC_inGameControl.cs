@@ -39,7 +39,8 @@ public class INC_inGameControl : MonoBehaviour {
                 if (sinceLastAction > lapsTime)
                 {
 
-                    SurveyDataProvider.GetComponent<SurveyController>().toggle(true, 0);
+                    //SurveyDataProvider.GetComponent<SurveyController>().toggle(true, 0);
+                    toggleHeadSurvey(true);
                     isSurveyEnable = SurveyDataProvider.GetComponent<SurveyController>().getStatus();
                     sinceLastAction -= lapsTime;
                 }
@@ -73,7 +74,17 @@ public class INC_inGameControl : MonoBehaviour {
 
     public void toggleHeadSurvey(bool b)
     {
+        if (!b)
+        {
+            SurveyDataProvider.whichToEnable = 0;
+        }
         SurveyDataProvider.toggle(b);
+
+        if (SurveyDataProvider.transformFollowController)
+        {
+            SurveyDataProvider.gameObject.transform.localEulerAngles = 
+                new Vector3(0, SurveyDataProvider.transformFollowController.gameObjectToFollow.transform.localEulerAngles.y, 0);
+        }
     }
 
     public void setTimerforSurveyByStr(string s)
