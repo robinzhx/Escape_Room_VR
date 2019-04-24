@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+using LSL;
 
 public class LightDir : MonoBehaviour {
 
@@ -22,6 +23,8 @@ public class LightDir : MonoBehaviour {
     protected Dictionary<string, Material[]> originalSharedRendererMaterials = new Dictionary<string, Material[]>();
     protected Dictionary<string, Material[]> originalRendererMaterials = new Dictionary<string, Material[]>();
 
+    private liblsl.StreamOutlet markerStream;
+
     // Use this for initialization
     void Start () {
         lighter = GameObject.Find("Light");
@@ -33,6 +36,9 @@ public class LightDir : MonoBehaviour {
 
         originalSharedRendererMaterials = new Dictionary<string, Material[]>();
         originalRendererMaterials = new Dictionary<string, Material[]>();
+
+        liblsl.StreamInfo inf = new liblsl.StreamInfo("aGlass", "Markers", 1, 0, liblsl.channel_format_t.cf_string, "giu4569");
+        markerStream = new liblsl.StreamOutlet(inf);
     }
 	
 	// Update is called once per frame
@@ -61,6 +67,8 @@ public class LightDir : MonoBehaviour {
                 _writer.Write(monitorData);
                 //Material[] tempMaterials = { hit.collider.GetComponent<MeshRenderer>().materials[0], hit.collider.GetComponent<MeshRenderer>().materials[1], customMaterial };
                 //hit.collider.GetComponent<MeshRenderer>().materials = tempMaterials;
+                string[] tempSample = { currObjLookAtStr };
+                markerStream.push_sample(tempSample);
             }
             secondsCount += Time.deltaTime;
             //print(currObjLookAtStr + " : " + secondsCount);
