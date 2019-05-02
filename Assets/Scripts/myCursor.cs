@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class myCursor : MonoBehaviour {
 
-    GameGaze gaze;
-    GameObject cursor;
-    GameObject lighter;
+    public GameGaze gaze;
+    public GameObject cursor;
+    public GameObject lighter;
     float x, y;
 	// Use this for initialization
 	void Start () {
-        cursor = GameObject.Find("Image");
-        gaze = GameObject.Find("Gaze").GetComponent<GameGaze>();
-        lighter = GameObject.Find("Light");
+        if (cursor == null)
+        {
+            cursor = GameObject.Find("Image");
+        }
+        if (gaze == null)
+        {
+            gaze = GameObject.Find("Gaze").GetComponent<GameGaze>();
+        }
+        if (lighter == null)
+        {
+            lighter = GameObject.Find("LightDir");
+        }
     }
 
     // Update is called once per frame

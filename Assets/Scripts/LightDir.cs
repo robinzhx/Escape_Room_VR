@@ -27,7 +27,6 @@ public class LightDir : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        lighter = GameObject.Find("Light");
         string filename = String.Format("{1}_{0:MMddyyyy-HHmmss}{2}", DateTime.Now, "GazeRecord", ".txt");
         Directory.CreateDirectory(@"C:\EscapeRoomData");
         string path = Path.Combine(@"C:\EscapeRoomData", filename);

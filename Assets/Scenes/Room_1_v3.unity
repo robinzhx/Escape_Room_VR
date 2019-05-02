@@ -8125,74 +8125,6 @@ MonoBehaviour:
   direction: 2
   activationDistance: 0.01
   buttonStrength: 5
---- !u!1 &181497460
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1813311499974796, guid: e4555fcb5ad246948beaa105efb6420b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 181497461}
-  - component: {fileID: 181497462}
-  m_Layer: 10
-  m_Name: Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &181497461
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4247861568128576, guid: e4555fcb5ad246948beaa105efb6420b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 181497460}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 726878695}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!108 &181497462
-Light:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 108615973749493534, guid: e4555fcb5ad246948beaa105efb6420b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 181497460}
-  m_Enabled: 1
-  serializedVersion: 8
-  m_Type: 0
-  m_Color: {r: 1, g: 0.90851927, b: 0.83823526, a: 1}
-  m_Intensity: 5
-  m_Range: 7
-  m_SpotAngle: 7.817431
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 0.273
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
 --- !u!1 &182874814
 GameObject:
   m_ObjectHideFlags: 0
@@ -36963,7 +36895,6 @@ Transform:
   - {fileID: 1433174907}
   - {fileID: 160173786}
   - {fileID: 481481944}
-  - {fileID: 181497461}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50067,7 +49998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd69fb888dc5a4943a2c937a20943972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limelight: {fileID: 181497462}
+  limelight: {fileID: 0}
 --- !u!1 &914013814
 GameObject:
   m_ObjectHideFlags: 0
@@ -67432,7 +67363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CustomizedHeatObject: {fileID: 114739719436913434, guid: d36200c7ddbd6e545b1ac55b52ae8ced,
     type: 2}
-  GazeTransform: {fileID: 181497461}
+  GazeTransform: {fileID: 0}
   ParentOfHeat: {fileID: 0}
   heatActive: 1
   timer: 0.2
@@ -91417,7 +91348,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1599597656902880, guid: e4555fcb5ad246948beaa105efb6420b, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114051346670398080, guid: e4555fcb5ad246948beaa105efb6420b,
         type: 2}
