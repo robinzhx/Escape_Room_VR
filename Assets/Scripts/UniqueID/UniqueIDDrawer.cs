@@ -2,9 +2,10 @@
 using UnityEngine;
 using System;
 
+#if UNITY_EDITOR
 // Place this file inside Assets/Editor
 [CustomPropertyDrawer(typeof(UniqueIdentifierAttribute))]
-public class UniqueIDDrawer : PropertyDrawer
+public class UniqueIdDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty prop, GUIContent label)
     {
@@ -21,3 +22,4 @@ public class UniqueIDDrawer : PropertyDrawer
         EditorGUI.LabelField(textFieldPosition, label, new GUIContent(prop.stringValue));
     }
 }
+#endif

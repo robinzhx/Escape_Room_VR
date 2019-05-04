@@ -2,10 +2,11 @@
 using System.Collections;
 
 // Placeholder for UniqueIdDrawer script
-public class UniqueIdentifierAttribute : PropertyAttribute { }
-
-public class UniqueID : MonoBehaviour
+public class UniqueIdentifierAttribute : PropertyAttribute
 {
-    [UniqueIdentifier]
-    public string guid;
+}
+
+public class UniqueId : MonoBehaviour
+{
+    [UniqueIdentifier] public string guid;
 }
