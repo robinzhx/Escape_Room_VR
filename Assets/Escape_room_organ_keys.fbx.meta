@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: b4f289fee3f51ae4db2b164cb73a8f7e
-timeCreated: 1518746148
-licenseType: Free
 ModelImporter:
-  serializedVersion: 21
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     100002: key_1
@@ -262,10 +260,33 @@ ModelImporter:
     4300096: key_1
     4300098: keys
     4300100: keys_lower
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: keys_black
+    second: {fileID: 2100000, guid: b99d50e45bb013a44adefc15857ea35c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: keys_black_2
+    second: {fileID: 2100000, guid: 9457e0e3368a14f4482f108be7cbf8b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: keys_white
+    second: {fileID: 2100000, guid: e88b143b08574cb47ae66108a9be49f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: keys_white_2
+    second: {fileID: 2100000, guid: ffb4c71a468e697409dec489bb63c4f9, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -278,6 +299,8 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -302,6 +325,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
