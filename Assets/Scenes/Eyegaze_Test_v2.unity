@@ -344,6 +344,7 @@ MonoBehaviour:
   timeTillFade: 0
   blinkTransitionSpeed: 0.1
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  targetListPolicy: {fileID: 0}
   headsetCollision: {fileID: 0}
   headsetFade: {fileID: 0}
 --- !u!114 &134887327
@@ -1753,6 +1754,20 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 568502794}
+    - target: {fileID: 1599597656902880, guid: e4555fcb5ad246948beaa105efb6420b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114452084362057514, guid: e4555fcb5ad246948beaa105efb6420b,
+        type: 2}
+      propertyPath: lighter
+      value: 
+      objectReference: {fileID: 2122280110}
+    - target: {fileID: 114452084362057514, guid: e4555fcb5ad246948beaa105efb6420b,
+        type: 2}
+      propertyPath: cursor
+      value: 
+      objectReference: {fileID: 2110484711}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4555fcb5ad246948beaa105efb6420b, type: 2}
   m_IsPrefabParent: 0
@@ -1797,7 +1812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5837af0260a118e4d808bfe0405429a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  persistOnLoad: 0
   autoManageScriptDefines: 1
   activeScriptingDefineSymbolsWithoutSDKClasses: []
   scriptAliasLeftController: {fileID: 0}
@@ -1806,6 +1820,18 @@ MonoBehaviour:
   autoLoadSetup: 1
   setups:
   - {fileID: 1747008461}
+  excludeTargetGroups: 1b0000001a000000
+  persistOnLoad: 0
+--- !u!1 &2110484711 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1348236987270890, guid: e4555fcb5ad246948beaa105efb6420b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2016439149}
+--- !u!1 &2122280110 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1813311499974796, guid: e4555fcb5ad246948beaa105efb6420b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2016439149}
 --- !u!1 &2122409230
 GameObject:
   m_ObjectHideFlags: 0
