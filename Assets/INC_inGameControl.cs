@@ -12,12 +12,18 @@ public class INC_inGameControl : MonoBehaviour {
     public Text surveyResultText;
     public SurveyController SurveyDataProvider;
 
+    public Text gazeResultText;
+    public LightDir GazeDataProvider;
+
     public int lapsTime;
     public bool isSurveyEnable;
 
     float sinceLastAction;
     string SurveyRecordList = "";
     string currSurveyResult = "";
+
+    string GazeRecordList = "";
+    string currGazeResult = "";
 
     // Use this for initialization
     void Start () {
@@ -60,14 +66,33 @@ public class INC_inGameControl : MonoBehaviour {
         {
             SurveyRecordList = "Survey has been disable for this scene";
         }
-
         
+        if (GazeDataProvider)
+        {
+            string newGazeResult = GazeDataProvider.getCurrGazeObjName();
+            if (newGazeResult != currGazeResult)
+            {
+                currGazeResult = newGazeResult;
+                if (GazeRecordList == "Waiting for data")
+                    GazeRecordList = "";
+                GazeRecordList = currGazeResult + "\n" + GazeRecordList;
+            }
+            GazeRecordList = (currGazeResult == "" ? "Waiting for data" : GazeRecordList);
+        }
+        else
+        {
+            GazeRecordList = "Gaze has been disable for this scene";
+        }
+
+
     }
 
     private void LateUpdate()
     {
         surveyCountdownText.text = ((int)sinceLastAction).ToString();
         surveyResultText.text = SurveyRecordList;
+
+        gazeResultText.text = GazeRecordList;
         onoffStatusText.text = (isSurveyEnable ? "On" : "Off");
         onoffStatusText.color = (isSurveyEnable ? Color.green : Color.red);
     }

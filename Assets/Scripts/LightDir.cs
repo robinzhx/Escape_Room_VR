@@ -61,8 +61,8 @@ public class LightDir : MonoBehaviour {
                 
                 currObjLookAtStr = hit.collider.gameObject.name;
                 //print(currObjLookAtStr + " : " + secondsCount);
-                monitorData = String.Format(String.Format("{0:HH:mm:ss.fff}", DateTime.Now) 
-                                            + "\t" + Time.time.ToString() + "\t\t" + currObjLookAtStr);
+                monitorData = String.Format(/*String.Format("{0:HH:mm:ss.fff}", DateTime.Now) 
+                                            + "\t" + */Time.time.ToString() + "\t\t" + currObjLookAtStr);
                 _writer.Write(monitorData);
                 //Material[] tempMaterials = { hit.collider.GetComponent<MeshRenderer>().materials[0], hit.collider.GetComponent<MeshRenderer>().materials[1], customMaterial };
                 //hit.collider.GetComponent<MeshRenderer>().materials = tempMaterials;
