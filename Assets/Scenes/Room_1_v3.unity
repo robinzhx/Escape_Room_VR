@@ -12292,7 +12292,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1810467442}
   m_Direction: 2
   m_Value: 0.9999996
-  m_Size: 0.27266666
+  m_Size: 0.24919902
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -61116,6 +61116,7 @@ MonoBehaviour:
   SurveyDataProvider: {fileID: 1527753478}
   gazeResultText: {fileID: 1788218942}
   GazeDataProvider: {fileID: 1578529244}
+  head: {fileID: 910557481}
   lapsTime: 300
   isSurveyEnable: 0
 --- !u!114 &1175472489
@@ -90115,8 +90116,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 521889244}
   m_HandleRect: {fileID: 521889243}
   m_Direction: 2
-  m_Value: 0.9999999
-  m_Size: 0.27266666
+  m_Value: 1
+  m_Size: 0.24919902
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -104927,7 +104928,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 546030475}
   m_HandleRect: {fileID: 546030474}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

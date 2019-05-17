@@ -39,9 +39,9 @@ public class SurveyController : MonoBehaviour {
             transformFollowController = GetComponent<VRTK.VRTK_TransformFollow>();
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
+    
+    // Update is called once per frame
+    void Update () {
 
         surveyObject[0].SetActive(isEnable[0]);
         surveyObject[1].SetActive(isEnable[1]);
@@ -54,6 +54,7 @@ public class SurveyController : MonoBehaviour {
     {
         print("\n\n=============== Game Ended ================");
         _writer.Close();
+        Destroy(this.gameObject);
     }
 
     public bool getStatus()
