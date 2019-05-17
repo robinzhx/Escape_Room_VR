@@ -58,8 +58,11 @@ public class LightDir : MonoBehaviour {
                     secondsCount = 0.0f;
                     
                 }
-                
-                currObjLookAtStr = hit.collider.gameObject.name;
+
+                if (hit.collider.gameObject.GetComponent<UniqueID>())
+                    currObjLookAtStr = hit.collider.gameObject.GetComponent<UniqueID>().guid;
+                else 
+                    currObjLookAtStr = hit.collider.gameObject.name;
                 //print(currObjLookAtStr + " : " + secondsCount);
                 monitorData = String.Format(/*String.Format("{0:HH:mm:ss.fff}", DateTime.Now) 
                                             + "\t" + */Time.time.ToString() + "\t\t" + currObjLookAtStr);
