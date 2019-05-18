@@ -305,6 +305,8 @@ namespace VRTK.Controllables.ArtificialBased
                 controlInteractableObject.grabAttachMechanicScript = controlGrabAttach;
                 ManageGrabbableListeners(true);
                 controlGrabAttach.ResetState();
+                //robin
+                controlInteractableObject.GetComponent<VRTK_MoveTransformGrabAttach>().enabled = false;
             }
         }
 

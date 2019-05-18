@@ -12,12 +12,20 @@ public class INC_inGameControl : MonoBehaviour {
     public Text surveyResultText;
     public SurveyController SurveyDataProvider;
 
+    public Text gazeResultText;
+    public LightDir GazeDataProvider;
+
+    public GameObject head;
+
     public int lapsTime;
     public bool isSurveyEnable;
 
     float sinceLastAction;
     string SurveyRecordList = "";
     string currSurveyResult = "";
+
+    string GazeRecordList = "";
+    string currGazeResult = "";
 
     // Use this for initialization
     void Start () {
@@ -60,20 +68,40 @@ public class INC_inGameControl : MonoBehaviour {
         {
             SurveyRecordList = "Survey has been disable for this scene";
         }
-
         
+        if (GazeDataProvider)
+        {
+            string newGazeResult = GazeDataProvider.getCurrGazeObjName();
+            if (newGazeResult != currGazeResult)
+            {
+                currGazeResult = newGazeResult;
+                if (GazeRecordList == "Waiting for data")
+                    GazeRecordList = "";
+                GazeRecordList = currGazeResult + "\n" + GazeRecordList;
+            }
+            GazeRecordList = (currGazeResult == "" ? "Waiting for data" : GazeRecordList);
+        }
+        else
+        {
+            GazeRecordList = "Gaze has been disable for this scene";
+        }
+
+
     }
 
     private void LateUpdate()
     {
         surveyCountdownText.text = ((int)sinceLastAction).ToString();
         surveyResultText.text = SurveyRecordList;
+
+        gazeResultText.text = GazeRecordList;
         onoffStatusText.text = (isSurveyEnable ? "On" : "Off");
         onoffStatusText.color = (isSurveyEnable ? Color.green : Color.red);
     }
 
     public void toggleHeadSurvey(bool b)
     {
+
         if (!b)
         {
             SurveyDataProvider.whichToEnable = 0;
@@ -82,9 +110,24 @@ public class INC_inGameControl : MonoBehaviour {
 
         if (SurveyDataProvider.transformFollowController)
         {
-            SurveyDataProvider.gameObject.transform.localEulerAngles = 
+            SurveyDataProvider.gameObject.transform.localEulerAngles =
                 new Vector3(0, SurveyDataProvider.transformFollowController.gameObjectToFollow.transform.localEulerAngles.y, 0);
         }
+
+        //if (b)
+        //{
+        //    SurveyDataProvider = Instantiate(SurveyDataProviderPrefab);
+        //    SurveyDataProvider.whichToEnable = 0;
+        //    SurveyDataProvider.toggle(b);
+        //    SurveyDataProvider.GetComponent<VRTK.VRTK_TransformFollow>().gameObjectToFollow = head;
+        //    SurveyDataProvider.gameObject.transform.localEulerAngles =
+        //        new Vector3(0, head.transform.localEulerAngles.y, 0);
+        //}
+        //else
+        //{
+        //    Destroy(SurveyDataProvider);
+        //    SurveyDataProvider = null;
+        //}
     }
 
     public void setTimerforSurveyByStr(string s)
