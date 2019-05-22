@@ -59,8 +59,8 @@ public class LightDir : MonoBehaviour {
                     
                 }
 
-                if (hit.collider.gameObject.GetComponent<UniqueID>())
-                    currObjLookAtStr = hit.collider.gameObject.GetComponent<UniqueID>().guid;
+                if (hit.collider.gameObject.GetComponent<UniqueId>())
+                    currObjLookAtStr = hit.collider.gameObject.GetComponent<UniqueId>().guid;
                 else 
                     currObjLookAtStr = hit.collider.gameObject.name;
                 //print(currObjLookAtStr + " : " + secondsCount);

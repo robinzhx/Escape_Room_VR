@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.SpatialTracking;
 using UnityEngine.UI;
@@ -124,6 +125,11 @@ public class Recorder : MonoBehaviour
         frameList = (List<List<Frame>>) bf.Deserialize(file);
         minTime = frameList[0][0].timestamp;
         maxTime = frameList[0][frameList[0].Count - 1].timestamp;
+        foreach(var frames in frameList)
+        {
+            minTime = Mathf.Min(minTime, frames[0].timestamp);
+            maxTime = Mathf.Max(maxTime, frames[frames.Count-1].timestamp);
+        }
         //slider.minValue = minTime;
         //slider.maxValue = maxTime;
         file.Close();
@@ -131,15 +137,20 @@ public class Recorder : MonoBehaviour
 
     void UpdateScene(bool isReplay)
     {
-        UniqueId[] gameObjectList = GameObject.FindObjectsOfType<UniqueId>();
+        UniqueId[] gameObjectList = Resources.FindObjectsOfTypeAll<UniqueId>();
         foreach (var gameObject in gameObjectList)
         {
+            if (gameObject.guid == "")
+            {
+                Debug.LogWarning("This object has problematic guid: " + gameObject.name + ": " + gameObject.guid);
+            }
             if (gameObject.guid != uniqueID && gameObject.tag != "ignore" && gameObject.guid != "")
             {
                 if (!this.gameObjectList.Contains(gameObject))
                 {
                     Debug.Log("Adding " + gameObject.name + ": " + gameObject.guid);
                     this.gameObjectList.Add(gameObject);
+                    gameObject.transform.hasChanged = false;
                     if (isReplay)
                     {
                     }
@@ -211,14 +222,18 @@ public class Recorder : MonoBehaviour
                             isChanged[i] = true;
                         }
                     }
-                }
 
-                Frame frame = new Frame();
-                frame.timestamp = currentTime - startTime;
-                frame.uniqueID = gameObject.GetComponent<UniqueId>().guid;
-                frame.position = gameObject.transform.position;
-                frame.rotation = gameObject.transform.rotation;
-                frameList[i].Add(frame);
+                    Frame frame = new Frame
+                    {
+                        timestamp = currentTime - startTime,
+                        uniqueID = gameObject.GetComponent<UniqueId>().guid,
+                        position = gameObject.transform.position,
+                        rotation = gameObject.transform.rotation
+                    };
+                    frameList[i].Add(frame);
+
+                    gameObject.transform.hasChanged = false;
+                }
             }
         }
         else
@@ -238,7 +253,7 @@ public class Recorder : MonoBehaviour
 
                 FileStream file = File.Create(Application.dataPath + "/Scripts/Replay/Replay.dem");
                 Debug.Log("Save to: " + Application.dataPath + "/Scripts/Replay/Replay.dem");
-                bf.Serialize(file, list);
+                if (bf != null) bf.Serialize(file, list);
                 file.Close();
 
                 saved = true;
@@ -327,62 +342,45 @@ public class Recorder : MonoBehaviour
                 {
                     r.isKinematic = true;
                 }
-
-                if (!timeSliderEnabled)
+                
+                // Start from index
+                List<Frame> frames = this.frameList[i];
+                for (int j = indices[i]; j < frames.Count; j++)
                 {
-                    // Find frame (start from index)
-                    int index = indices[i];
-                    List<Frame> frames = this.frameList[i];
-
-                    for (; index < frames.Count; index++)
+                    Frame currFrame = frames[j];
+                    if (currFrame.timestamp < deltaTime)
                     {
-                        Frame currFrame = frames[index];
-                        if (currFrame.timestamp < deltaTime)
-                        {
-                            continue;
-                        }
+                        continue;
+                    }
+                    
+                    // Correct Frame (j and j - 1)
+                    if (j > 0)
+                    {
+                        // Interpolate j and j - 1 frame
+                        Frame lastFrame = frames[j - 1];
 
-                        // Correct Frame
+                        // Calculate (s)lerp factor
+                        float factor = (deltaTime - lastFrame.timestamp) / (currFrame.timestamp - lastFrame.timestamp);
+
+                        // (s)lerp
+                        curr.transform.position = Vector3.LerpUnclamped(lastFrame.position, currFrame.position, factor);
+                        curr.transform.rotation = Quaternion.LerpUnclamped(lastFrame.rotation, currFrame.rotation, factor);
+                    }
+                    else
+                    {
+                        // first key (no interpolation needed)
                         curr.transform.position = currFrame.position;
                         curr.transform.rotation = currFrame.rotation;
-                        indices[i] = index;
-                        break;
                     }
-                }
-                else
-                {
-                    List<Frame> frames = this.frameList[i];
 
-                    for (int j = 0; j < frames.Count; j++)
-                    {
-                        Frame currFrame = frames[j];
-                        if (currFrame.timestamp < deltaTime)
-                        {
-                            continue;
-                        }
-
-                        // Correct Frame
-                        curr.transform.position = currFrame.position;
-                        curr.transform.rotation = currFrame.rotation;
-                        break;
-                    }
+                    indices[i] = j;
+                    break;
                 }
             }
         }
         else
         {
             isReplayInitialized = false;
-            if (indices != null)
-            {
-                for (int i = 0; i < indices.Count; i++)
-                {
-                    indices[i] = 0;
-                }
-            }
-        }
-
-        if (timeSliderEnabled)
-        {
             if (indices != null)
             {
                 for (int i = 0; i < indices.Count; i++)
