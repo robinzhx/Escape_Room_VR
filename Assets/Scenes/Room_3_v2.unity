@@ -19215,9 +19215,9 @@ MonoBehaviour:
   onoffStatusText: {fileID: 1203725774}
   surveyResultText: {fileID: 672794370}
   SurveyDataProvider: {fileID: 869427638}
-  gazeResultText: {fileID: 0}
-  GazeDataProvider: {fileID: 0}
-  head: {fileID: 0}
+  gazeResultText: {fileID: 1788218942}
+  GazeDataProvider: {fileID: 1888635656}
+  head: {fileID: 329148898}
   lapsTime: 300
   isSurveyEnable: 0
 --- !u!114 &1175472489
@@ -19235,7 +19235,7 @@ MonoBehaviour:
   sceneName:
   - Room_1_v3
   - Room_2_v2
-  - Room_3_v1
+  - Room_3_v2
   - Tutorial
   dropdownObj: {fileID: 1012732253}
 --- !u!1 &1177044803
@@ -33925,7 +33925,7 @@ BoxCollider:
   m_GameObject: {fileID: 1767477937}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.016453573, y: 0.002051502, z: 0.017103426}
   m_Center: {x: 0.009571587, y: -0.0008127902, z: -0.00026237042}
@@ -33935,7 +33935,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1767477937}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d041b8704f1e32468752f8a67187fca, type: 3}
   m_Name: 
@@ -34054,7 +34054,7 @@ BoxCollider:
   m_GameObject: {fileID: 1767477941}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.016165763, y: 0.002051502, z: 0.017103426}
   m_Center: {x: -0.009715481, y: -0.0008127902, z: -0.00026237042}
@@ -34064,7 +34064,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1767477941}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d041b8704f1e32468752f8a67187fca, type: 3}
   m_Name: 
@@ -35513,7 +35513,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 62
   m_CollisionDetection: 0
 --- !u!1 &1769730130
 GameObject:
@@ -36826,6 +36826,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4555fcb5ad246948beaa105efb6420b, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1888635656 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114051346670398080, guid: e4555fcb5ad246948beaa105efb6420b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1888635655}
+  m_Script: {fileID: 11500000, guid: 48148ff34a5a8b444b17479af9072ec6, type: 3}
 --- !u!1 &1892380994
 GameObject:
   m_ObjectHideFlags: 0

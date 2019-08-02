@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.103-6d945703-21cf-475e-8a5f-56a5f17b7cbf
+  guid: 
 --- !u!1 &2566401
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.070-96a53fc3-e6d1-4a97-97d5-34bab8865532
+  guid: 
 --- !u!1 &4629995
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: safe_9-6aefd2a1-8131-4b7b-aa5e-8d5bad4d2b2d
+  guid: 
 --- !u!65 &5835287
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -836,7 +836,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: beam/crown_molding-eaee2ffa-1493-48be-9c65-ff5ef43d939d
+  guid: 
 --- !u!1 &14424876
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,7 +938,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: coffin_top_proxy-753fa476-f85e-45a5-86b9-7f25ec5f8a57
+  guid: 
 --- !u!1 &17965222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,7 +1016,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Point light (17)-a34f705d-5abd-437d-ae82-d209190d7fcb
+  guid: 
 --- !u!1 &20932350
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,7 +1207,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: hallway_roof_panels.002-8bd6006a-da4c-4db8-a9c4-43b06ee77658
+  guid: 
 --- !u!1 &24456211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,7 +1322,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: bookshelf_short_proxy-2ea0fbfe-cc5a-4546-bdbd-9138d6bc18c8
+  guid: 
 --- !u!1 &25453501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,7 +1406,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: woodbeams-ce93578d-1e4f-4f26-bd3e-10660eae4dee
+  guid: 
 --- !u!1 &27564044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,7 +1447,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: GameObject-8bf48cfd-8620-4a37-8eb7-b1bdff7e45ce
+  guid: 
 --- !u!1 &27622374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,7 +1623,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.066-5dd3efcc-5e06-458e-a4c9-d6645a09c832
+  guid: 
 --- !u!1 &29657926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1671,7 +1671,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: map_pins-98011785-df3c-4728-8db0-3d18f1647497
+  guid: 
 --- !u!1 &29822847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,7 +1875,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Desk_proxy.002-fa123fa9-a78d-4aa3-a2c6-f27429bc4de9
+  guid: 
 --- !u!1 &32172354
 GameObject:
   m_ObjectHideFlags: 0
@@ -2051,7 +2051,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.077-c0b42dd9-bc61-4fe3-b7fb-9181af7d4a2a
+  guid: 
 --- !u!1 &40854148
 GameObject:
   m_ObjectHideFlags: 0
@@ -2405,7 +2405,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.005-ba7ffbe7-eb4c-474a-88d9-a7aa5a071d5c
+  guid: 
 --- !u!1 &45087373
 GameObject:
   m_ObjectHideFlags: 0
@@ -2532,7 +2532,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: CameraPanel (1)-53f300e6-edf1-459b-9a58-c2873da70451
+  guid: 
 --- !u!1 &45786957
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,7 +2610,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Point light (9)-90447ff4-a32a-4aa4-91d7-4879a90b279f
+  guid: 
 --- !u!1 &49041001
 GameObject:
   m_ObjectHideFlags: 0
@@ -2725,7 +2725,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: lamp_proxy.004-555228a6-4e55-4454-be6c-86fdde9a7f1a
+  guid: 
 --- !u!1 &49753068
 GameObject:
   m_ObjectHideFlags: 0
@@ -3226,7 +3226,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.185-d4925323-f826-4a42-95e1-42a3893999d9
+  guid: 
 --- !u!114 &53269839 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114909519854580716, guid: ea0425ca82785d64b8908b108ff3e4a6,
@@ -3408,7 +3408,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.177-378aceba-96bd-4fca-9321-ccca7ca8d3d9
+  guid: 
 --- !u!1 &64835478
 GameObject:
   m_ObjectHideFlags: 0
@@ -3492,7 +3492,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Cube (1)-a1cd2680-d337-4866-86e4-117055c06e7d
+  guid: 
 --- !u!1 &67436925
 GameObject:
   m_ObjectHideFlags: 0
@@ -3573,7 +3573,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Handle-dbe89b21-463d-47a6-ac52-61f556191bf0
+  guid: 
 --- !u!1 &68762087
 GameObject:
   m_ObjectHideFlags: 0
@@ -3651,7 +3651,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Point light (2)-33623feb-fff6-42b3-a3b6-c0bf69f71c9a
+  guid: 
 --- !u!1 &71769010
 GameObject:
   m_ObjectHideFlags: 0
@@ -3738,7 +3738,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Text-4d839db6-ac01-4a15-8929-6ae96cddf1d1
+  guid: 
 --- !u!1 &75459322
 GameObject:
   m_ObjectHideFlags: 0
@@ -4045,7 +4045,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: door.001-7edc8bd4-503b-4539-9b49-45e8dad811d5
+  guid: 
 --- !u!1 &76218971
 GameObject:
   m_ObjectHideFlags: 0
@@ -4123,7 +4123,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: fireplace-3d0c41ff-cc13-4649-a53f-12b772b9c81d
+  guid: 
 --- !u!1 &78105697
 GameObject:
   m_ObjectHideFlags: 0
@@ -4506,7 +4506,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.081-98aadcaf-dbc3-41a5-a0b7-323ee252886d
+  guid: 
 --- !u!1 &84957733
 GameObject:
   m_ObjectHideFlags: 0
@@ -4682,7 +4682,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.172-3ed1d48c-6e05-4923-8ab8-573167ebb648
+  guid: 
 --- !u!1 &86689328
 GameObject:
   m_ObjectHideFlags: 0
@@ -4793,7 +4793,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: HeadText-3750f5ab-e59d-40ec-9f20-007961483f7b
+  guid: 
 --- !u!1 &89151353
 GameObject:
   m_ObjectHideFlags: 0
@@ -4969,7 +4969,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.060-17ee39e7-24cc-41b4-b4f9-b643f4eec364
+  guid: 
 --- !u!1 &89308814
 GameObject:
   m_ObjectHideFlags: 0
@@ -5145,7 +5145,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.067-b33bdf2e-1be9-44ac-98a7-809a89277419
+  guid: 
 --- !u!1 &89330304
 GameObject:
   m_ObjectHideFlags: 0
@@ -5277,7 +5277,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Plane.006-a0b899ba-4ba3-4a36-9d28-cba35225bf4a
+  guid: 
 --- !u!1 &92691519
 GameObject:
   m_ObjectHideFlags: 0
@@ -5365,7 +5365,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: safe_4-a12d81e8-0e72-4a38-aa0a-9d28b7356af0
+  guid: 
 --- !u!65 &92691526
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5455,7 +5455,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Point light (12)-6e5e2ba2-124c-4cfb-9a90-502842ab4a37
+  guid: 
 --- !u!1 &94396928
 GameObject:
   m_ObjectHideFlags: 0
@@ -5631,7 +5631,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.049-a8887d17-88cb-4198-89c7-8cd464a68b95
+  guid: 
 --- !u!1 &95054013
 GameObject:
   m_ObjectHideFlags: 0
@@ -5733,7 +5733,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Desk_proxy.001-0fafd99d-2afb-40b7-a998-c55b62895dfa
+  guid: 
 --- !u!1 &95212334
 GameObject:
   m_ObjectHideFlags: 0
@@ -6053,7 +6053,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: hallway_roof_panels.004-99daa523-7b89-49e9-a2eb-fcfd5c2d29b0
+  guid: 
 --- !u!1 &106572279
 GameObject:
   m_ObjectHideFlags: 0
@@ -6374,7 +6374,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: RightControllerScriptAlias-d9139d0b-d363-4556-967b-9cde3c35d2a3
+  guid: 
 --- !u!1 &114215205
 GameObject:
   m_ObjectHideFlags: 0
@@ -6495,7 +6495,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: wall-0930260a-dda5-4e3c-82c0-fa25f6687dfc
+  guid: 
 --- !u!4 &123611223 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4863431256072568, guid: bcbecb8220a4b4663a4f7c2b375ea455,
@@ -6554,7 +6554,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: collider-d0a507dd-bcda-47d8-bdc7-d560f24b4c84
+  guid: 
 --- !u!1 &131561352
 GameObject:
   m_ObjectHideFlags: 0
@@ -6636,7 +6636,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Background-d2089a28-24b9-4191-b5db-90dd0095db65
+  guid: 
 --- !u!1 &132120779
 GameObject:
   m_ObjectHideFlags: 0
@@ -6904,7 +6904,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: brick_puzzle_piece (9)-109750b5-4adc-4305-ba86-a226f2282791
+  guid: 
 --- !u!1 &141804813
 GameObject:
   m_ObjectHideFlags: 0
@@ -7006,7 +7006,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: beam/crown_molding-e4e998d5-8f98-4027-8840-7dd5990c5a9e
+  guid: 
 --- !u!1 &146123761
 GameObject:
   m_ObjectHideFlags: 0
@@ -7107,7 +7107,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: stairs-431323bb-71eb-4e49-9749-2fcd3b3dc1b7
+  guid: 
 --- !u!1 &146359637
 GameObject:
   m_ObjectHideFlags: 0
@@ -7283,7 +7283,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.101-12586b12-d4ba-4649-8ab0-263b8c569572
+  guid: 
 --- !u!1 &146600722
 GameObject:
   m_ObjectHideFlags: 0
@@ -7459,7 +7459,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.182-ccd28b4c-c3e2-44b0-a56c-81f40d892a5b
+  guid: 
 --- !u!1 &147900296
 GameObject:
   m_ObjectHideFlags: 0
@@ -7640,7 +7640,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Text (2)-544c04c9-ccdf-4dd2-8512-877488476708
+  guid: 
 --- !u!1001 &153354833
 Prefab:
   m_ObjectHideFlags: 0
@@ -7823,7 +7823,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: CameraAttachNode-75c64eea-54a5-46cf-9155-1aeb0ae54f4a
+  guid: 
 --- !u!114 &153354840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7835,7 +7835,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Drone_Ranged-fb88b1fd-0de7-451f-9772-7de4d526c263
+  guid: 
 --- !u!114 &153354841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7847,7 +7847,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Visual-a495c237-b2bd-4f88-8129-bcc98ffb2ce9
+  guid: 
 --- !u!114 &153354842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7859,7 +7859,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Camera-5ff3feae-6b52-439d-98c3-8b860205aaa3
+  guid: 
 --- !u!1 &160173785
 GameObject:
   m_ObjectHideFlags: 0
@@ -8036,7 +8036,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: TextGazeObjectList-9b84c13d-ff6f-446c-b407-e5b1d9286342
+  guid: 
 --- !u!1 &164722357
 GameObject:
   m_ObjectHideFlags: 0
@@ -8138,7 +8138,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: chandelier_proxy.001-b2827ff3-3992-4e67-ae05-3d06af4d58c1
+  guid: 
 --- !u!1 &172767657
 GameObject:
   m_ObjectHideFlags: 0
@@ -8355,7 +8355,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: lamp_proxy.012-5f965a6e-a64b-4aef-a46f-d4efc2505500
+  guid: 
 --- !u!1 &174616361
 GameObject:
   m_ObjectHideFlags: 0
@@ -8531,7 +8531,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.109-34c6bf0b-a21a-432a-93f1-a39c5b71a883
+  guid: 
 --- !u!1 &175640348
 GameObject:
   m_ObjectHideFlags: 0
@@ -8609,7 +8609,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Point light (15)-27916ed6-8422-45a8-a74a-17ba362e89ce
+  guid: 
 --- !u!1 &177936977
 GameObject:
   m_ObjectHideFlags: 0
@@ -8777,7 +8777,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: VRTK_SDKManager-b1c62f38-267e-4540-a03e-60c1742d6083
+  guid: 
 --- !u!1 &180706654
 GameObject:
   m_ObjectHideFlags: 0
@@ -9220,7 +9220,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: beam/crown_molding-366659c5-da34-44fc-9b5a-67f01509e73e
+  guid: 
 --- !u!1 &190741073
 GameObject:
   m_ObjectHideFlags: 0
@@ -9396,7 +9396,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.132-08722fab-b7e1-4454-92a5-ef5409a70e6c
+  guid: 
 --- !u!1 &193732440
 GameObject:
   m_ObjectHideFlags: 0
@@ -9572,7 +9572,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.114-0817aaec-2bfc-490d-95fe-a9bab62cc21c
+  guid: 
 --- !u!1 &194777294
 GameObject:
   m_ObjectHideFlags: 0
@@ -9709,7 +9709,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: vases_v2-ed3651df-e86d-4385-875e-95638e658da3
+  guid: 
 --- !u!1 &200715994
 GameObject:
   m_ObjectHideFlags: 0
@@ -9816,7 +9816,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Label-f15c1376-e406-4c7f-a59b-3471fe6f6ef3
+  guid: 
 --- !u!1 &204494739
 GameObject:
   m_ObjectHideFlags: 0
@@ -9980,7 +9980,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: vase_1_proxy-54d94ae0-2304-41d8-a663-e52563cf4556
+  guid: 
 --- !u!1 &206128161
 GameObject:
   m_ObjectHideFlags: 0
@@ -10156,7 +10156,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.123-2e148326-04fa-4f1a-9b56-0981444747a0
+  guid: 
 --- !u!1 &211878803
 GameObject:
   m_ObjectHideFlags: 0
@@ -10258,7 +10258,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: beam/crown_molding-0d008cb5-0c31-4ee2-94ba-bc2bddabbe7d
+  guid: 
 --- !u!1 &212094317
 GameObject:
   m_ObjectHideFlags: 0
@@ -10519,7 +10519,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.028-6f8b40d1-8dad-4968-b0bf-0b647fb8e454
+  guid: 
 --- !u!115 &223691745
 MonoScript:
   m_ObjectHideFlags: 0
@@ -10710,7 +10710,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.035-b1b7ae58-f677-4fa0-b076-aa865b8b48fe
+  guid: 
 --- !u!1 &227531467
 GameObject:
   m_ObjectHideFlags: 0
@@ -10798,7 +10798,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: safe_5-9814a44a-316e-4ba0-8d3b-7d375d666f77
+  guid: 
 --- !u!65 &227531474
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10986,7 +10986,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.105-38822ca8-900c-4907-ad3d-e9d2f9ca8cfb
+  guid: 
 --- !u!1 &229172470
 GameObject:
   m_ObjectHideFlags: 0
@@ -11108,7 +11108,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Bookshelves-b8580880-f200-4a26-b78b-ec0a00533769
+  guid: 
 --- !u!1 &231442155
 GameObject:
   m_ObjectHideFlags: 0
@@ -11199,7 +11199,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: TextaGlassData-bb8dafd6-5dd0-409d-9226-5b2588fab58d
+  guid: 
 --- !u!1 &231495363
 GameObject:
   m_ObjectHideFlags: 0
@@ -11652,7 +11652,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Safe_Large_Door-04b65930-7e9d-4291-bb8b-8dd759531da4
+  guid: 
 --- !u!1 &233907897
 GameObject:
   m_ObjectHideFlags: 0
@@ -11754,7 +11754,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: door_proxy.002-d3b5c83a-5bfa-4a7c-8a7b-79f7e2530189
+  guid: 
 --- !u!1 &235055063
 GameObject:
   m_ObjectHideFlags: 0
@@ -11930,7 +11930,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.183-44383f4a-a0ad-4b02-8737-65695307083e
+  guid: 
 --- !u!1 &236335248
 GameObject:
   m_ObjectHideFlags: 0
@@ -12045,7 +12045,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: main_door_proxy-63735546-ea68-45be-a4a3-dcd47b474fc0
+  guid: 
 --- !u!1 &238113785
 GameObject:
   m_ObjectHideFlags: 0
@@ -12221,7 +12221,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.036-f309b942-7887-4337-ac41-fa130894dfe7
+  guid: 
 --- !u!1 &239841342
 GameObject:
   m_ObjectHideFlags: 0
@@ -12319,7 +12319,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: FloorPreventDrop-f8f6f933-9d29-4ffd-b305-4e1606d16bfc
+  guid: 
 --- !u!1 &240487647
 GameObject:
   m_ObjectHideFlags: 0
@@ -12406,7 +12406,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Plane.012-1280e842-e3da-489f-a7a2-bf14e3758da3
+  guid: 
 --- !u!1 &241831454
 GameObject:
   m_ObjectHideFlags: 0
@@ -12582,7 +12582,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.100-9849ffd2-cf61-439d-875c-7fc68ad9f1f7
+  guid: 
 --- !u!1 &242732317
 GameObject:
   m_ObjectHideFlags: 0
@@ -12684,7 +12684,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: beam/crown_molding-189db276-7aaf-4f6c-9b5c-5e4b348795a6
+  guid: 
 --- !u!114 &243800251 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114999053187936074, guid: ea0425ca82785d64b8908b108ff3e4a6,
@@ -13156,7 +13156,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Camera-c62d2e92-2e99-4114-ac5b-10e3a64a3d14
+  guid: 
 --- !u!1 &251684046
 GameObject:
   m_ObjectHideFlags: 0
@@ -13316,7 +13316,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: audio-86fe4bfe-4a50-4bf7-b121-975dfcea6e26
+  guid: 
 --- !u!1 &253333737
 GameObject:
   m_ObjectHideFlags: 0
@@ -13393,8 +13393,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1810467443}
   m_HandleRect: {fileID: 1810467442}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.8179999
+  m_Value: 0.99999624
+  m_Size: 0.81799996
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13445,7 +13445,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Scrollbar Vertical-149476fe-9045-4b54-bb0f-2bfc6b57438f
+  guid: 
 --- !u!4 &255802434 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4990982863728422, guid: ae50a0abf7d00ea4aa1b7636f89d0687,
@@ -13497,7 +13497,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Handle Slide Area-b1b16b6f-3fc3-47f6-a871-3f5af6a5f45e
+  guid: 
 --- !u!1 &261185813
 GameObject:
   m_ObjectHideFlags: 0
@@ -13610,7 +13610,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: hallway_roof_panels-9fcdb283-bf0c-4c71-8a4d-aa6a42d6e883
+  guid: 
 --- !u!1 &265260537
 GameObject:
   m_ObjectHideFlags: 0
@@ -13716,7 +13716,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Panel-936bc318-2a26-482a-8153-2d6c3da41782
+  guid: 
 --- !u!1 &269625413
 GameObject:
   m_ObjectHideFlags: 0
@@ -13896,7 +13896,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: vase_2-cd6d7c1a-bfcd-49b7-9fd8-0f9c8322bb20
+  guid: 
 --- !u!4 &270170351 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4990982863728422, guid: ae50a0abf7d00ea4aa1b7636f89d0687,
@@ -13951,7 +13951,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: door-f44ec98e-79a4-4b19-af22-9d727941a670
+  guid: 
 --- !u!1 &274202886
 GameObject:
   m_ObjectHideFlags: 0
@@ -14127,7 +14127,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.092-0f4a62ef-d4d2-49fb-a65c-a3fd7858b5c0
+  guid: 
 --- !u!1 &275284507
 GameObject:
   m_ObjectHideFlags: 0
@@ -14172,7 +14172,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Floor-fe208eee-7342-48e3-ad51-bb5267a1c6d4
+  guid: 
 --- !u!1 &276475457
 GameObject:
   m_ObjectHideFlags: 0
@@ -14348,7 +14348,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.134-cf1cb44c-d064-4f6a-944c-a976d75e5f59
+  guid: 
 --- !u!4 &276923529 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4940466822848506, guid: 9208b162ad91b814097b25b1bcaa4e88,
@@ -14530,7 +14530,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.082-b0a86b2a-ce2b-4697-949d-0b40405cc44a
+  guid: 
 --- !u!1 &281126239
 GameObject:
   m_ObjectHideFlags: 0
@@ -14708,7 +14708,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: candlestick.001-bb29ef19-c853-4052-92bf-23dd6573f77b
+  guid: 
 --- !u!1 &281395306
 GameObject:
   m_ObjectHideFlags: 0
@@ -19252,7 +19252,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: FireEmbers-e27b0a03-2cae-4a73-9e04-029e2d20bd8a
+  guid: 
 --- !u!1 &281486343
 GameObject:
   m_ObjectHideFlags: 0
@@ -19644,7 +19644,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: chair2-39f457ac-2478-41d0-b714-9e4bb4494f25
+  guid: 
 --- !u!1 &288465019
 GameObject:
   m_ObjectHideFlags: 0
@@ -19851,7 +19851,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.199-6e123a4d-f014-4828-8986-61c9260366fb
+  guid: 
 --- !u!1 &289469709
 GameObject:
   m_ObjectHideFlags: 0
@@ -19898,7 +19898,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Content-44b45f1f-3e71-4622-a7e1-f85b8abdddd0
+  guid: 
 --- !u!1 &290668335
 GameObject:
   m_ObjectHideFlags: 0
@@ -20152,7 +20152,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: painting_proxy.009-01269d8d-ddc0-4706-98ce-cf2f27624c95
+  guid: 
 --- !u!54 &292196069
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20247,7 +20247,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: UniqueIdMap-dbfcfc89-25b5-4927-97c3-6a6b6181068a
+  guid: 
 --- !u!1 &297260563
 GameObject:
   m_ObjectHideFlags: 0
@@ -20587,7 +20587,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Desk_Drawer_proxy.001-b5464a87-4412-44f8-88b6-f1a4c5ff4f68
+  guid: 
 --- !u!1 &303309197
 GameObject:
   m_ObjectHideFlags: 0
@@ -20770,7 +20770,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: ViewCamNextButton-93cebbfa-1847-4055-bf83-7eecd13328f9
+  guid: 
 --- !u!1 &304553328
 GameObject:
   m_ObjectHideFlags: 0
@@ -20888,7 +20888,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: safepad7-84bd33bd-12b1-49f6-a195-df7c0c48cf25
+  guid: 
 --- !u!1 &310945400
 GameObject:
   m_ObjectHideFlags: 0
@@ -21063,7 +21063,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: ResonanceAudioRoom-4bba53da-6f8d-45e3-bd04-735a364fd4e4
+  guid: 
 --- !u!1 &312143223
 GameObject:
   m_ObjectHideFlags: 0
@@ -21239,7 +21239,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.044-bf1941bc-7339-4fed-a0d5-bddda2898099
+  guid: 
 --- !u!1 &313084701
 GameObject:
   m_ObjectHideFlags: 0
@@ -21382,7 +21382,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Safe_Large_proxy-f7ca3d81-0d2a-4d9f-8d62-bff3c37fb899
+  guid: 
 --- !u!1 &320033134
 GameObject:
   m_ObjectHideFlags: 0
@@ -21426,7 +21426,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: chest_top-2a208483-7042-4ea9-a8f2-5bd4b954ef03
+  guid: 
 --- !u!1 &337753462
 GameObject:
   m_ObjectHideFlags: 0
@@ -21590,7 +21590,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: key-3493b1f7-abbd-4197-b10d-a0538c88e774
+  guid: 
 --- !u!65 &337753470
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21689,7 +21689,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Label-7b6cebb5-737f-4b10-8e3c-28826b22d4ed
+  guid: 
 --- !u!1 &344155542
 GameObject:
   m_ObjectHideFlags: 0
@@ -21958,7 +21958,7 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: book_proxy.102-e33f50d8-d3b0-4f29-a794-bf6ef6bb0133
+  guid: 
 --- !u!115 &346688547
 MonoScript:
   m_ObjectHideFlags: 0
@@ -25293,7 +25293,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 407479695}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ebe17cad130d4e42af4ea47d6ed221a, type: 3}
   m_Name: 
@@ -38495,7 +38495,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1588896576}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.7434714
+  m_Size: 0.7434713
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -67371,9 +67371,9 @@ MonoBehaviour:
   onoffStatusText: {fileID: 1203725774}
   surveyResultText: {fileID: 672794370}
   SurveyDataProvider: {fileID: 1527753478}
-  gazeResultText: {fileID: 0}
-  GazeDataProvider: {fileID: 0}
-  head: {fileID: 0}
+  gazeResultText: {fileID: 1788218942}
+  GazeDataProvider: {fileID: 1578529244}
+  head: {fileID: 910557481}
   lapsTime: 300
   isSurveyEnable: 0
 --- !u!114 &1175472489
@@ -67391,7 +67391,7 @@ MonoBehaviour:
   sceneName:
   - Room_1_v3
   - Room_2_v2
-  - Room_3_v1
+  - Room_3_v2
   - Tutorial
   dropdownObj: {fileID: 1012732253}
 --- !u!114 &1175472490
@@ -86677,6 +86677,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1348236987270890, guid: e4555fcb5ad246948beaa105efb6420b,
     type: 2}
   m_PrefabInternal: {fileID: 1838831499}
+--- !u!114 &1578529244 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114051346670398080, guid: e4555fcb5ad246948beaa105efb6420b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1838831499}
+  m_Script: {fileID: 11500000, guid: 48148ff34a5a8b444b17479af9072ec6, type: 3}
 --- !u!1 &1579286131
 GameObject:
   m_ObjectHideFlags: 0
@@ -98902,7 +98908,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 521889243}
   m_Direction: 2
   m_Value: 0.9999996
-  m_Size: 0.2726667
+  m_Size: 0.27266666
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -114733,7 +114739,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 546030475}
   m_HandleRect: {fileID: 546030474}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

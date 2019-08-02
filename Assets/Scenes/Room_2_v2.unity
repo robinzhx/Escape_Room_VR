@@ -39843,7 +39843,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1588896577}
   m_HandleRect: {fileID: 1588896576}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -65834,6 +65834,9 @@ MonoBehaviour:
   onoffStatusText: {fileID: 1203725774}
   surveyResultText: {fileID: 672794370}
   SurveyDataProvider: {fileID: 588781727}
+  gazeResultText: {fileID: 1788218942}
+  GazeDataProvider: {fileID: 1838831500}
+  head: {fileID: 910557481}
   lapsTime: 300
   isSurveyEnable: 0
 --- !u!114 &1175472489
@@ -65851,7 +65854,7 @@ MonoBehaviour:
   sceneName:
   - Room_1_v3
   - Room_2_v2
-  - Room_3_v1
+  - Room_3_v2
   - Tutorial
   dropdownObj: {fileID: 1012732253}
 --- !u!1 &1177044803
@@ -105060,6 +105063,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4555fcb5ad246948beaa105efb6420b, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1838831500 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114051346670398080, guid: e4555fcb5ad246948beaa105efb6420b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1838831499}
+  m_Script: {fileID: 11500000, guid: 48148ff34a5a8b444b17479af9072ec6, type: 3}
 --- !u!1 &1838867081
 GameObject:
   m_ObjectHideFlags: 0
@@ -115332,7 +115341,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 546030475}
   m_HandleRect: {fileID: 546030474}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
