@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Tutorial.unity
     guid: 3ebd58a0ac72aaa4499bc2acda9b097d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Room_1_v3.unity
     guid: 4b16c7f37b746fd4ab353734ed1561f5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Room_2_v2.unity
     guid: d618a966a0153524ab3829e6defb9fdf
   - enabled: 1
