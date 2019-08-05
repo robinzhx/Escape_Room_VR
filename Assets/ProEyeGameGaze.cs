@@ -58,7 +58,8 @@ namespace ViveSR
                     else if (SRanipal_Eye.GetGazeRay(GazeIndex.RIGHT, out GazeOriginCombinedLocal, out GazeDirectionCombinedLocal)) { }
                     else return;
                     Vector3 GazeDirectionCombined = Camera.main.transform.TransformDirection(GazeDirectionCombinedLocal);
-                    lighter.transform.position = (Camera.main.transform.position - Camera.main.transform.up * 0.05f);
+                    Vector3 camPos = Camera.main.transform.position - Camera.main.transform.up * 0.05f;
+                    lighter.transform.SetPositionAndRotation(camPos, Quaternion.identity);
                     lighter.transform.LookAt(Camera.main.transform.position + GazeDirectionCombined * 25);
 
                     // print(Time.time.ToString() + " -- Eye X: " + aGlass.Instance.GetGazePoint().x + "  Y: " + aGlass.Instance.GetGazePoint().y);

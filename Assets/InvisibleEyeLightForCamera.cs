@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class InvisibleEyeLightForCamera : MonoBehaviour
 {
-
+    public bool enableVRRender;
     public Light limelight;
 
     void OnPreCull()
     {
-        if (limelight != null)
+        if (limelight != null && !enableVRRender)
             limelight.enabled = false;
     }
 
     void OnPreRender()
     {
-        if (limelight != null)
+        if (limelight != null && !enableVRRender)
             limelight.enabled = false;
     }
     void OnPostRender()
     {
-        if (limelight != null)
+        if (limelight != null && !enableVRRender)
             limelight.enabled = true;
     }
 }
