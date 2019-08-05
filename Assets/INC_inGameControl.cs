@@ -94,7 +94,8 @@ public class INC_inGameControl : MonoBehaviour {
         surveyCountdownText.text = ((int)sinceLastAction).ToString();
         surveyResultText.text = SurveyRecordList;
 
-        gazeResultText.text = GazeRecordList;
+        if(gazeResultText)
+            gazeResultText.text = GazeRecordList;
         onoffStatusText.text = (isSurveyEnable ? "On" : "Off");
         onoffStatusText.color = (isSurveyEnable ? Color.green : Color.red);
     }
