@@ -12,8 +12,10 @@ using UnityEngine.UI;
 using Valve.VR;
 using VRTK;
 
-public class Recorder : MonoBehaviour
+public class ReplayManager : MonoBehaviour
 {
+    #region Serialization
+
     [System.Serializable]
     public class Frame : System.Object
     {
@@ -24,6 +26,78 @@ public class Recorder : MonoBehaviour
         [SerializeField] public Quaternion rotation;
     }
 
+    private BinaryFormatter bf;
+    private SurrogateSelector surrogateSelector;
+    private Vector3Surrogate vector3Surrogate;
+    private QuaternionSurrogate quaternionSurrogate;
+
+    #endregion
+
+    #region Enum
+
+    public enum Mode
+    {
+        Replay,
+        Record,
+        ModeCount
+    }
+
+    public enum State
+    {
+        Play,
+        Pause,
+        Stop,
+        StateCount
+    }
+
+    #endregion
+    
+    //[HideInInspector]
+    #region Filename Variable
+
+    private string replayFileName = "";
+    private string defaultFileName = "Replay.dem";
+    private string currentFileName = "";
+
+    #endregion
+
+    #region State Variable
+
+    private Mode currentMode = Mode.Replay;
+    private State currentState = State.Stop;
+
+    #endregion
+
+    #region Debug Variable
+
+    private string lastError = "Success";
+    private bool isDebug = true;
+
+    #endregion
+
+    #region Progess Variable
+    
+    private float currentTime;
+    private float startTime = -1;
+    private string uniqueID;
+    private float minTime;
+    private float maxTime;
+
+    private bool needRelocate = false;
+
+    #endregion
+
+    #region Replay Frame Variable
+
+    private int currIndex = -1;
+    
+    private float speed = 1.0f;
+    private float minSpeed = 0.01f;
+    private float maxSpeed = 10.0f;
+
+    #endregion
+
+    #region Old Garbage
     public bool isRecording = true;
     public bool isReplay = false;
     public bool isReplayInitialized = false;
@@ -35,8 +109,7 @@ public class Recorder : MonoBehaviour
     public bool forcedUpdate = false;
     public bool timeSliderEnabled = false;
     public bool useScale = false;
-
-
+    
     public Slider slider;
 
     // to take over camera
@@ -52,13 +125,7 @@ public class Recorder : MonoBehaviour
 
     [ReadOnly] public bool initialized = false;
     [ReadOnly] public bool saved = true;
-    [ReadOnly] public float currentTime;
-    [ReadOnly] public float startTime = -1;
-    [ReadOnly] public string uniqueID;
-    [ReadOnly] public float minTime;
-    [ReadOnly] public float maxTime;
-
-
+    
     [ReadOnly] private List<UniqueId> gameObjectList;
 
     [SerializeField] public List<List<Frame>> frameList;
@@ -68,14 +135,144 @@ public class Recorder : MonoBehaviour
 
 
     private int count = 0;
-    private BinaryFormatter bf;
 
-    private SurrogateSelector surrogateSelector;
-    private Vector3Surrogate vector3Surrogate;
-    private QuaternionSurrogate quaternionSurrogate;
+    
+   
 
     private int skipFirstFewFrame = 15;
     private int currentSkip = 0;
+
+    #endregion
+
+    #region Public Interface
+
+    public string GetLastError(bool reset = true)
+    {
+        string temp = lastError;
+        if (reset)
+        {
+            lastError = "Success";
+        }
+        return temp;
+    }
+
+    #endregion
+
+    #region Private Helper Function
+
+    void DebugPrint(string s)
+    {
+        if (isDebug)
+        {
+           Debug.Log(s);
+        }
+    }
+
+    void LoadReplay(string filename)
+    {
+        FileStream file;
+        try
+        {
+            file = File.Open(Application.dataPath + "/Scripts/Replay/" + filename, FileMode.Open);
+
+            Debug.Log("Load from: " + Application.dataPath + "/Scripts/Replay/" + filename);
+            frameList = (List<List<Frame>>) bf.Deserialize(file);
+            minTime = frameList[0][0].timestamp;
+            maxTime = frameList[0][frameList[0].Count - 1].timestamp;
+            foreach (var frames in frameList)
+            {
+                minTime = Mathf.Min(minTime, frames[0].timestamp);
+                maxTime = Mathf.Max(maxTime, frames[frames.Count - 1].timestamp);
+            }
+
+            currentFileName = filename;
+            file.Close();
+        }
+        catch (IOException)
+        {
+            lastError = "LoadReplay: IOException - fail to load file " + filename;
+        }
+    }
+
+    void ReLocate()
+    {
+
+
+        needRelocate = false;
+    }
+
+    #endregion
+
+    #region UI Function
+
+    public void SetProgress(Single progress)
+    {
+        if (currentMode == Mode.Replay)
+        {
+            if (progress > 100 || progress < 0)
+            {
+                lastError = "SetProgress: Invalid progress";
+            }
+            else
+            {
+                float factor = progress / 100.0f;
+                currentTime = minTime + factor * (maxTime - minTime);
+                needRelocate = true;
+            }
+        }
+    }
+
+    public void SetState(Int32 state)
+    {
+        DebugPrint("SetState to " + state);
+        if (state >= 0 && state < (int) State.StateCount)
+        {
+            currentState = (State) state;
+        }
+        else
+        {
+            lastError = "SetState: Invalid state";
+        }
+    }
+
+    public void SetMode(Int32 mode)
+    {
+        DebugPrint("SetMode to " + mode);
+        if (mode >= 0 && mode < (int) Mode.ModeCount)
+        {
+            currentMode = (Mode) mode;
+        }
+        else
+        {
+            lastError = "SetMode: Invalid mode";
+        }
+    }
+
+    public void SetFileName(string s)
+    {
+        DebugPrint("SetFileName to " + s);
+        replayFileName = s;
+    }
+
+    public void SaveCurrentDemo()
+    {
+    }
+
+    public void LoadDemo()
+    {
+        if (replayFileName == "")
+        {
+            LoadReplay("Replay.dem");
+        }
+        else
+        {
+            LoadReplay(replayFileName);
+        }
+    }
+
+    #endregion
+
+    #region Unity Function
 
     // Use this for initialization
     void Start()
@@ -109,30 +306,42 @@ public class Recorder : MonoBehaviour
             quaternionSurrogate);
         bf.SurrogateSelector = surrogateSelector;
 
-        if (isReplay)
-        {
-            LoadReplay("Replay.dem");
-        }
+        //if (isReplay)
+        //{
+        //    LoadReplay("Replay.dem");
+        //}
 
         count = skip;
     }
-
-    void LoadReplay(string filename)
+    
+    void FixedUpdate()
     {
-        FileStream file = File.Open(Application.dataPath + "/Scripts/Replay/" + filename, FileMode.Open);
-        Debug.Log("Load from: " + Application.dataPath + "/Scripts/Replay/" + filename);
-        frameList = (List<List<Frame>>) bf.Deserialize(file);
-        minTime = frameList[0][0].timestamp;
-        maxTime = frameList[0][frameList[0].Count - 1].timestamp;
-        foreach(var frames in frameList)
+        if (currentMode == Mode.Record)
         {
-            minTime = Mathf.Min(minTime, frames[0].timestamp);
-            maxTime = Mathf.Max(maxTime, frames[frames.Count-1].timestamp);
+            if (currentState == State.Play)
+            {
+                currentTime += Time.fixedDeltaTime;
+            }
         }
-        //slider.minValue = minTime;
-        //slider.maxValue = maxTime;
-        file.Close();
+
+        //Record();
+        //Replay();
     }
+
+    void LateUpdate()
+    {
+        if (currentMode == Mode.Replay)
+        {
+            if (currentState == State.Play)
+            {
+                currentTime += Time.fixedDeltaTime;
+            }
+        }
+
+        //Replay();
+    }
+
+    #endregion
 
     void UpdateScene(bool isReplay)
     {
@@ -143,6 +352,7 @@ public class Recorder : MonoBehaviour
             {
                 Debug.LogWarning("This object has problematic guid: " + gameObject.name + ": " + gameObject.guid);
             }
+
             if (gameObject.guid != uniqueID && gameObject.tag != "ignore" && gameObject.guid != "")
             {
                 if (!this.gameObjectList.Contains(gameObject))
@@ -162,17 +372,6 @@ public class Recorder : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        Record();
-        Replay();
-    }
-
-    void LateUpdate()
-    {
-        Replay();
-    }
 
     void Record()
     {
@@ -341,7 +540,7 @@ public class Recorder : MonoBehaviour
                 {
                     r.isKinematic = true;
                 }
-                
+
                 // Start from index
                 List<Frame> frames = this.frameList[i];
                 for (int j = indices[i]; j < frames.Count; j++)
@@ -351,7 +550,7 @@ public class Recorder : MonoBehaviour
                     {
                         continue;
                     }
-                    
+
                     // Correct Frame (j and j - 1)
                     if (j > 0)
                     {
@@ -363,7 +562,8 @@ public class Recorder : MonoBehaviour
 
                         // (s)lerp
                         curr.transform.position = Vector3.LerpUnclamped(lastFrame.position, currFrame.position, factor);
-                        curr.transform.rotation = Quaternion.LerpUnclamped(lastFrame.rotation, currFrame.rotation, factor);
+                        curr.transform.rotation =
+                            Quaternion.LerpUnclamped(lastFrame.rotation, currFrame.rotation, factor);
                     }
                     else
                     {
