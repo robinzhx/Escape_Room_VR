@@ -3,6 +3,7 @@ using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 using System.IO;
 using System;
+using LSL;
 
 namespace ViveSR
 {
@@ -17,6 +18,7 @@ namespace ViveSR
                 private StreamWriter _writer;
                 Vector2 pupilPos_L;
                 Vector2 pupilPos_R;
+                private liblsl.StreamOutlet markerStream;
 
                 // Use this for initialization
                 void Start()
@@ -38,6 +40,9 @@ namespace ViveSR
                     string path = Path.Combine(@"C:\EscapeRoomData", filename);
                     _writer = File.CreateText(path);
                     _writer.Write("\n\n=============== Game started ================\n\n");
+
+                    liblsl.StreamInfo inf = new liblsl.StreamInfo("ProEyeGaze", "Gaze", 4, 90, liblsl.channel_format_t.cf_float32, "sddsfsdf");
+                    markerStream = new liblsl.StreamOutlet(inf);
                 }
 
                 // Update is called once per frame
@@ -67,6 +72,8 @@ namespace ViveSR
                     if (SRanipal_Eye.GetPupilPosition(EyeIndex.LEFT, out pupilPos_L) && SRanipal_Eye.GetPupilPosition(EyeIndex.RIGHT, out pupilPos_R))
                     {
                         _writer.WriteLine(String.Format("{0:HH:mm:ss.fff}", DateTime.Now) + " - " + Time.time.ToString() + ": EyeL " + pupilPos_L + ", EyeR: " + pupilPos_R);
+                        float[] tempSample = { pupilPos_L.x, pupilPos_L.y, pupilPos_R.x, pupilPos_R.y, };
+                        markerStream.push_sample(tempSample);
                     }
                     else
                     {

@@ -36,15 +36,12 @@ public class LightDir : MonoBehaviour {
         originalSharedRendererMaterials = new Dictionary<string, Material[]>();
         originalRendererMaterials = new Dictionary<string, Material[]>();
 
-        liblsl.StreamInfo inf = new liblsl.StreamInfo("aGlass", "Markers", 1, 0, liblsl.channel_format_t.cf_string, "giu4569");
+        liblsl.StreamInfo inf = new liblsl.StreamInfo("ProEyeMarker", "Markers", 1, 0, liblsl.channel_format_t.cf_string, "giu4569");
         markerStream = new liblsl.StreamOutlet(inf);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        lighter.transform.position = vrViewer.transform.position;
-
-        lighter.transform.LookAt(this.gameObject.transform);
 
         if ( Physics.Raycast(lighter.transform.position, lighter.transform.forward, out hit) )
         {

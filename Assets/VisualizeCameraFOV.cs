@@ -5,15 +5,20 @@ using UnityEngine;
 public class VisualizeCameraFOV : MonoBehaviour {
 
     public Camera cam;
+    public GameObject VisualSpectrumObject;
 
     // Use this for initialization
     void Start()
     {
         if (!cam)
             cam = gameObject.GetComponent<Camera>(); //finds camera on this object
-        GameObject g = GameObject.CreatePrimitive(PrimitiveType.Cube); //makes a cube
-        Destroy(g.GetComponent<BoxCollider>()); //destroy the box collider on the cube because it's not needed
-        MeshFilter meshFilter = g.GetComponent<MeshFilter>(); //get the meshfilter on cube
+        if (!VisualSpectrumObject)
+        {
+            VisualSpectrumObject = GameObject.CreatePrimitive(PrimitiveType.Cube); //makes a cube
+        }
+ 
+        Destroy(VisualSpectrumObject.GetComponent<BoxCollider>()); //destroy the box collider on the cube because it's not needed
+        MeshFilter meshFilter = VisualSpectrumObject.GetComponent<MeshFilter>(); //get the meshfilter on cube
                                                               //make a new mesh
 
 
@@ -48,20 +53,30 @@ public class VisualizeCameraFOV : MonoBehaviour {
         //set the new mesh to cube's mesh
         meshFilter.mesh = mesh;
 
-        Renderer ren = g.GetComponent<MeshRenderer>();
+        Renderer ren = VisualSpectrumObject.GetComponent<MeshRenderer>();
         if (ren)
         {
             ren.sharedMaterial = (Material)Resources.Load("AreaVisibleLow", typeof(Material));
             ren.receiveShadows = false;
             ren.shadowCastingMode = 0;
         }
-        g.gameObject.layer = LayerMask.NameToLayer("SpectatorViewOnly");
+        VisualSpectrumObject.gameObject.layer = LayerMask.NameToLayer("SpectatorViewOnly");
         //set the camera as the cube's parent
-        g.transform.SetParent(cam.transform);
+        VisualSpectrumObject.transform.SetParent(cam.transform);
     }
 
     // Update is called once per frame
     void Update () {
 		
 	}
+
+    private void OnDisable()
+    {
+        VisualSpectrumObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        VisualSpectrumObject.SetActive(true);
+    }
 }
