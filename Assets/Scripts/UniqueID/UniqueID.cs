@@ -8,5 +8,5 @@ public class UniqueIdentifierAttribute : PropertyAttribute
 
 public class UniqueId : MonoBehaviour
 {
-    [UniqueIdentifier] public string guid;
+    [UniqueIdentifier,SerializeField] public string guid;
 }

@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Assertions.Comparers;
 using UnityEngine.SpatialTracking;
 using UnityEngine.UI;
 using Valve.VR;
@@ -51,8 +52,9 @@ public class ReplayManager : MonoBehaviour
     }
 
     #endregion
-    
+
     //[HideInInspector]
+
     #region Filename Variable
 
     private string replayFileName = "";
@@ -66,81 +68,54 @@ public class ReplayManager : MonoBehaviour
     private Mode currentMode = Mode.Replay;
     private State currentState = State.Stop;
 
+    private bool initialized = false;
+    private bool isStopped = false;
+    private bool isPlayed = false;
+    private bool isReplayInitialized = false;
+
     #endregion
 
     #region Debug Variable
 
     private string lastError = "Success";
     private bool isDebug = true;
+    public bool forcedUpdate = false;
 
     #endregion
 
     #region Progess Variable
-    
+
     private float currentTime;
+    private float deltaTime = -1;
     private float startTime = -1;
+    private float globalTime;
     private string uniqueID;
     private float minTime;
     private float maxTime;
+    private float lastTime;
 
     private bool needRelocate = false;
+
+    public Text minTimeText;
+    public Text maxTimeText;
+    public Text globalTimeText;
+    public Text replayTimeText;
+    public Slider progressSlider;
 
     #endregion
 
     #region Replay Frame Variable
 
+    private List<UniqueId> gameObjectList;
+    [SerializeField] private List<List<Frame>> frameList;
+    private List<bool> isChanged;
+    private List<int> indices;
+
     private int currIndex = -1;
-    
+
     private float speed = 1.0f;
     private float minSpeed = 0.01f;
     private float maxSpeed = 10.0f;
-
-    #endregion
-
-    #region Old Garbage
-    public bool isRecording = true;
-    public bool isReplay = false;
-    public bool isReplayInitialized = false;
-
-    public float deltaTime = -1;
-
-    public int skip = 1;
-
-    public bool forcedUpdate = false;
-    public bool timeSliderEnabled = false;
-    public bool useScale = false;
-    
-    public Slider slider;
-
-    // to take over camera
-    public GameObject camera;
-
-    // to take over left Controller
-    public GameObject leftController;
-
-    // to take over right Controller
-    public GameObject rightController;
-
-    public SteamVR_RenderModel rightHand;
-
-    [ReadOnly] public bool initialized = false;
-    [ReadOnly] public bool saved = true;
-    
-    [ReadOnly] private List<UniqueId> gameObjectList;
-
-    [SerializeField] public List<List<Frame>> frameList;
-    private List<bool> isChanged;
-
-    [ReadOnly] private List<int> indices;
-
-
-    private int count = 0;
-
-    
-   
-
-    private int skipFirstFewFrame = 15;
-    private int currentSkip = 0;
 
     #endregion
 
@@ -153,6 +128,7 @@ public class ReplayManager : MonoBehaviour
         {
             lastError = "Success";
         }
+
         return temp;
     }
 
@@ -164,7 +140,7 @@ public class ReplayManager : MonoBehaviour
     {
         if (isDebug)
         {
-           Debug.Log(s);
+            Debug.Log(s);
         }
     }
 
@@ -173,9 +149,9 @@ public class ReplayManager : MonoBehaviour
         FileStream file;
         try
         {
-            file = File.Open(Application.dataPath + "/Scripts/Replay/" + filename, FileMode.Open);
+            file = File.Open(@"C:\EscapeRoomData" + "/Replay/" + filename, FileMode.Open);
 
-            Debug.Log("Load from: " + Application.dataPath + "/Scripts/Replay/" + filename);
+            Debug.Log("Load from: " + @"C:\EscapeRoomData" + "/Replay/" + filename);
             frameList = (List<List<Frame>>) bf.Deserialize(file);
             minTime = frameList[0][0].timestamp;
             maxTime = frameList[0][frameList[0].Count - 1].timestamp;
@@ -187,40 +163,55 @@ public class ReplayManager : MonoBehaviour
 
             currentFileName = filename;
             file.Close();
+            
+            initialized = false;
+            isReplayInitialized = false;
+            gameObjectList = new List<UniqueId>();
         }
-        catch (IOException)
+        catch (Exception e)
         {
-            lastError = "LoadReplay: IOException - fail to load file " + filename;
+            lastError = "LoadReplay: Exception - fail to load file " + filename;
+            Debug.Log(e.ToString());
         }
     }
 
-    void ReLocate()
+    void ResetIndex()
     {
-
+        if (indices != null)
+        {
+            for (int i = 0; i < indices.Count; i++)
+            {
+                indices[i] = 0;
+            }
+        }
 
         needRelocate = false;
+    }
+
+    float SliderToTime(float progress)
+    {
+        if (progress > 100 || progress < 0)
+        {
+            lastError = "SliderToTime: Invalid progress";
+            DebugPrint(lastError);
+            return 0;
+        }
+        else
+        {
+            float factor = progress / 100.0f;
+            return minTime + factor * (maxTime - minTime);
+        }
+    }
+
+    float TimeToSlider(float time)
+    {
+        float factor = (time - minTime) / (maxTime - minTime);
+        return factor * 100.0f;
     }
 
     #endregion
 
     #region UI Function
-
-    public void SetProgress(Single progress)
-    {
-        if (currentMode == Mode.Replay)
-        {
-            if (progress > 100 || progress < 0)
-            {
-                lastError = "SetProgress: Invalid progress";
-            }
-            else
-            {
-                float factor = progress / 100.0f;
-                currentTime = minTime + factor * (maxTime - minTime);
-                needRelocate = true;
-            }
-        }
-    }
 
     public void SetState(Int32 state)
     {
@@ -233,6 +224,16 @@ public class ReplayManager : MonoBehaviour
         {
             lastError = "SetState: Invalid state";
         }
+
+        if (currentState != State.Play)
+        {
+            isPlayed = false;
+        }
+
+        if (currentState != State.Stop)
+        {
+            isStopped = false;
+        }
     }
 
     public void SetMode(Int32 mode)
@@ -241,6 +242,10 @@ public class ReplayManager : MonoBehaviour
         if (mode >= 0 && mode < (int) Mode.ModeCount)
         {
             currentMode = (Mode) mode;
+            initialized = false;
+            isReplayInitialized = false;
+            gameObjectList = new List<UniqueId>();
+            frameList = new List<List<Frame>>();
         }
         else
         {
@@ -256,10 +261,26 @@ public class ReplayManager : MonoBehaviour
 
     public void SaveCurrentDemo()
     {
+        Debug.Log("The size of replay is: " + frameList.Count * frameList[0].Count);
+
+        var list = new List<List<Frame>>();
+        for (int i = 0; i < frameList.Count; i++)
+        {
+            if (isChanged[i])
+            {
+                list.Add(frameList[i]);
+            }
+        }
+
+        FileStream file = File.Create(@"C:\EscapeRoomData" + "/Replay/" + replayFileName);
+        Debug.Log("Save to: " + @"C:\EscapeRoomData" + "/Replay/" + replayFileName);
+        if (bf != null) bf.Serialize(file, list);
+        file.Close();
     }
 
     public void LoadDemo()
     {
+        DebugPrint("Loading demo:" + replayFileName);
         if (replayFileName == "")
         {
             LoadReplay("Replay.dem");
@@ -267,6 +288,21 @@ public class ReplayManager : MonoBehaviour
         else
         {
             LoadReplay(replayFileName);
+        }
+    }
+
+    private void UpdateUITimer()
+    {
+        try
+        {
+            minTimeText.text = minTime.ToString();
+            maxTimeText.text = maxTime.ToString();
+            globalTimeText.text = globalTime.ToString();
+            replayTimeText.text = currentTime.ToString();
+        }
+        catch (Exception)
+        {
+            Debug.Log("UI elements are not assigned properly");
         }
     }
 
@@ -289,7 +325,6 @@ public class ReplayManager : MonoBehaviour
             Debug.Log("Add UniqueID " + u.guid + " to: " + this.name);
         }
 
-        saved = true;
         Debug.Log("My instance ID:" + this.gameObject.GetComponent<UniqueId>().guid);
         uniqueID = this.gameObject.GetComponent<UniqueId>().guid;
         gameObjectList = new List<UniqueId>();
@@ -306,39 +341,48 @@ public class ReplayManager : MonoBehaviour
             quaternionSurrogate);
         bf.SurrogateSelector = surrogateSelector;
 
-        //if (isReplay)
-        //{
-        //    LoadReplay("Replay.dem");
-        //}
-
-        count = skip;
+        SetState((int) State.Stop);
     }
-    
+
     void FixedUpdate()
     {
-        if (currentMode == Mode.Record)
-        {
-            if (currentState == State.Play)
-            {
-                currentTime += Time.fixedDeltaTime;
-            }
-        }
-
-        //Record();
-        //Replay();
+        globalTime = Time.fixedUnscaledTime;
     }
 
     void LateUpdate()
     {
-        if (currentMode == Mode.Replay)
+
+        switch (currentState)
         {
-            if (currentState == State.Play)
-            {
-                currentTime += Time.fixedDeltaTime;
-            }
+            case State.Play:
+                currentTime += Time.unscaledDeltaTime;
+                break;
+            case State.Pause:
+                break;
+            case State.Stop:
+                break;
         }
 
-        //Replay();
+        switch (currentMode)
+        {
+             case Mode.Record:
+                 Record();
+                 break;
+             case Mode.Replay:
+
+                 if (currentTime > maxTime)
+                 {
+                     if (currentState == State.Play)
+                     {
+                         SetState((int) State.Pause);
+                     }
+                 }
+                 
+                 Replay();
+                 break;
+        }
+
+        UpdateUITimer();
     }
 
     #endregion
@@ -372,220 +416,168 @@ public class ReplayManager : MonoBehaviour
         }
     }
 
-
     void Record()
     {
-        if (isRecording)
+        if (currentState == State.Pause || currentState == State.Stop)
         {
-            if (count > 0)
+            return;
+        }
+
+        if (!initialized || forcedUpdate)
+        {
+            UpdateScene(false);
+            if (!initialized)
             {
-                count--;
-                return;
-            }
-            else
-            {
-                count = skip;
-            }
-
-            if (saved)
-            {
-                saved = false;
-            }
-
-            // timestamp
-            currentTime = Time.fixedUnscaledTime;
-
-            if (!initialized || forcedUpdate)
-            {
-                UpdateScene(false);
-                if (!initialized)
-                {
-                    isChanged = Enumerable.Repeat(false, frameList.Count).ToList();
-                    saved = false;
-                    startTime = currentTime;
-                    initialized = true;
-                }
-            }
-
-            for (int i = 0; i < gameObjectList.Count; i++)
-            {
-                GameObject gameObject = gameObjectList[i].gameObject;
-                if (gameObject.transform.hasChanged)
-                {
-                    if (!isChanged[i] && frameList[i].Count > 1)
-                    {
-                        var diff = gameObject.transform.position - frameList[i][0].position;
-                        if (diff.magnitude >= 0.05)
-                        {
-                            isChanged[i] = true;
-                        }
-                    }
-
-                    Frame frame = new Frame
-                    {
-                        timestamp = currentTime - startTime,
-                        uniqueID = gameObject.GetComponent<UniqueId>().guid,
-                        position = gameObject.transform.position,
-                        rotation = gameObject.transform.rotation
-                    };
-                    frameList[i].Add(frame);
-
-                    gameObject.transform.hasChanged = false;
-                }
+                isChanged = Enumerable.Repeat(false, frameList.Count).ToList();
+                minTime = currentTime = 0;
+                initialized = true;
             }
         }
-        else
-        {
-            if (!saved)
-            {
-                Debug.Log("The size of replay is: " + frameList.Count * frameList[0].Count);
 
-                var list = new List<List<Frame>>();
-                for (int i = 0; i < frameList.Count; i++)
+        if (Mathf.Abs(currentTime - lastTime) < 0.033)
+        {
+            return;
+        }
+
+        lastTime = currentTime;
+
+        for (int i = 0; i < gameObjectList.Count; i++)
+        {
+            GameObject gameObject = gameObjectList[i].gameObject;
+            if (gameObject.transform.hasChanged)
+            {
+                if (!isChanged[i] && frameList[i].Count > 1)
                 {
-                    if (isChanged[i])
+                    var diffRot = Quaternion.Angle(gameObject.transform.rotation, frameList[i][0].rotation);
+                    var diff = gameObject.transform.position - frameList[i][0].position;
+                    if (diff.magnitude >= 0.05 || diffRot >= 10.0)
                     {
-                        list.Add(frameList[i]);
+                        isChanged[i] = true;
                     }
                 }
 
-                FileStream file = File.Create(Application.dataPath + "/Scripts/Replay/Replay.dem");
-                Debug.Log("Save to: " + Application.dataPath + "/Scripts/Replay/Replay.dem");
-                if (bf != null) bf.Serialize(file, list);
-                file.Close();
+                Frame frame = new Frame
+                {
+                    timestamp = currentTime - minTime,
+                    uniqueID = gameObject.GetComponent<UniqueId>().guid,
+                    position = gameObject.transform.position,
+                    rotation = gameObject.transform.rotation
+                };
+                frameList[i].Add(frame);
 
-                saved = true;
+                gameObject.transform.hasChanged = false;
             }
         }
+
+        maxTime = currentTime;
     }
 
     void Replay()
     {
-        if (isReplay && !isRecording)
+        if (!initialized)
         {
-            currentTime = Time.unscaledTime;
+            indices = Enumerable.Repeat(0, frameList.Count).ToList();
+            UpdateScene(true);
+            initialized = true;
+        }
 
-            // Hacky Code to deal with steamvr tracking
-            if (currentSkip > skipFirstFewFrame)
-            {
-                var c = camera.GetComponent<VRTK_TransformFollow>();
-                if (c != null)
+        if (!isReplayInitialized)
+        {
+            currentTime = minTime;
+            ResetIndex();
+
+            isReplayInitialized = true;
+        }
+
+        switch (currentState)
+        {
+            case State.Play:
+                if (!isPlayed)
                 {
-                    c.enabled = false;
+                    currentTime = minTime + deltaTime;
+                    isPlayed = true;
                 }
-
-                var lc = leftController.GetComponent<SteamVR_TrackedObject>();
-                if (lc != null)
+                deltaTime = currentTime - minTime;
+                progressSlider.value = TimeToSlider(deltaTime);
+                break;
+            case State.Pause:
+                if (!FloatComparer.AreEqual(progressSlider.value, deltaTime, 0.01f))
                 {
-                    lc.enabled = false;
+                    ResetIndex();
                 }
-
-                var rc = rightController.GetComponent<SteamVR_TrackedObject>();
-                if (rc != null)
+                deltaTime = SliderToTime(progressSlider.value);
+                break;
+            case State.Stop:
+                if (!isStopped)
                 {
-                    rc.enabled = false;
+                    progressSlider.value = 0;
+                    isStopped = true;
+                    isReplayInitialized = false;
                 }
-
-                //rightHand.renderModelName = "vr_controller_vive_1_5";
-                //rightHand.SetDeviceIndex(3);
-                //rightController.inputSource = SteamVR_Input_Sources.Waist;
-            }
-            else
-            {
-                currentSkip++;
-            }
-
-            if (!initialized)
-            {
-                indices = Enumerable.Repeat(0, frameList.Count).ToList();
-                UpdateScene(true);
-                initialized = true;
-            }
-
-            if (!isReplayInitialized)
-            {
-                startTime = currentTime;
-                for (int i = 0; i < indices.Count; i++)
+                if (!FloatComparer.AreEqual(progressSlider.value, deltaTime, 0.01f))
                 {
-                    indices[i] = 0;
+                    ResetIndex();
                 }
+                deltaTime = SliderToTime(progressSlider.value);
+                break;
+        }
 
-                isReplayInitialized = true;
+        if (currentState == State.Stop)
+        {
+            return;
+        }
+
+        for (int i = 0; i < frameList.Count; i++)
+        {
+            string guid = frameList[i][0].uniqueID;
+            UniqueId currId = gameObjectList.Find(x => x.guid == guid);
+            if (currId == null)
+            {
+                // the gameObject corresponding to current frameList is no longer exist
+                continue;
             }
 
-            if (!timeSliderEnabled)
+            GameObject curr = currId.gameObject;
+
+            Rigidbody r = curr.GetComponent<Rigidbody>();
+            if (r)
             {
-                deltaTime = currentTime - startTime;
-                //slider.value = deltaTime;
-            }
-            else
-            {
-                //deltaTime = slider.value;
+                r.isKinematic = true;
             }
 
-            for (int i = 0; i < frameList.Count; i++)
+            // Start from index
+            List<Frame> frames = this.frameList[i];
+            for (int j = indices[i]; j < frames.Count; j++)
             {
-                string guid = frameList[i][0].uniqueID;
-                UniqueId currId = gameObjectList.Find(x => x.guid == guid);
-                if (currId == null)
+                Frame currFrame = frames[j];
+                if (currFrame.timestamp < deltaTime)
                 {
-                    // the gameObject corresponding to current frameList is no longer exist
                     continue;
                 }
 
-                GameObject curr = currId.gameObject;
-
-                Rigidbody r = curr.GetComponent<Rigidbody>();
-                if (r)
+                // Correct Frame (j and j - 1)
+                if (j > 0)
                 {
-                    r.isKinematic = true;
+                    // Interpolate j and j - 1 frame
+                    Frame lastFrame = frames[j - 1];
+
+                    // Calculate (s)lerp factor
+                    float factor = (deltaTime - lastFrame.timestamp) / (currFrame.timestamp - lastFrame.timestamp);
+
+                    // (s)lerp
+                    curr.transform.position = Vector3.LerpUnclamped(lastFrame.position, currFrame.position, factor);
+                    curr.transform.rotation =
+                        Quaternion.LerpUnclamped(lastFrame.rotation, currFrame.rotation, factor);
+                }
+                else
+                {
+                    // first key (no interpolation needed)
+                    curr.transform.position = currFrame.position;
+                    curr.transform.rotation = currFrame.rotation;
                 }
 
-                // Start from index
-                List<Frame> frames = this.frameList[i];
-                for (int j = indices[i]; j < frames.Count; j++)
-                {
-                    Frame currFrame = frames[j];
-                    if (currFrame.timestamp < deltaTime)
-                    {
-                        continue;
-                    }
-
-                    // Correct Frame (j and j - 1)
-                    if (j > 0)
-                    {
-                        // Interpolate j and j - 1 frame
-                        Frame lastFrame = frames[j - 1];
-
-                        // Calculate (s)lerp factor
-                        float factor = (deltaTime - lastFrame.timestamp) / (currFrame.timestamp - lastFrame.timestamp);
-
-                        // (s)lerp
-                        curr.transform.position = Vector3.LerpUnclamped(lastFrame.position, currFrame.position, factor);
-                        curr.transform.rotation =
-                            Quaternion.LerpUnclamped(lastFrame.rotation, currFrame.rotation, factor);
-                    }
-                    else
-                    {
-                        // first key (no interpolation needed)
-                        curr.transform.position = currFrame.position;
-                        curr.transform.rotation = currFrame.rotation;
-                    }
-
-                    indices[i] = j;
-                    break;
-                }
-            }
-        }
-        else
-        {
-            isReplayInitialized = false;
-            if (indices != null)
-            {
-                for (int i = 0; i < indices.Count; i++)
-                {
-                    indices[i] = 0;
-                }
+                indices[i] = j;
+                break;
             }
         }
     }

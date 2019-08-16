@@ -62,7 +62,7 @@ public class EscapeTransformTrigger : EscapeTrigger
             return;
         }
 
-        Debug.Log("candle trigger");
+        //Debug.Log("candle trigger");
 
         Trigger();
         istriggered = true;
