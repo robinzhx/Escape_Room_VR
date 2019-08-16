@@ -5,7 +5,6 @@ using UnityEngine;
 public class VisualizeCameraFOV : MonoBehaviour {
 
     public Camera cam;
-    public HeadCameraManager HeadCamManager;
 
     // Use this for initialization
     void Start()
@@ -59,8 +58,6 @@ public class VisualizeCameraFOV : MonoBehaviour {
         g.gameObject.layer = LayerMask.NameToLayer("SpectatorViewOnly");
         //set the camera as the cube's parent
         g.transform.SetParent(cam.transform);
-        if (HeadCamManager)
-            HeadCamManager.FOV_Obj = g;
     }
 
     // Update is called once per frame
