@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class myCursor : MonoBehaviour {
 
-    public GameGaze gaze;
+    public GameGazeNew gaze;
     public GameObject cursor;
     public GameObject lighter;
-    float x, y;
+
+    private Vector2 x, y;
 	// Use this for initialization
 	void Start () {
         if (cursor == null)
@@ -16,7 +17,7 @@ public class myCursor : MonoBehaviour {
         }
         if (gaze == null)
         {
-            gaze = GameObject.Find("Gaze").GetComponent<GameGaze>();
+            gaze = GameObject.Find("Gaze").GetComponent<GameGazeNew>();
         }
         if (lighter == null)
         {
