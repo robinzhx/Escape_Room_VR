@@ -8,13 +8,14 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 72e08601cb921f0478dcc0e815792a0b
+  m_OcclusionCullingData: {fileID: 36300000, guid: e4c23c73278a1614d9deadd2d248ba42,
+    type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.30980393, g: 0.30980393, b: 0.30980393, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
@@ -53,7 +54,7 @@ LightmapSettings:
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 1
-    m_EnableRealtimeLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 10
     m_Resolution: 2
@@ -89,8 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000086, guid: 7e83726ad6a0f8a43948d7455a5d01ba,
-    type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -289,7 +289,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &2566401
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +540,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &4629995
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +715,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!65 &5835287
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -836,7 +833,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &14424876
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,7 +934,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &17965222
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,11 +976,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
@@ -1016,7 +1011,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &20176039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,7 +1275,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &24456211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,7 +1389,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &25453501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,7 +1472,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &27564044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,7 +1512,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &27622374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1697,7 +1687,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &29657926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1745,7 +1734,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &29822847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1949,7 +1937,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &32172354
 GameObject:
   m_ObjectHideFlags: 0
@@ -2125,7 +2112,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &40854148
 GameObject:
   m_ObjectHideFlags: 0
@@ -2479,7 +2465,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &45087373
 GameObject:
   m_ObjectHideFlags: 0
@@ -2606,7 +2591,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &45786957
 GameObject:
   m_ObjectHideFlags: 0
@@ -2649,11 +2633,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
@@ -2684,7 +2668,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &49041001
 GameObject:
   m_ObjectHideFlags: 0
@@ -2799,7 +2782,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &49753068
 GameObject:
   m_ObjectHideFlags: 0
@@ -3300,7 +3282,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!114 &53269839 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114909519854580716, guid: ea0425ca82785d64b8908b108ff3e4a6,
@@ -3482,7 +3463,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &64835478
 GameObject:
   m_ObjectHideFlags: 0
@@ -3566,7 +3546,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &67436925
 GameObject:
   m_ObjectHideFlags: 0
@@ -3647,7 +3626,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &68762087
 GameObject:
   m_ObjectHideFlags: 0
@@ -3690,11 +3668,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
@@ -3725,7 +3703,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &71769010
 GameObject:
   m_ObjectHideFlags: 0
@@ -3812,7 +3789,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &75459322
 GameObject:
   m_ObjectHideFlags: 0
@@ -4119,7 +4095,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &76218971
 GameObject:
   m_ObjectHideFlags: 0
@@ -4162,11 +4137,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
@@ -4197,7 +4172,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &78105697
 GameObject:
   m_ObjectHideFlags: 0
@@ -4596,7 +4570,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &84957733
 GameObject:
   m_ObjectHideFlags: 0
@@ -4772,7 +4745,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &86689328
 GameObject:
   m_ObjectHideFlags: 0
@@ -4883,7 +4855,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &89151353
 GameObject:
   m_ObjectHideFlags: 0
@@ -5059,7 +5030,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &89308814
 GameObject:
   m_ObjectHideFlags: 0
@@ -5235,7 +5205,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &89330304
 GameObject:
   m_ObjectHideFlags: 0
@@ -5367,7 +5336,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &91714500
 GameObject:
   m_ObjectHideFlags: 0
@@ -5498,7 +5466,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!65 &92691526
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5553,11 +5520,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
@@ -5588,7 +5555,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &94396928
 GameObject:
   m_ObjectHideFlags: 0
@@ -5764,7 +5730,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &95054013
 GameObject:
   m_ObjectHideFlags: 0
@@ -5866,7 +5831,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &95212334
 GameObject:
   m_ObjectHideFlags: 0
@@ -6186,7 +6150,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &106572279
 GameObject:
   m_ObjectHideFlags: 0
@@ -6508,7 +6471,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!114 &109582320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6644,7 +6606,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!4 &123611223 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4863431256072568, guid: bcbecb8220a4b4663a4f7c2b375ea455,
@@ -6703,7 +6664,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &131561352
 GameObject:
   m_ObjectHideFlags: 0
@@ -6785,7 +6745,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 83b433f4-ed48-4484-8429-65e5462907e4
 --- !u!1 &132120779
 GameObject:
   m_ObjectHideFlags: 0
@@ -7053,7 +7012,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &141804813
 GameObject:
   m_ObjectHideFlags: 0
@@ -7155,7 +7113,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &146123761
 GameObject:
   m_ObjectHideFlags: 0
@@ -7256,7 +7213,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &146359637
 GameObject:
   m_ObjectHideFlags: 0
@@ -7432,7 +7388,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &146600722
 GameObject:
   m_ObjectHideFlags: 0
@@ -7608,7 +7563,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &147900296
 GameObject:
   m_ObjectHideFlags: 0
@@ -7789,7 +7743,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1001 &153354833
 Prefab:
   m_ObjectHideFlags: 0
@@ -7972,7 +7925,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!114 &153354840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7984,7 +7936,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!114 &153354841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7996,7 +7947,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!114 &153354842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8008,7 +7958,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &160173785
 GameObject:
   m_ObjectHideFlags: 0
@@ -8185,7 +8134,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &164722357
 GameObject:
   m_ObjectHideFlags: 0
@@ -8287,7 +8235,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &172767657
 GameObject:
   m_ObjectHideFlags: 0
@@ -8504,7 +8451,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &174616361
 GameObject:
   m_ObjectHideFlags: 0
@@ -8680,7 +8626,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &175640348
 GameObject:
   m_ObjectHideFlags: 0
@@ -8723,11 +8668,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
@@ -8758,7 +8703,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &177936977
 GameObject:
   m_ObjectHideFlags: 0
@@ -8977,7 +8921,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: a2b865b2-958c-4cca-bd3a-4c4973b32e0d
 --- !u!1 &180706654
 GameObject:
   m_ObjectHideFlags: 0
@@ -9420,7 +9363,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &190741073
 GameObject:
   m_ObjectHideFlags: 0
@@ -9596,7 +9538,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &193732440
 GameObject:
   m_ObjectHideFlags: 0
@@ -9772,7 +9713,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &194777294
 GameObject:
   m_ObjectHideFlags: 0
@@ -9909,7 +9849,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &200715994
 GameObject:
   m_ObjectHideFlags: 0
@@ -10016,7 +9955,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &204494739
 GameObject:
   m_ObjectHideFlags: 0
@@ -10180,7 +10118,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &206128161
 GameObject:
   m_ObjectHideFlags: 0
@@ -10356,7 +10293,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &211878803
 GameObject:
   m_ObjectHideFlags: 0
@@ -10458,7 +10394,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &212094317
 GameObject:
   m_ObjectHideFlags: 0
@@ -10719,7 +10654,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!115 &223691745
 MonoScript:
   m_ObjectHideFlags: 0
@@ -10910,7 +10844,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &227531467
 GameObject:
   m_ObjectHideFlags: 0
@@ -10998,7 +10931,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!65 &227531474
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11186,7 +11118,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &229172470
 GameObject:
   m_ObjectHideFlags: 0
@@ -11308,7 +11239,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &231442155
 GameObject:
   m_ObjectHideFlags: 0
@@ -11399,7 +11329,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &231495363
 GameObject:
   m_ObjectHideFlags: 0
@@ -11852,7 +11781,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &233907897
 GameObject:
   m_ObjectHideFlags: 0
@@ -11954,7 +11882,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &235055063
 GameObject:
   m_ObjectHideFlags: 0
@@ -12130,7 +12057,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &236335248
 GameObject:
   m_ObjectHideFlags: 0
@@ -12245,7 +12171,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &238113785
 GameObject:
   m_ObjectHideFlags: 0
@@ -12421,7 +12346,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &239841342
 GameObject:
   m_ObjectHideFlags: 0
@@ -12519,7 +12443,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &240487647
 GameObject:
   m_ObjectHideFlags: 0
@@ -12606,7 +12529,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &241831454
 GameObject:
   m_ObjectHideFlags: 0
@@ -12782,7 +12704,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &242732317
 GameObject:
   m_ObjectHideFlags: 0
@@ -12884,7 +12805,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!114 &243800251 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114999053187936074, guid: ea0425ca82785d64b8908b108ff3e4a6,
@@ -13356,7 +13276,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &251684046
 GameObject:
   m_ObjectHideFlags: 0
@@ -13516,7 +13435,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &253333737
 GameObject:
   m_ObjectHideFlags: 0
@@ -13593,8 +13511,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1810467443}
   m_HandleRect: {fileID: 1810467442}
   m_Direction: 2
-  m_Value: 0.99999624
-  m_Size: 0.81799996
+  m_Value: 0.99999833
+  m_Size: 0.81800014
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13645,7 +13563,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!4 &255802434 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4990982863728422, guid: ae50a0abf7d00ea4aa1b7636f89d0687,
@@ -13697,7 +13614,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &261185813
 GameObject:
   m_ObjectHideFlags: 0
@@ -13716,7 +13632,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 126
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &261185814
 Transform:
@@ -13810,7 +13726,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &265260537
 GameObject:
   m_ObjectHideFlags: 0
@@ -13916,7 +13831,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &269625413
 GameObject:
   m_ObjectHideFlags: 0
@@ -14096,7 +14010,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!4 &270170351 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4990982863728422, guid: ae50a0abf7d00ea4aa1b7636f89d0687,
@@ -14151,7 +14064,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &274202886
 GameObject:
   m_ObjectHideFlags: 0
@@ -14327,7 +14239,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &275284507
 GameObject:
   m_ObjectHideFlags: 0
@@ -14372,7 +14283,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &276475457
 GameObject:
   m_ObjectHideFlags: 0
@@ -14548,7 +14458,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!4 &276923529 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4940466822848506, guid: 9208b162ad91b814097b25b1bcaa4e88,
@@ -14730,7 +14639,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &281126239
 GameObject:
   m_ObjectHideFlags: 0
@@ -14908,7 +14816,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &281311295
 GameObject:
   m_ObjectHideFlags: 0
@@ -19594,7 +19501,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &281486343
 GameObject:
   m_ObjectHideFlags: 0
@@ -19986,7 +19892,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &288465019
 GameObject:
   m_ObjectHideFlags: 0
@@ -20193,7 +20098,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &289469709
 GameObject:
   m_ObjectHideFlags: 0
@@ -20240,7 +20144,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &290668335
 GameObject:
   m_ObjectHideFlags: 0
@@ -20494,7 +20397,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!54 &292196069
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20589,7 +20491,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &297260563
 GameObject:
   m_ObjectHideFlags: 0
@@ -20929,7 +20830,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &303309197
 GameObject:
   m_ObjectHideFlags: 0
@@ -21112,7 +21012,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &304553328
 GameObject:
   m_ObjectHideFlags: 0
@@ -21230,7 +21129,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &310945400
 GameObject:
   m_ObjectHideFlags: 0
@@ -21405,7 +21303,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &311956099
 GameObject:
   m_ObjectHideFlags: 0
@@ -21621,7 +21518,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &313084701
 GameObject:
   m_ObjectHideFlags: 0
@@ -21764,7 +21660,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &320033134
 GameObject:
   m_ObjectHideFlags: 0
@@ -21808,7 +21703,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &335828741
 GameObject:
   m_ObjectHideFlags: 0
@@ -21988,7 +21882,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!65 &337753470
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22087,7 +21980,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!1 &344155542
 GameObject:
   m_ObjectHideFlags: 0
@@ -22356,7 +22248,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!115 &346688547
 MonoScript:
   m_ObjectHideFlags: 0
@@ -22414,11 +22305,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
@@ -23190,7 +23081,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &360547738
 Transform:
@@ -25632,11 +25523,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
@@ -25696,26 +25587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ebe17cad130d4e42af4ea47d6ed221a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRecording: 0
-  isReplay: 1
-  isReplayInitialized: 0
-  deltaTime: -1
-  skip: 1
-  forcedUpdate: 0
-  timeSliderEnabled: 0
-  useScale: 0
-  slider: {fileID: 0}
-  camera: {fileID: 726878690}
-  leftController: {fileID: 550842637}
-  rightController: {fileID: 1259684388}
-  rightHand: {fileID: 0}
-  initialized: 0
-  saved: 1
-  currentTime: 0
-  startTime: -1
-  uniqueID: 
-  minTime: 0
-  maxTime: 0
 --- !u!4 &407479697
 Transform:
   m_ObjectHideFlags: 0
@@ -26395,7 +26266,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 0.273
@@ -26405,11 +26276,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
@@ -39121,7 +38992,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1588896576}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.7434713
+  m_Size: 0.74347144
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -39448,11 +39319,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
@@ -43775,7 +43646,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &774030549
 Transform:
@@ -44390,7 +44261,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &786127729
 Transform:
@@ -44955,7 +44826,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -45029,11 +44900,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
@@ -46963,11 +46834,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
@@ -49271,7 +49142,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 0.558
@@ -49281,11 +49152,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
@@ -54702,6 +54573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
+  VisualSpectrumObject: {fileID: 0}
 --- !u!1 &914013814
 GameObject:
   m_ObjectHideFlags: 0
@@ -54833,11 +54705,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
@@ -56324,7 +56196,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &946667275
 Transform:
@@ -66623,7 +66495,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -18, y: -18.000061}
+  m_AnchoredPosition: {x: -18, y: -18}
   m_SizeDelta: {x: -36, y: -36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1175472486
@@ -70690,7 +70562,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1280859581
 Light:
   m_ObjectHideFlags: 0
@@ -70720,7 +70592,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -71708,11 +71580,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
@@ -84587,6 +84459,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 72.42929
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3e450df98a55f7a45b6ac0cefdb3479c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e450df98a55f7a45b6ac0cefdb3479c, type: 3}
   m_IsPrefabParent: 0
@@ -92850,11 +92726,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
@@ -93496,11 +93372,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
@@ -98475,8 +98351,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 521889244}
   m_HandleRect: {fileID: 521889243}
   m_Direction: 2
-  m_Value: 0.9999996
-  m_Size: 0.27266666
+  m_Value: 0.9999997
+  m_Size: 0.2726667
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -113871,11 +113747,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
@@ -114337,7 +114213,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 546030475}
   m_HandleRect: {fileID: 546030474}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

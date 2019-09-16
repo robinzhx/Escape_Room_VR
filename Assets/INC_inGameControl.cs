@@ -80,6 +80,10 @@ public class INC_inGameControl : MonoBehaviour {
                 GazeRecordList = currGazeResult + "\n" + GazeRecordList;
             }
             GazeRecordList = (currGazeResult == "" ? "Waiting for data" : GazeRecordList);
+            if (GazeRecordList.Length > 200)
+            {
+                GazeRecordList = GazeRecordList.Substring(0, 200);
+            }
         }
         else
         {
