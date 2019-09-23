@@ -46,7 +46,7 @@ namespace ViveSR
                 }
 
                 // Update is called once per frame
-                void Update()
+                void FixedUpdate()
                 {
                     if (Input.GetKeyDown(KeyCode.Escape) && (SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().buildIndex == 1))
                     {
@@ -66,6 +66,9 @@ namespace ViveSR
                     Vector3 camPos = Camera.main.transform.position - Camera.main.transform.up * 0.05f;
                     lighter.transform.SetPositionAndRotation(camPos, Quaternion.identity);
                     lighter.transform.LookAt(Camera.main.transform.position + GazeDirectionCombined * 25);
+                    
+                    // Camera position: lighter.transform.position
+                    // Gaze direction: lighter.transform.position
 
                     // print(Time.time.ToString() + " -- Eye X: " + aGlass.Instance.GetGazePoint().x + "  Y: " + aGlass.Instance.GetGazePoint().y);
                     
@@ -74,6 +77,7 @@ namespace ViveSR
                         _writer.WriteLine(String.Format("{0:HH:mm:ss.fff}", DateTime.Now) + " - " + Time.time.ToString() + ": EyeL " + pupilPos_L + ", EyeR: " + pupilPos_R);
                         float[] tempSample = { pupilPos_L.x, pupilPos_L.y, pupilPos_R.x, pupilPos_R.y, };
                         markerStream.push_sample(tempSample);
+                        
                     }
                     else
                     {

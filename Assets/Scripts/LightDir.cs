@@ -68,6 +68,8 @@ public class LightDir : MonoBehaviour {
                 //hit.collider.GetComponent<MeshRenderer>().materials = tempMaterials;
                 string[] tempSample = { currObjLookAtStr };
                 markerStream.push_sample(tempSample);
+
+                
             }
             secondsCount += Time.deltaTime;
             //print(currObjLookAtStr + " : " + secondsCount);
