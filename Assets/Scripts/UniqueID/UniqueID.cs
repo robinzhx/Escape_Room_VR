@@ -8,7 +8,7 @@ public class UniqueIdentifierAttribute : PropertyAttribute
 }
 
 [Serializable]
-public class UniqueId : MonoBehaviour
+public class UniqueID : MonoBehaviour
 {
     [UniqueIdentifier,SerializeField] public string guid = "";
 }

@@ -19,8 +19,8 @@ public class GrabStreamer : MonoBehaviour {
     public void SendGrabMarkerLeft(NVRInteractable interactable)
     {
         string name = "";
-        if (interactable.GetComponent<UniqueId>())
-            name = interactable.GetComponent<UniqueId>().guid;
+        if (interactable.GetComponent<UniqueID>())
+            name = interactable.GetComponent<UniqueID>().guid;
         else 
             name = interactable.name;
 
@@ -33,8 +33,8 @@ public class GrabStreamer : MonoBehaviour {
     public void SendGrabMarkerRight(NVRInteractable interactable)
     {
         string name = "";
-        if (interactable.GetComponent<UniqueId>())
-            name = interactable.GetComponent<UniqueId>().guid;
+        if (interactable.GetComponent<UniqueID>())
+            name = interactable.GetComponent<UniqueID>().guid;
         else 
             name = interactable.name;
 

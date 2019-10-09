@@ -106,7 +106,7 @@ public class ReplayManager : MonoBehaviour
 
     #region Replay Frame Variable
 
-    private List<UniqueId> gameObjectList;
+    private List<UniqueID> gameObjectList;
     [SerializeField] private List<List<Frame>> frameList;
     private List<bool> isChanged;
     private List<int> indices;
@@ -166,7 +166,7 @@ public class ReplayManager : MonoBehaviour
             
             initialized = false;
             isReplayInitialized = false;
-            gameObjectList = new List<UniqueId>();
+            gameObjectList = new List<UniqueID>();
         }
         catch (Exception e)
         {
@@ -244,7 +244,7 @@ public class ReplayManager : MonoBehaviour
             currentMode = (Mode) mode;
             initialized = false;
             isReplayInitialized = false;
-            gameObjectList = new List<UniqueId>();
+            gameObjectList = new List<UniqueID>();
             frameList = new List<List<Frame>>();
         }
         else
@@ -313,9 +313,9 @@ public class ReplayManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        if (!GetComponent<UniqueId>())
+        if (!GetComponent<UniqueID>())
         {
-            UniqueId u = this.gameObject.AddComponent<UniqueId>();
+            UniqueID u = this.gameObject.AddComponent<UniqueID>();
             if (string.IsNullOrEmpty(u.guid))
             {
                 Guid guid = Guid.NewGuid();
@@ -325,9 +325,9 @@ public class ReplayManager : MonoBehaviour
             Debug.Log("Add UniqueID " + u.guid + " to: " + this.name);
         }
 
-        Debug.Log("My instance ID:" + this.gameObject.GetComponent<UniqueId>().guid);
-        uniqueID = this.gameObject.GetComponent<UniqueId>().guid;
-        gameObjectList = new List<UniqueId>();
+        Debug.Log("My instance ID:" + this.gameObject.GetComponent<UniqueID>().guid);
+        uniqueID = this.gameObject.GetComponent<UniqueID>().guid;
+        gameObjectList = new List<UniqueID>();
         frameList = new List<List<Frame>>();
 
         // serializer 
@@ -389,7 +389,7 @@ public class ReplayManager : MonoBehaviour
 
     void UpdateScene(bool isReplay)
     {
-        UniqueId[] gameObjectList = Resources.FindObjectsOfTypeAll<UniqueId>();
+        UniqueID[] gameObjectList = Resources.FindObjectsOfTypeAll<UniqueID>();
         foreach (var gameObject in gameObjectList)
         {
             if (gameObject.guid == "")
@@ -459,7 +459,7 @@ public class ReplayManager : MonoBehaviour
                 Frame frame = new Frame
                 {
                     timestamp = currentTime - minTime,
-                    uniqueID = gameObject.GetComponent<UniqueId>().guid,
+                    uniqueID = gameObject.GetComponent<UniqueID>().guid,
                     position = gameObject.transform.position,
                     rotation = gameObject.transform.rotation
                 };
@@ -530,7 +530,7 @@ public class ReplayManager : MonoBehaviour
         for (int i = 0; i < frameList.Count; i++)
         {
             string guid = frameList[i][0].uniqueID;
-            UniqueId currId = gameObjectList.Find(x => x.guid == guid);
+            UniqueID currId = gameObjectList.Find(x => x.guid == guid);
             if (currId == null)
             {
                 // the gameObject corresponding to current frameList is no longer exist

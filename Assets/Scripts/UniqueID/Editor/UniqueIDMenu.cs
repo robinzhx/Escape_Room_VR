@@ -35,9 +35,9 @@ public class UniqueIDMenu
         foreach (object o in obj)
         {
             GameObject g = (GameObject) o;
-            if (g.GetComponent<UniqueId>())
+            if (g.GetComponent<UniqueID>())
             {
-                var id = g.GetComponent<UniqueId>().guid;
+                var id = g.GetComponent<UniqueID>().guid;
                 Debug.Log("Collect UniqueID " + id + " to: " + g.name);
 
                 m.AddToMap(id, g);
@@ -52,9 +52,9 @@ public class UniqueIDMenu
         foreach (object o in obj)
         {
             GameObject g = (GameObject) o;
-            if (!g.GetComponent<UniqueId>())
+            if (!g.GetComponent<UniqueID>())
             {
-                UniqueId u = g.AddComponent<UniqueId>();
+                UniqueID u = g.AddComponent<UniqueID>();
                 if (string.IsNullOrEmpty(u.guid))
                 {
                     Guid guid = Guid.NewGuid();
@@ -72,9 +72,9 @@ public class UniqueIDMenu
         foreach (object o in Selection.gameObjects)
         {
             GameObject g = (GameObject) o;
-            if (!g.GetComponent<UniqueId>())
+            if (!g.GetComponent<UniqueID>())
             {
-                UniqueId u = g.AddComponent<UniqueId>();
+                UniqueID u = g.AddComponent<UniqueID>();
                 if (string.IsNullOrEmpty(u.guid))
                 {
                     Guid guid = Guid.NewGuid();
@@ -100,7 +100,7 @@ public class UniqueIDMenu
         foreach (object o in obj)
         {
             GameObject g = (GameObject) o;
-            UniqueId u = g.GetComponent<UniqueId>();
+            UniqueID u = g.GetComponent<UniqueID>();
             if (u)
             {
                 Debug.Log("Remove UniqueID " + u.guid + " from: " + g.name);
