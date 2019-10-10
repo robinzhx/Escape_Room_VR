@@ -25,6 +25,8 @@ TagManager:
   - Head
   - Heat
   - SnapCandle
+  - Pistol
+  - target_bullet
   layers:
   - Default
   - TransparentFX

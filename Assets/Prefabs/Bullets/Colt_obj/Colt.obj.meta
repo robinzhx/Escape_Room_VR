@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: ff9c4c71f1e70884ea7636e138e23282
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Colt_Colt_BackStrapSG
+    100004: Colt_Colt_blinn1SG
+    100006: Colt_Colt_blinn2SG
+    100008: Colt_Colt_checkering_lambert2SG
+    100010: Colt_Colt_FrameLeftSG
+    100012: Colt_Colt_FrameRightSG
+    100014: Colt_Colt_Gun1SG
+    100016: Colt_Colt_SlideLeftSG
+    100018: Colt_Colt_SpringPlugSG
+    100020: Colt_Colt_StRtCheckerSG
+    100022: Colt_Colt_TriggerSG
+    400000: //RootNode
+    400002: Colt_Colt_BackStrapSG
+    400004: Colt_Colt_blinn1SG
+    400006: Colt_Colt_blinn2SG
+    400008: Colt_Colt_checkering_lambert2SG
+    400010: Colt_Colt_FrameLeftSG
+    400012: Colt_Colt_FrameRightSG
+    400014: Colt_Colt_Gun1SG
+    400016: Colt_Colt_SlideLeftSG
+    400018: Colt_Colt_SpringPlugSG
+    400020: Colt_Colt_StRtCheckerSG
+    400022: Colt_Colt_TriggerSG
+    2100000: BackStrapSG
+    2100002: blinn1SG
+    2100004: blinn2SG
+    2100006: checkering_lambert2SG
+    2100008: FrameLeftSG
+    2100010: FrameRightSG
+    2100012: Gun1SG
+    2100014: SlideLeftSG
+    2100016: SpringPlugSG
+    2100018: StRtCheckerSG
+    2100020: TriggerSG
+    2300000: Colt_Colt_BackStrapSG
+    2300002: Colt_Colt_blinn1SG
+    2300004: Colt_Colt_blinn2SG
+    2300006: Colt_Colt_checkering_lambert2SG
+    2300008: Colt_Colt_FrameLeftSG
+    2300010: Colt_Colt_FrameRightSG
+    2300012: Colt_Colt_Gun1SG
+    2300014: Colt_Colt_SlideLeftSG
+    2300016: Colt_Colt_SpringPlugSG
+    2300018: Colt_Colt_StRtCheckerSG
+    2300020: Colt_Colt_TriggerSG
+    3300000: Colt_Colt_BackStrapSG
+    3300002: Colt_Colt_blinn1SG
+    3300004: Colt_Colt_blinn2SG
+    3300006: Colt_Colt_checkering_lambert2SG
+    3300008: Colt_Colt_FrameLeftSG
+    3300010: Colt_Colt_FrameRightSG
+    3300012: Colt_Colt_Gun1SG
+    3300014: Colt_Colt_SlideLeftSG
+    3300016: Colt_Colt_SpringPlugSG
+    3300018: Colt_Colt_StRtCheckerSG
+    3300020: Colt_Colt_TriggerSG
+    4300000: Colt_Colt_BackStrapSG
+    4300002: Colt_Colt_blinn1SG
+    4300004: Colt_Colt_blinn2SG
+    4300006: Colt_Colt_checkering_lambert2SG
+    4300008: Colt_Colt_FrameLeftSG
+    4300010: Colt_Colt_FrameRightSG
+    4300012: Colt_Colt_Gun1SG
+    4300014: Colt_Colt_SlideLeftSG
+    4300016: Colt_Colt_SpringPlugSG
+    4300018: Colt_Colt_StRtCheckerSG
+    4300020: Colt_Colt_TriggerSG
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
