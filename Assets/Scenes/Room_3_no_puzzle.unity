@@ -8050,7 +8050,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 
 --- !u!114 &369689126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14146,7 +14145,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Toggle-e2686753-89e0-40fe-8088-fa343fc2f78d
 --- !u!114 &619719049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21251,6 +21249,34 @@ Transform:
   m_PrefabParentObject: {fileID: 4070061560911508, guid: 972bb63bb1bf8d948a0b29fa2825910f,
     type: 2}
   m_PrefabInternal: {fileID: 1023784342}
+--- !u!1 &1024194323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1024194324}
+  m_Layer: 0
+  m_Name: Velocity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1024194324
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1024194323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.079564, y: 4.134367, z: 58.4134}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1033835088 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100030, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
@@ -31941,7 +31967,6 @@ MonoBehaviour:
   m_Script: {fileID: 223691745}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Gaze-6454d570-7d43-4c1c-8828-17eae04ae56b
 --- !u!114 &1555905228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31954,6 +31979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lighter: {fileID: 533692424}
+  headset: {fileID: 0}
 --- !u!1 &1557149605
 GameObject:
   m_ObjectHideFlags: 0
@@ -33846,7 +33872,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Checkmark-68a02bcd-4978-45e5-b42a-440705e711dc
 --- !u!114 &1633755220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42278,8 +42303,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 521889244}
   m_HandleRect: {fileID: 521889243}
   m_Direction: 2
-  m_Value: 0.9999999
-  m_Size: 0.27266666
+  m_Value: 1
+  m_Size: 0.2726667
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -43667,7 +43692,7 @@ Transform:
   m_LocalScale: {x: 0.18597698, y: 0.18597698, z: 0.10374815}
   m_Children: []
   m_Father: {fileID: 1502163586}
-  m_RootOrder: 92
+  m_RootOrder: 121
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1884056580
 MonoBehaviour:
@@ -46151,7 +46176,6 @@ MonoBehaviour:
   m_Script: {fileID: 346688547}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: Label-305d2c6a-674d-4ede-aab6-a82a7d9563e4
 --- !u!114 &1998275525
 MonoBehaviour:
   m_ObjectHideFlags: 0

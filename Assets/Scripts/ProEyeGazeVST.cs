@@ -6,10 +6,12 @@ using LSL;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using ViveSR.anipal.Eye;
+using VRTK;
 
 public class ProEyeGazeVST : MonoBehaviour
 {
     public GameObject lighter;
+    public GameObject headset;
     int count = 0;
     private StreamWriter _writer;
     Vector2 pupilPos_L;
@@ -30,6 +32,11 @@ public class ProEyeGazeVST : MonoBehaviour
             lighter = GameObject.Find("LightEye");
         }
 
+        if (!headset)
+        {
+            headset = Camera.main.gameObject;
+        }
+
         //print(aGlass.Instance.aGlassStart());
         string filename = String.Format("{1}_{0:MMddyyyy-HHmmss}{2}", DateTime.Now, "ProEyeData", ".txt");
         string path = Path.Combine(@"C:\VSTData", filename);
@@ -42,8 +49,11 @@ public class ProEyeGazeVST : MonoBehaviour
         // 7 - 3d direction of right eye
         // 10 - 3d position of combined hit spot
         // 13 - 3d position of head
+        // 16 - 3d forward direction of head
+        // 19 - 3d velocity of head
+        // 22 - 3d angular velocity of head
         liblsl.StreamInfo inf =
-            new liblsl.StreamInfo("ProEyeGaze", "Gaze", 2 + 2 + 3 + 3 + 3 + 3, 90, liblsl.channel_format_t.cf_float32,
+            new liblsl.StreamInfo("ProEyeGaze", "Gaze", 2 + 2 + 3 + 3 + 3 + 3 + 3 + 3 + 3, 50, liblsl.channel_format_t.cf_float32,
                 "ProEye");
         markerStream = new liblsl.StreamOutlet(inf);
     }
@@ -81,6 +91,12 @@ public class ProEyeGazeVST : MonoBehaviour
 
         // print(Time.time.ToString() + " -- Eye X: " + aGlass.Instance.GetGazePoint().x + "  Y: " + aGlass.Instance.GetGazePoint().y);
 
+        // Debug.Log(VRTK_SDK_Bridge.GetHeadsetVelocity());
+        // Debug.Log(VRTK_SDK_Bridge.GetHeadsetAngularVelocity());
+
+        Vector3 headsetVelocity = VRTK_SDK_Bridge.GetHeadsetVelocity();
+        Vector3 headsetAngVelocity = VRTK_SDK_Bridge.GetHeadsetAngularVelocity();
+
         if (SRanipal_Eye.GetPupilPosition(EyeIndex.LEFT, out pupilPos_L) &&
             SRanipal_Eye.GetPupilPosition(EyeIndex.RIGHT, out pupilPos_R))
         {
@@ -90,6 +106,9 @@ public class ProEyeGazeVST : MonoBehaviour
             // 7 - 3d direction of right eye
             // 10 - 3d position of combined hit spot
             // 13 - 3d position of head
+            // 16 - 3d forward direction of head
+            // 19 - 3d velocity of head
+            // 21 - 3d angular velocity of head
 
             RaycastHit hit;
             Physics.Raycast(lighter.transform.position, lighter.transform.forward, out hit);
@@ -100,7 +119,10 @@ public class ProEyeGazeVST : MonoBehaviour
                               ", 3DEyeL: " + GazeDirectionLeftLocal +
                               ", 3DEyeR: " + GazeDirectionRightLocal +
                               ", 3DHit: " + hit.point +
-                              ", 3DHead: " + lighter.transform.position);
+                              ", 3DHead: " + lighter.transform.position + 
+                              ", 3DHeadForward: " + headset.transform.forward + 
+                              ", 3DHeadVelocity: " + headsetVelocity +
+                              ", 3DHeadAngVelocity: " + headsetAngVelocity);
             float[] tempSample =
             {
                 pupilPos_L.x,
@@ -119,6 +141,15 @@ public class ProEyeGazeVST : MonoBehaviour
                 lighter.transform.position.x,
                 lighter.transform.position.y,
                 lighter.transform.position.z,
+                headset.transform.forward.x,
+                headset.transform.forward.y,
+                headset.transform.forward.z,
+                headsetVelocity.x,
+                headsetVelocity.y,
+                headsetVelocity.z,
+                headsetAngVelocity.x,
+                headsetAngVelocity.y,
+                headsetAngVelocity.z,
             };
             markerStream.push_sample(tempSample);
         }
