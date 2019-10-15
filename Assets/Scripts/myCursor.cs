@@ -28,7 +28,7 @@ public class myCursor : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        gaze.GetPos(lighter.gameObject, ref x, ref y);
+        //gaze.GetPos(lighter.gameObject, ref x, ref y);
         //cursor.transform.localPosition = new Vector2((x - 0.5f) * 1512, (0.5f - y) * 1680);
     } 
 }

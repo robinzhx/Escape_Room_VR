@@ -108,7 +108,7 @@ public class ProEyeGazeVST : MonoBehaviour
             // 13 - 3d position of head
             // 16 - 3d forward direction of head
             // 19 - 3d velocity of head
-            // 21 - 3d angular velocity of head
+            // 22 - 3d angular velocity of head
 
             RaycastHit hit;
             Physics.Raycast(lighter.transform.position, lighter.transform.forward, out hit);
