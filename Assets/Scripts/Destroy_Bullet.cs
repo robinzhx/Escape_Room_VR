@@ -5,11 +5,11 @@ using UnityEngine;
 public class Destroy_Bullet : MonoBehaviour {
 
     private int win_count;
-    private int bullets_found;
+    public int bullets_found;
 
 	// Use this for initialization
 	void Start () {
-        win_count = 3;
+        win_count = 10;
         bullets_found = 0;
 	}
 
