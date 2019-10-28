@@ -10,7 +10,7 @@ public class CountUpBullets : MonoBehaviour {
     
     // Use this for initialization
     void Start () {
-        gun = GameObject.Find("Colt");
+        gun = GameObject.Find("Colt Prefab");
 	}
 	
 	// Update is called once per frame
