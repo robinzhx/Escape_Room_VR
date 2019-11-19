@@ -89,7 +89,7 @@ public class ProEyeGazeVST : MonoBehaviour
         }
         else
         {
-            leftOpenness = 0;
+            leftOpenness = -1;
         }
 
         if(SRanipal_Eye.GetGazeRay(GazeIndex.RIGHT, out GazeOriginRightLocal, out GazeDirectionRightLocal))
@@ -98,16 +98,16 @@ public class ProEyeGazeVST : MonoBehaviour
         }
         else
         {
-            rightOpenness = 0;
+            rightOpenness = -1;
         }
 
         if (!SRanipal_Eye.GetPupilPosition(EyeIndex.LEFT, out pupilPos_L))
         {
-            leftOpenness = 0;
+            leftOpenness = -1;
         }
         if (!SRanipal_Eye.GetPupilPosition(EyeIndex.RIGHT, out pupilPos_R))
         {
-            rightOpenness = 0;
+            rightOpenness = -1;
         }
 
 
