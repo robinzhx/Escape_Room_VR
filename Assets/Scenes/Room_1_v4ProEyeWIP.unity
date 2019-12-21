@@ -13511,8 +13511,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1810467443}
   m_HandleRect: {fileID: 1810467442}
   m_Direction: 2
-  m_Value: 0.99999624
-  m_Size: 0.81799996
+  m_Value: 0.99999666
+  m_Size: 0.818
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -32458,6 +32458,78 @@ Prefab:
       propertyPath: gameObjectToFollow
       value: 
       objectReference: {fileID: 910557481}
+    - target: {fileID: 114281431218223314, guid: d714f21ca583a5245bfadc3882ba7ac0,
+        type: 2}
+      propertyPath: m_Text
+      value: How close are you to the final key
+      objectReference: {fileID: 0}
+    - target: {fileID: 224955961348565194, guid: d714f21ca583a5245bfadc3882ba7ac0,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224955961348565194, guid: d714f21ca583a5245bfadc3882ba7ac0,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 320.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 224955961348565194, guid: d714f21ca583a5245bfadc3882ba7ac0,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224955961348565194, guid: d714f21ca583a5245bfadc3882ba7ac0,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 186.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224373706002144786, guid: d714f21ca583a5245bfadc3882ba7ac0,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 57.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224373706002144786, guid: d714f21ca583a5245bfadc3882ba7ac0,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 50.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224373706002144786, guid: d714f21ca583a5245bfadc3882ba7ac0,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224836088093470376, guid: d714f21ca583a5245bfadc3882ba7ac0,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224836088093470376, guid: d714f21ca583a5245bfadc3882ba7ac0,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -71
+      objectReference: {fileID: 0}
+    - target: {fileID: 224836088093470376, guid: d714f21ca583a5245bfadc3882ba7ac0,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 94.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114472745115707068, guid: d714f21ca583a5245bfadc3882ba7ac0,
+        type: 2}
+      propertyPath: m_Text
+      value: '10 = almost there
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 224373706002144786, guid: d714f21ca583a5245bfadc3882ba7ac0,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 137.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 224315283376503646, guid: d714f21ca583a5245bfadc3882ba7ac0,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d714f21ca583a5245bfadc3882ba7ac0, type: 2}
   m_IsPrefabParent: 0
@@ -38992,7 +39064,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1588896576}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.7434713
+  m_Size: 0.74347126
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -114213,7 +114285,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 546030475}
   m_HandleRect: {fileID: 546030474}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
