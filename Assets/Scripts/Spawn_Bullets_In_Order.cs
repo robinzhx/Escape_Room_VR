@@ -24,9 +24,9 @@ public class Spawn_Bullets_In_Order : MonoBehaviour {
 	void OnCollisionEnter (Collision col) {
 		if (col.gameObject.tag == "target_bullet")
         {
-            count++;
             bullets[count + 1].SetActive(true);
-            Debug.Log("Next target revealed is bullet" + count);
+            count++;
+            Debug.Log("Next target revealed is bullet " + count);
         }
 	}
 }

@@ -19,7 +19,7 @@ using System.Linq;
 using System.Reflection;
 
 using UnityObject = UnityEngine.Object;
-
+#if UNITY_EDITOR
 [CustomEditor( typeof( MonoBehaviour ) )]
 public class MissingScriptResolver : Editor
 {
@@ -555,3 +555,4 @@ This component's properties are shown below to help you determine which script i
 	#endregion
 
 }
+#endif
