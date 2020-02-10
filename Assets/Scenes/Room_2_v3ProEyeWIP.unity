@@ -21746,8 +21746,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 347312991}
-  - component: {fileID: 347312993}
   - component: {fileID: 347312992}
+  - component: {fileID: 347312993}
   m_Layer: 0
   m_Name: Gaze
   m_TagString: Untagged
@@ -21788,10 +21788,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 347312990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcac52ae34a28d24ba413dc1d271f10a, type: 3}
+  m_Script: {fileID: 11500000, guid: eb0b01fba2656fe4e88bc48a5c292360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lighter: {fileID: 1061755611}
+  headset: {fileID: 0}
 --- !u!1 &349868071
 GameObject:
   m_ObjectHideFlags: 0
@@ -43462,7 +43463,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1588896577}
   m_HandleRect: {fileID: 1588896576}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0.5
   m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -125270,7 +125271,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 546030474}
   m_Direction: 0
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

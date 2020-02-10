@@ -17,6 +17,7 @@ public class ProEyeGazeVST : MonoBehaviour
     Vector2 pupilPos_L;
     Vector2 pupilPos_R;
     private liblsl.StreamOutlet markerStream;
+    public string folderName = "EscapeRoomData";
 
     // Use this for initialization
     void Start()
@@ -39,7 +40,7 @@ public class ProEyeGazeVST : MonoBehaviour
 
         //print(aGlass.Instance.aGlassStart());
         string filename = String.Format("{1}_{0:MMddyyyy-HHmmss}{2}", DateTime.Now, "ProEyeData", ".txt");
-        string path = Path.Combine(@"C:\VSTData", filename);
+        string path = Path.Combine(@"C:\" + folderName, filename);
         _writer = File.CreateText(path);
         _writer.Write("\n\n=============== Game started ================\n\n");
 
@@ -72,8 +73,6 @@ public class ProEyeGazeVST : MonoBehaviour
             Application.Quit();
         }
 
-        if (SRanipal_Eye_Framework.Status != SRanipal_Eye_Framework.FrameworkStatus.WORKING &&
-            SRanipal_Eye_Framework.Status != SRanipal_Eye_Framework.FrameworkStatus.NOT_SUPPORT) return;
         if (SRanipal_Eye_Framework.Status != SRanipal_Eye_Framework.FrameworkStatus.WORKING &&
             SRanipal_Eye_Framework.Status != SRanipal_Eye_Framework.FrameworkStatus.NOT_SUPPORT) return;
         Vector3 GazeOriginCombinedLocal, GazeDirectionCombinedLocal;
