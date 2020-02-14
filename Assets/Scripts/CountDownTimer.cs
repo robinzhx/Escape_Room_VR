@@ -8,18 +8,20 @@ public class CountDownTimer : MonoBehaviour {
     float currTime = 0f;
     float startTime = 300f;
     public Text countdownText;
-    bool countdown = true;
+    bool countdown = false;
     GameObject gun;
 
 	// Use this for initialization
 	void Start () {
+
         currTime = startTime;
-	    countdownText.color = Color.black;
+        countdownText.color = Color.black;
+        countdownText.text = currTime.ToString("0");
         gun = GameObject.Find("Colt Prefab");
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 
         if (countdown == true)
         {
@@ -39,4 +41,15 @@ public class CountDownTimer : MonoBehaviour {
             countdown = false;
         }
 	}
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Entered Trigger");
+
+        if (other.gameObject.tag == "Hand" && countdown == false)
+        {
+            Debug.Log("Hand is touching");
+            countdown = true;
+        }
+    }
 }

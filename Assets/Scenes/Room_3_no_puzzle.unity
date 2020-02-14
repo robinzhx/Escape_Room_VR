@@ -14192,6 +14192,14 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.53526044
       objectReference: {fileID: 0}
+    - target: {fileID: 1721833846189182, guid: 82371367c2f3b4d4badb4216f4880cdb, type: 2}
+      propertyPath: m_TagString
+      value: Hand
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233299543524026, guid: 82371367c2f3b4d4badb4216f4880cdb, type: 2}
+      propertyPath: m_TagString
+      value: Hand
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 82371367c2f3b4d4badb4216f4880cdb, type: 2}
   m_IsPrefabParent: 0
@@ -17454,8 +17462,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1064326198}
   m_HandleRect: {fileID: 1064326197}
   m_Direction: 2
-  m_Value: 0.99992615
-  m_Size: 0.2726666
+  m_Value: 0.99992436
+  m_Size: 0.27266666
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -45895,8 +45903,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1966039136}
   m_HandleRect: {fileID: 1966039135}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.9999984
+  m_Value: 1
+  m_Size: 0.9999995
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

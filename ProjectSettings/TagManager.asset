@@ -27,6 +27,7 @@ TagManager:
   - SnapCandle
   - Pistol
   - target_bullet
+  - Hand
   layers:
   - Default
   - TransparentFX
