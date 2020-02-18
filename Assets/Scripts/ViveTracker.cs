@@ -23,7 +23,7 @@ public class ViveTracker : MonoBehaviour
                 var result = new System.Text.StringBuilder((int)64);
                 OpenVR.System.GetStringTrackedDeviceProperty(i, ETrackedDeviceProperty.Prop_RenderModelName_String, result, 64, ref error);
                 
-                if (result.ToString().Contains("tracker") && !eIndices.Contains(i))
+                if (result.ToString().Contains("vr_tracker_vive_1_0") && !eIndices.Contains(i))
                 {
                     Debug.Log(result.ToString());
                     Debug.Log(i);

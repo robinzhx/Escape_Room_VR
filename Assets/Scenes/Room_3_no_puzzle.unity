@@ -27283,7 +27283,7 @@ GameObject:
   - component: {fileID: 1324498612}
   - component: {fileID: 1324498613}
   m_Layer: 0
-  m_Name: TrackerLeft
+  m_Name: Tracker1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33206,7 +33206,7 @@ GameObject:
   - component: {fileID: 1657858733}
   - component: {fileID: 1657858734}
   m_Layer: 0
-  m_Name: TrackerHip
+  m_Name: Tracker0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42511,7 +42511,7 @@ GameObject:
   - component: {fileID: 1811777948}
   - component: {fileID: 1811777949}
   m_Layer: 0
-  m_Name: TrackerRight
+  m_Name: Tracker2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
