@@ -42,6 +42,12 @@ public class CountDownTimer : MonoBehaviour {
         }
 	}
 
+    public void StartCountDown()
+    {
+        Debug.Log("Hand is touching");
+        countdown = true;
+    }
+
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("Entered Trigger");

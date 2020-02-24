@@ -6,6 +6,7 @@ public class Destroy_Bullet : MonoBehaviour {
 
     private int win_count;
     public int bullets_found;
+    public CountDownTimer timer;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +26,9 @@ public class Destroy_Bullet : MonoBehaviour {
             {
                 Debug.Log("You win!");
             }
+        }else if (collision.gameObject.tag == "Hand")
+        {
+            timer.StartCountDown();
         }
     }
 
