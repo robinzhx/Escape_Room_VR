@@ -13,7 +13,8 @@ public class ViveTracker : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if (GetComponent<SteamVR_TrackedObject>().index == SteamVR_TrackedObject.EIndex.None)
         {
             uint index = 0;

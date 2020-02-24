@@ -13,9 +13,12 @@ public class IKControl : MonoBehaviour {
     public Transform rightFootObj = null;
     public Transform headObj = null;
     public Transform spineObj = null;
+    public float offset = 1.0f;
+    private float origHeight;
 
     void Start() {
         animator = GetComponent<Animator>();
+        origHeight = gameObject.transform.position.y;
     }
 
     private void LateUpdate() {
@@ -26,15 +29,16 @@ public class IKControl : MonoBehaviour {
         }
 
         if (spineObj != null) {
-            Transform spine = animator.GetBoneTransform(HumanBodyBones.Spine);
-            //hips.rotation = hipsObj.rotation;
+            
+            Transform hips = animator.GetBoneTransform(HumanBodyBones.Hips);
+            hips.rotation = spineObj.rotation;
             Vector3 oldPosition = gameObject.transform.position;
-            gameObject.transform.position = new Vector3(spineObj.position.x, oldPosition.y, spineObj.position.z);
+            hips.transform.position = new Vector3(spineObj.position.x, spineObj.position.y, spineObj.position.z);
             Quaternion oldRotation = gameObject.transform.rotation;
-            gameObject.transform.rotation = Quaternion.Euler(oldRotation.eulerAngles.x, spineObj.rotation.eulerAngles.y, oldRotation.eulerAngles.z);
+            gameObject.transform.rotation = Quaternion.Euler(oldRotation.eulerAngles.x, spineObj.eulerAngles.y, oldRotation.eulerAngles.z);
 
             // offset to avoid showing mouth parts in view
-            gameObject.transform.position += gameObject.transform.forward * -0.1f;
+            //gameObject.transform.position += gameObject.transform.forward * -0.2f;
         }
         else
         {
