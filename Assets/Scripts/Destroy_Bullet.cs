@@ -28,7 +28,7 @@ public class Destroy_Bullet : MonoBehaviour {
             }
         }else if (collision.gameObject.tag == "Hand")
         {
-            timer.StartCountDown();
+            timer.StartCountDown(); 
         }
     }
 
