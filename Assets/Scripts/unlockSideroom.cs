@@ -11,6 +11,7 @@ public class unlockSideroom : MonoBehaviour
     public AudioClip unlockSound;
     public AudioClip lockSound;
     public AudioSource source;
+    public ConfigurableJoint chestTop;
 
     private bool keyAttached = false;
 
@@ -50,6 +51,9 @@ public class unlockSideroom : MonoBehaviour
                 //driveScript.CanAttach = true;
                 //GetComponent<Rigidbody>().useGravity = true;
                 GetComponent<Rigidbody>().isKinematic = false;
+
+                chestTop.angularXMotion = ConfigurableJointMotion.Limited;
+                chestTop.transform.localRotation = Quaternion.Euler(-33, 0, 0);
                 source.PlayOneShot(unlockSound, 1.0f);
             }
             else
