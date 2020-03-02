@@ -44,6 +44,8 @@ public class TrackingMap : MonoBehaviour
     public List<TrackedPoint> trackedPoints;
     public List<Transform> viveTrackers;
 
+    public ProEyeGazeVST gazeStream;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -110,6 +112,11 @@ public class TrackingMap : MonoBehaviour
         if (spineIndex < 0)
         {
             Debug.Log("Fail to find Spine");
+        }
+
+        if (gazeStream)
+        {
+            gazeStream.chestIMU = viveTrackers[spineIndex].GetComponent<SteamVR_TrackedObject>();
         }
 
         //ikcontrol.spineObj = viveTrackers[spineIndex];

@@ -12,12 +12,15 @@ public class ProEyeGazeVST : MonoBehaviour
 {
     public GameObject lighter;
     public GameObject headset;
+    public SteamVR_TrackedObject chestIMU;
     int count = 0;
     private StreamWriter _writer;
     Vector2 pupilPos_L;
     Vector2 pupilPos_R;
     private liblsl.StreamOutlet markerStream;
     public string folderName = "EscapeRoomData";
+
+    public TrackingMap trackingMap;
 
     // Use this for initialization
     void Start()
@@ -82,7 +85,7 @@ public class ProEyeGazeVST : MonoBehaviour
         float rightOpenness;
 
         SRanipal_Eye.GetGazeRay(GazeIndex.COMBINE, out GazeOriginCombinedLocal, out GazeDirectionCombinedLocal);
-        if(SRanipal_Eye.GetGazeRay(GazeIndex.LEFT, out GazeOriginLeftLocal, out GazeDirectionLeftLocal))
+        if (SRanipal_Eye.GetGazeRay(GazeIndex.LEFT, out GazeOriginLeftLocal, out GazeDirectionLeftLocal))
         {
             SRanipal_Eye.GetEyeOpenness(EyeIndex.LEFT, out leftOpenness);
         }
@@ -91,7 +94,7 @@ public class ProEyeGazeVST : MonoBehaviour
             leftOpenness = -1;
         }
 
-        if(SRanipal_Eye.GetGazeRay(GazeIndex.RIGHT, out GazeOriginRightLocal, out GazeDirectionRightLocal))
+        if (SRanipal_Eye.GetGazeRay(GazeIndex.RIGHT, out GazeOriginRightLocal, out GazeDirectionRightLocal))
         {
             SRanipal_Eye.GetEyeOpenness(EyeIndex.RIGHT, out rightOpenness);
         }
@@ -104,6 +107,7 @@ public class ProEyeGazeVST : MonoBehaviour
         {
             leftOpenness = -1;
         }
+
         if (!SRanipal_Eye.GetPupilPosition(EyeIndex.RIGHT, out pupilPos_R))
         {
             rightOpenness = -1;
@@ -125,69 +129,101 @@ public class ProEyeGazeVST : MonoBehaviour
 
         Vector3 headsetVelocity = VRTK_SDK_Bridge.GetHeadsetVelocity();
         Vector3 headsetAngVelocity = VRTK_SDK_Bridge.GetHeadsetAngularVelocity();
-
-        
-        
-            // 0 - 2d coordinate of left eye
-            // 2 - 2d coordinate of right eye
-            // 4 - 3d direction of left eye
-            // 7 - 3d direction of right eye
-            // 10 - 3d position of combined hit spot
-            // 13 - 3d position of head
-            // 16 - 3d forward direction of head
-            // 19 - 3d velocity of head
-            // 22 - 3d angular velocity of head
-            // 25 - left eye openness
-            // 26 - right eye openness
-            // 27 - 3d position of chest IMU**
-            // 30 - 3d forward direction of chest IMU**
-
-            RaycastHit hit;
-            Physics.Raycast(lighter.transform.position, lighter.transform.forward, out hit);
-
-            _writer.WriteLine(String.Format("{0:HH:mm:ss.fff}", DateTime.Now) + " - " + Time.time.ToString() +
-                              ": 2DEyeL " + pupilPos_L +
-                              ", 2DEyeR: " + pupilPos_R +
-                              ", 3DEyeL: " + GazeDirectionLeftLocal +
-                              ", 3DEyeR: " + GazeDirectionRightLocal +
-                              ", 3DHit: " + hit.point +
-                              ", 3DHead: " + lighter.transform.position + 
-                              ", 3DHeadForward: " + headset.transform.forward + 
-                              ", 3DHeadVelocity: " + headsetVelocity +
-                              ", 3DHeadAngVelocity: " + headsetAngVelocity +
-                              ", LeftEyeOpenness: " + leftOpenness +
-                              ", RightEyeOpenness: " + rightOpenness);
-            float[] tempSample =
+        Vector3 chestPosition = Vector3.zero;
+        Vector3 chestForward = Vector3.forward;
+        Vector3 chestVelocity = Vector3.zero;
+        if (chestIMU)
+        {
+          chestPosition = chestIMU.transform.position;
+          chestForward = chestIMU.transform.forward;
+          chestVelocity = SteamVR_Controller.Input((int) chestIMU.index).velocity;
+        }
+        else
+        {
+            for (int i = 0; i < trackingMap.viveTrackers.Count; i++)
             {
-                pupilPos_L.x,
-                pupilPos_L.y,
-                pupilPos_R.x,
-                pupilPos_R.y,
-                GazeDirectionLeftLocal.x,
-                GazeDirectionLeftLocal.y,
-                GazeDirectionLeftLocal.z,
-                GazeDirectionRightLocal.x,
-                GazeDirectionRightLocal.y,
-                GazeDirectionRightLocal.z,
-                hit.point.x,
-                hit.point.y,
-                hit.point.z,
-                lighter.transform.position.x,
-                lighter.transform.position.y,
-                lighter.transform.position.z,
-                headset.transform.forward.x,
-                headset.transform.forward.y,
-                headset.transform.forward.z,
-                headsetVelocity.x,
-                headsetVelocity.y,
-                headsetVelocity.z,
-                headsetAngVelocity.x,
-                headsetAngVelocity.y,
-                headsetAngVelocity.z,
-                leftOpenness,
-                rightOpenness
-            };
-            markerStream.push_sample(tempSample);
+                if (trackingMap.viveTrackers[i]?.GetComponent<SteamVR_TrackedObject>()?.index !=
+                    SteamVR_TrackedObject.EIndex.None)
+                {
+                    chestIMU = trackingMap.viveTrackers[i].GetComponent<SteamVR_TrackedObject>();
+                    break;
+                }
+            }
+        }
+
+
+        // 0 - 2d coordinate of left eye
+        // 2 - 2d coordinate of right eye
+        // 4 - 3d direction of left eye
+        // 7 - 3d direction of right eye
+        // 10 - 3d position of combined hit spot
+        // 13 - 3d position of head
+        // 16 - 3d forward direction of head
+        // 19 - 3d velocity of head
+        // 22 - 3d angular velocity of head
+        // 25 - left eye openness
+        // 26 - right eye openness
+        // 27 - 3d position of chest IMU**
+        // 30 - 3d forward direction of chest IMU**
+
+        RaycastHit hit;
+        Physics.Raycast(lighter.transform.position, lighter.transform.forward, out hit);
+
+        _writer.WriteLine(String.Format("{0:HH:mm:ss.fff}", DateTime.Now) + " - " + Time.time.ToString() +
+                          ": 2DEyeL " + pupilPos_L +
+                          ", 2DEyeR: " + pupilPos_R +
+                          ", 3DEyeL: " + GazeDirectionLeftLocal +
+                          ", 3DEyeR: " + GazeDirectionRightLocal +
+                          ", 3DHit: " + hit.point +
+                          ", 3DHead: " + lighter.transform.position +
+                          ", 3DHeadForward: " + headset.transform.forward +
+                          ", 3DHeadVelocity: " + headsetVelocity +
+                          ", 3DHeadAngVelocity: " + headsetAngVelocity +
+                          ", LeftEyeOpenness: " + leftOpenness +
+                          ", RightEyeOpenness: " + rightOpenness +
+                          ", ChestPosition:" + chestPosition +
+                          ", ChestForward:" + chestForward +
+                          ", ChestVelocity:" + chestVelocity);
+        float[] tempSample =
+        {
+            pupilPos_L.x,
+            pupilPos_L.y,
+            pupilPos_R.x,
+            pupilPos_R.y,
+            GazeDirectionLeftLocal.x,
+            GazeDirectionLeftLocal.y,
+            GazeDirectionLeftLocal.z,
+            GazeDirectionRightLocal.x,
+            GazeDirectionRightLocal.y,
+            GazeDirectionRightLocal.z,
+            hit.point.x,
+            hit.point.y,
+            hit.point.z,
+            lighter.transform.position.x,
+            lighter.transform.position.y,
+            lighter.transform.position.z,
+            headset.transform.forward.x,
+            headset.transform.forward.y,
+            headset.transform.forward.z,
+            headsetVelocity.x,
+            headsetVelocity.y,
+            headsetVelocity.z,
+            headsetAngVelocity.x,
+            headsetAngVelocity.y,
+            headsetAngVelocity.z,
+            leftOpenness,
+            rightOpenness,
+            chestPosition.x,
+            chestPosition.y,
+            chestPosition.z,
+            chestForward.x,
+            chestForward.y,
+            chestForward.z,
+            chestVelocity.x,
+            chestVelocity.y,
+            chestVelocity.z,
+        };
+        markerStream.push_sample(tempSample);
     }
 
     void OnDestroy()

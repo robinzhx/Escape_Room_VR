@@ -26,7 +26,7 @@ public class SpinnerUnlocker : MonoBehaviour
 
     private void Update()
     {
-        currentPW = Spinner1.GetLetter() + Spinner2.GetLetter() + Spinner3.GetLetter();
+        //currentPW = Spinner1.GetLetter() + Spinner2.GetLetter() + Spinner3.GetLetter();
         if (currentPW == unlockPW && !didSound)
         {
             

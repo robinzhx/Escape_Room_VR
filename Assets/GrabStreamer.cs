@@ -7,6 +7,7 @@ using UnityEngine;
 public class GrabStreamer : MonoBehaviour {
 
     private liblsl.StreamOutlet markerStream;
+    public CountDownTimer timer;
 
 	// Use this for initialization
 	void Start ()
@@ -23,7 +24,7 @@ public class GrabStreamer : MonoBehaviour {
             name = interactable.GetComponent<UniqueID>().guid;
         else 
             name = interactable.name;
-
+        startTimer(interactable);
         string markerString = "Left hand grabs:" + name;
         Debug.Log(markerString);
         string[] tempSample = { markerString };
@@ -37,11 +38,19 @@ public class GrabStreamer : MonoBehaviour {
             name = interactable.GetComponent<UniqueID>().guid;
         else 
             name = interactable.name;
-
+        startTimer(interactable);
         string markerString = "Right hand grabs:" + name;
         Debug.Log(markerString);
         string[] tempSample = { markerString };
         markerStream.push_sample(tempSample);
     }
 
+
+    private void startTimer(NVRInteractable interactable)
+    {
+        if (interactable.name == "Colt Prefab")
+        {
+            timer.StartCountDown();
+        }
+    }
 }
