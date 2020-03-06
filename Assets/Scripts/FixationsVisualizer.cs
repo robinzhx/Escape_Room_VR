@@ -19,6 +19,7 @@ public class FixationsVisualizer : MonoBehaviour
     private List<Fixation> fixations;
     private List<GameObject> fixationObjects;
     private float maxDuration = -1;
+    private float secMaxDuration = -1;
     private float minDuration = float.MaxValue;
     private bool isEnabled = false;
 
@@ -58,6 +59,7 @@ public class FixationsVisualizer : MonoBehaviour
 
             if (fix.duration > maxDuration)
             {
+                secMaxDuration = maxDuration;
                 maxDuration = fix.duration;
             }
 
@@ -67,7 +69,7 @@ public class FixationsVisualizer : MonoBehaviour
             }
         }
 
-        colorScale = 2.0f / (maxDuration - minDuration);
+        colorScale = 1.0f / (secMaxDuration - minDuration);
     }
 
     void RenderFixations ()
@@ -79,8 +81,8 @@ public class FixationsVisualizer : MonoBehaviour
             Material mat = Instantiate(mr.material);
 
             // color based on duration
-            float col = fix.duration * colorScale * 0.5f + 0.5f;
-            mat.color = new Color(col, col, col, 1);
+            float col = (fix.duration - minDuration) * colorScale * 0.5f + 0.5f;
+            mat.color = new Color(col, col, 0, col);
             mr.material = mat;
             go.transform.parent = List.transform;
             fixationObjects.Add(go);

@@ -5472,7 +5472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525997380f1fea14991a04722755eb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  File: {fileID: 4900000, guid: 67c0a2279371c204da367cc2d3834afc, type: 3}
+  File: {fileID: 4900000, guid: d19e2419b64f15d4987dc39d5281851d, type: 3}
   FixationPrefab: {fileID: 1364288824}
   List: {fileID: 72152240}
 --- !u!4 &224127364
@@ -19554,8 +19554,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1064326198}
   m_HandleRect: {fileID: 1064326197}
   m_Direction: 2
-  m_Value: 0.9999284
-  m_Size: 0.27266663
+  m_Value: 0.9999245
+  m_Size: 0.27266636
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -30651,7 +30651,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b7e0a61ce21ac284daf1bde6a25ad1d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -35622,7 +35622,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1613593163
 Transform:
   m_ObjectHideFlags: 0
@@ -50726,7 +50726,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100002, guid: 7e15121f5f042ed46aba81406403f2d2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 7e15121f5f042ed46aba81406403f2d2, type: 3}
       propertyPath: m_Name
@@ -53595,6 +53595,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrackingMap
       objectReference: {fileID: 0}
+    - target: {fileID: 3585666211660923978, guid: 1f83d8b22e773e640a34527d86b4fc8a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3585666211660923980, guid: 1f83d8b22e773e640a34527d86b4fc8a,
         type: 3}
       propertyPath: model
@@ -53655,6 +53660,11 @@ PrefabInstance:
       propertyPath: gazeStream
       value: 
       objectReference: {fileID: 1555905228}
+    - target: {fileID: 3585666211660923980, guid: 1f83d8b22e773e640a34527d86b4fc8a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3585666211660923981, guid: 1f83d8b22e773e640a34527d86b4fc8a,
         type: 3}
       propertyPath: m_LocalPosition.x
