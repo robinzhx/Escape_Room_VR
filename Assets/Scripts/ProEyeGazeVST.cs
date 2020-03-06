@@ -49,7 +49,7 @@ public class ProEyeGazeVST : MonoBehaviour
 
         // 0 - 2d coordinate of left eye
         // 2 - 2d coordinate of right eye
-        // 4 - 3d direction of left eye,
+        // 4 - 3d direction of left eye
         // 7 - 3d direction of right eye
         // 10 - 3d position of combined hit spot
         // 13 - 3d position of head
@@ -58,11 +58,12 @@ public class ProEyeGazeVST : MonoBehaviour
         // 22 - 3d angular velocity of head
         // 25 - left eye openness
         // 26 - right eye openness
-        // 27 - 3d position of chest IMU**
-        // 30 - 3d forward direction of chest IMU**
+        // 27 - 3d position of chest IMU
+        // 30 - 3d forward direction of chest IMU
+        // 33 - 3d velocity of chest IMU
 
         liblsl.StreamInfo inf =
-            new liblsl.StreamInfo("ProEyeGaze", "Gaze", 27, 50, liblsl.channel_format_t.cf_float32,
+            new liblsl.StreamInfo("ProEyeGaze", "Gaze", 36, 50, liblsl.channel_format_t.cf_float32,
                 "ProEye");
         markerStream = new liblsl.StreamOutlet(inf);
     }
@@ -163,8 +164,9 @@ public class ProEyeGazeVST : MonoBehaviour
         // 22 - 3d angular velocity of head
         // 25 - left eye openness
         // 26 - right eye openness
-        // 27 - 3d position of chest IMU**
-        // 30 - 3d forward direction of chest IMU**
+        // 27 - 3d position of chest IMU
+        // 30 - 3d forward direction of chest IMU
+        // 33 - 3d velocity of chest IMU
 
         RaycastHit hit;
         Physics.Raycast(lighter.transform.position, lighter.transform.forward, out hit);

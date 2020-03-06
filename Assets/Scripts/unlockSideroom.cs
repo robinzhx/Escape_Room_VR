@@ -53,7 +53,8 @@ public class unlockSideroom : MonoBehaviour
                 GetComponent<Rigidbody>().isKinematic = false;
 
                 chestTop.angularXMotion = ConfigurableJointMotion.Limited;
-                chestTop.transform.localRotation = Quaternion.Euler(-33, 0, 0);
+                chestTop.transform.localRotation = Quaternion.Euler(-90.0f, 0, 0);
+                Debug.Log("Unlock chest");
                 source.PlayOneShot(unlockSound, 1.0f);
             }
             else
