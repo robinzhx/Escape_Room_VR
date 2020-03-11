@@ -11,7 +11,7 @@ public class Destroy_Bullet : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         win_count = 10;
-        bullets_found = 0;
+        bullets_found = -1;
 	}
 
     // Delete this bullet if collides with pistol
@@ -19,9 +19,7 @@ public class Destroy_Bullet : MonoBehaviour {
     {
         if (collision.gameObject.tag == "target_bullet")
         {
-            /*GameObject theGun = GameObject.Find("Colt Prefab");
-            Spawn_Bullets_In_Order bulletsArray = theGun.GetComponent<Spawn_Bullets_In_Order>();
-            bulletsArray.bullets*/
+
             Destroy(collision.gameObject);
             bullets_found++;
 
