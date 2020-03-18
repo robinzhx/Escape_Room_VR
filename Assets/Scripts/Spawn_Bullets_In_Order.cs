@@ -8,11 +8,11 @@ public class Spawn_Bullets_In_Order : MonoBehaviour {
     public GameObject visible_bullet_1;
     public GameObject visible_bullet_2;
     public GameObject visible_bullet_3;
-    private int spawn_ten_bullets;
+    private int spawn_thirty_bullets;
 
     // Initialize first three bullets in room, deactivate remaining
     void Start () {
-        for (int i = 3; i < 30; i++)
+        for (int i = 3; i < 33; i++)
         {
             bullets[i].SetActive(false);
         }
@@ -21,45 +21,45 @@ public class Spawn_Bullets_In_Order : MonoBehaviour {
         visible_bullet_3 = bullets[2];
 
         // Two other bullets are already in the room, so run 8 times
-        spawn_ten_bullets = 8;
+        spawn_thirty_bullets = 28;
     }
 	
 	// Update is called once per frame
 	void OnCollisionEnter (Collision col) {
-		if (col.gameObject.tag == "target_bullet" && spawn_ten_bullets > 0)
+		if (col.gameObject.tag == "target_bullet" && spawn_thirty_bullets > 0)
         {
             if (visible_bullet_1 == null)
             {
-                int nextbullet = Random.Range(3, 30);
+                int nextbullet = Random.Range(3, 33);
                 while (bullets[nextbullet] == visible_bullet_2 || bullets[nextbullet] == visible_bullet_3 || bullets[nextbullet] == null)
                 {
-                    nextbullet = Random.Range(3, 30);
+                    nextbullet = Random.Range(3, 33);
                 }
                 bullets[nextbullet].SetActive(true);
                 visible_bullet_1 = bullets[nextbullet];
-                spawn_ten_bullets--;
+                spawn_thirty_bullets--;
             }
             if (visible_bullet_2 == null)
             {
-                int nextbullet = Random.Range(3, 30);
+                int nextbullet = Random.Range(3, 33);
                 while (bullets[nextbullet] == visible_bullet_1 || bullets[nextbullet] == visible_bullet_3 || bullets[nextbullet] == null)
                 {
-                    nextbullet = Random.Range(3, 30);
+                    nextbullet = Random.Range(3, 33);
                 }
                 bullets[nextbullet].SetActive(true);
                 visible_bullet_2 = bullets[nextbullet];
-                spawn_ten_bullets--;
+                spawn_thirty_bullets--;
             }
             if (visible_bullet_3 == null)
             {
-                int nextbullet = Random.Range(3, 30);
+                int nextbullet = Random.Range(3, 33);
                 while (bullets[nextbullet] == visible_bullet_2 || bullets[nextbullet] == visible_bullet_1 || bullets[nextbullet] == null)
                 {
-                    nextbullet = Random.Range(3, 30);
+                    nextbullet = Random.Range(3, 33);
                 }
                 bullets[nextbullet].SetActive(true);
                 visible_bullet_3 = bullets[nextbullet];
-                spawn_ten_bullets--;
+                spawn_thirty_bullets--;
             }
             Debug.Log("Current bullets in the room are " + visible_bullet_1 + ", " + visible_bullet_2 + ", and " + visible_bullet_3);
         }

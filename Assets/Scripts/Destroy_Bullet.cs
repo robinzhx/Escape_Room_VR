@@ -10,7 +10,7 @@ public class Destroy_Bullet : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        win_count = 10;
+        win_count = 30;
         bullets_found = -1;
 	}
 
