@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CountDownTimer : MonoBehaviour {
+public class CountDownTimer_longtime : MonoBehaviour {
 
     float currTime = 0f;
     float startTime = 600f;
