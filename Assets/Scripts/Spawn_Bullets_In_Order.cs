@@ -16,11 +16,13 @@ public class Spawn_Bullets_In_Order : MonoBehaviour {
         {
             bullets[i].SetActive(false);
         }
+
+        //bullets[0] is a freebie to acclimate users to target bullet
         visible_bullet_1 = bullets[0];
-        visible_bullet_1 = bullets[1];
+        visible_bullet_2 = bullets[1];
         visible_bullet_3 = bullets[2];
 
-        // Two other bullets are already in the room, so run 8 times
+        // Two other actual bullets are already in the room, so run 28 more times
         spawn_thirty_bullets = 28;
     }
 	
@@ -28,9 +30,12 @@ public class Spawn_Bullets_In_Order : MonoBehaviour {
 	void OnCollisionEnter (Collision col) {
 		if (col.gameObject.tag == "target_bullet" && spawn_thirty_bullets > 0)
         {
+            //Select next bullet 1
             if (visible_bullet_1 == null)
             {
                 int nextbullet = Random.Range(3, 33);
+
+                //Reroll if bullet is already active
                 while (bullets[nextbullet] == visible_bullet_2 || bullets[nextbullet] == visible_bullet_3 || bullets[nextbullet] == null)
                 {
                     nextbullet = Random.Range(3, 33);
@@ -39,9 +44,12 @@ public class Spawn_Bullets_In_Order : MonoBehaviour {
                 visible_bullet_1 = bullets[nextbullet];
                 spawn_thirty_bullets--;
             }
+            //Select next bullet 2
             if (visible_bullet_2 == null)
             {
                 int nextbullet = Random.Range(3, 33);
+
+                //Reroll if bullet is already active
                 while (bullets[nextbullet] == visible_bullet_1 || bullets[nextbullet] == visible_bullet_3 || bullets[nextbullet] == null)
                 {
                     nextbullet = Random.Range(3, 33);
@@ -50,9 +58,12 @@ public class Spawn_Bullets_In_Order : MonoBehaviour {
                 visible_bullet_2 = bullets[nextbullet];
                 spawn_thirty_bullets--;
             }
+            //Select next bullet 3
             if (visible_bullet_3 == null)
             {
                 int nextbullet = Random.Range(3, 33);
+
+                //Reroll if bullet is already active
                 while (bullets[nextbullet] == visible_bullet_2 || bullets[nextbullet] == visible_bullet_1 || bullets[nextbullet] == null)
                 {
                     nextbullet = Random.Range(3, 33);
