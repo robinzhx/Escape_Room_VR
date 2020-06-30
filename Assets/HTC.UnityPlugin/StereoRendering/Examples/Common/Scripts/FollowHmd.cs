@@ -11,7 +11,6 @@ public class FollowHmd : MonoBehaviour
     {
 #if UNITY_5_4_OR_NEWER
         transform.position = hmdCamera.transform.position;
-        transform.rotation = hmdCamera.transform.rotation;
 #else
         transform.position = hmdCamera.transform.parent.transform.position;
 #endif

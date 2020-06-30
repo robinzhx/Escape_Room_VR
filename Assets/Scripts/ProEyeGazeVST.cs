@@ -141,7 +141,7 @@ public class ProEyeGazeVST : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < trackingMap.viveTrackers.Count; i++)
+            for (int i = 0; trackingMap && i < trackingMap.viveTrackers.Count; i++)
             {
                 if (trackingMap.viveTrackers[i]?.GetComponent<SteamVR_TrackedObject>()?.index !=
                     SteamVR_TrackedObject.EIndex.None)
