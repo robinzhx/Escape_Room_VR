@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CountDownTimer : MonoBehaviour {
 
     float currTime = 0f;
-    float startTime = 300f;
+    float startTime = 600f;
     public Text countdownText;
     bool countdown = false;
     GameObject gun;
@@ -36,7 +36,7 @@ public class CountDownTimer : MonoBehaviour {
         {
             currTime = 0;
         }
-        if(gun.GetComponent<Destroy_Bullet>().bullets_found == 10)
+        if(gun.GetComponent<Destroy_Bullet>().bullets_found == 30)
         {
             countdown = false;
         }
