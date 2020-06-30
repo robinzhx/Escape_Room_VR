@@ -40,8 +40,8 @@ TagManager:
   - Monster
   - StereoRender_Ignore
   - SpectatorViewOnly
-  - 
-  - 
+  - HandCollider
+  - Buttons
   - 
   - 
   - 

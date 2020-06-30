@@ -71,10 +71,10 @@ namespace NewtonVR
             if (this.transform.localEulerAngles.z < 0.3)
                 closest = LETTERLIST.Length - closest;
 
-            if (closest == 27) //hack
+            if (closest == 6) //hack
                 closest = 0;
             if (closest == -1)
-                closest = 26;
+                closest = 5;
 
             string character = LETTERLIST.Substring(closest, 1);
 

@@ -7,6 +7,8 @@
 
     public class ButtonReactor : MonoBehaviour
     {
+        public ButtonPuzzle bp;
+        public int number = 0;
         protected VRTK_PhysicsPusher buttonEvents;
         protected VRTK_ArtificialPusher artbuttonEvents;
 
@@ -38,6 +40,10 @@
 
         protected virtual void MaxLimitReached(object sender, ControllableEventArgs e)
         {
+            if (bp)
+            {
+                bp.Push(number);
+            }
             VRTK_BaseControllable senderButton = sender as VRTK_BaseControllable;
             VRTK_Logger.Info(senderButton.name + " was pushed");
         }
