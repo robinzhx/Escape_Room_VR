@@ -12,6 +12,10 @@ public class Spawn_Bullets_In_Order : MonoBehaviour {
 
     // Initialize first three bullets in room, deactivate remaining
     void Start () {
+        for (int i = 3; i < 33; i++)
+        {
+            bullets[i].SetActive(false);
+        }
 
         //bullets[0] is a freebie to acclimate users to target bullet
         visible_bullet_1 = bullets[0];
@@ -22,10 +26,9 @@ public class Spawn_Bullets_In_Order : MonoBehaviour {
         spawn_thirty_bullets = 28;
     }
 	
-	// Spawn the next target bullet
+	// Update is called once per frame
 	void OnCollisionEnter (Collision col) {
-
-        if (col.gameObject.tag == "target_bullet" && spawn_thirty_bullets > 0)
+		if (col.gameObject.tag == "target_bullet" && spawn_thirty_bullets > 0)
         {
             //Select next bullet 1
             if (visible_bullet_1 == null)
