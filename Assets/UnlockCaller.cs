@@ -29,4 +29,17 @@ public class UnlockCaller : MonoBehaviour {
             unlockManager.lockback(unlockIndex);
         }
     }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (unlockManager != null && key != null && col.gameObject.name == key.name)
+        {
+            unlockManager.unlock(unlockIndex);
+        }
+        else if (unlockManager != null)
+        {
+
+            unlockManager.lockback(unlockIndex);
+        }
+    }
 }

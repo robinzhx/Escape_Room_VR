@@ -77,6 +77,7 @@ public class EscapeRoom_PuzzleManager : MonoBehaviour
             print("Unlock All");
 
             objToUnlock.CanAttach = true;
+            objToUnlock.GetComponent<GradualMover>().Unlock();
             source.PlayOneShot(unlockSound, 1.0f);
             solved = true;
 
@@ -86,6 +87,5 @@ public class EscapeRoom_PuzzleManager : MonoBehaviour
         else {
             print("Unlock All: " + allUnlock + "  solved?: " + solved );
         }
-        
     }
 }

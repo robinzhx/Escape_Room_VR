@@ -32,8 +32,11 @@ public class SpinnerUnlocker : MonoBehaviour
             
             GetComponent<NVRInteractableItem>().CanAttach = true;
             source.Play();
+            Spinner1.CanAttach = false;
+            Spinner2.CanAttach = false;
+            Spinner3.CanAttach = false;
+            GetComponent<GradualMover>().UnlockAfter(2.0f);
             didSound = true;
-
         }
 
         
