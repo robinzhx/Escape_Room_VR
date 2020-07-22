@@ -14,22 +14,13 @@ public class Destroy_Bullet : MonoBehaviour {
         bullets_found = -1;
 	}
 
-    // Delete this bullet if collides with pistol
+    // Delete target bullet if collides with pistol
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "target_bullet")
         {
-
             Destroy(collision.gameObject);
             bullets_found++;
-
-            if (bullets_found == win_count)
-            {
-                Debug.Log("You win!");
-            }
-        }else if (collision.gameObject.tag == "Hand")
-        {
-            timer.StartCountDown(); 
         }
     }
 

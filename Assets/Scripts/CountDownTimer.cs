@@ -20,34 +20,43 @@ public class CountDownTimer : MonoBehaviour {
         gun = GameObject.Find("Colt Prefab");
     }
 
-    // Update is called once per frame
+    // Change room based on timer
     void Update () {
 
+        // Print time
         if (countdown == true)
         {
             currTime -= 1 * Time.deltaTime;
             countdownText.text = currTime.ToString("0");
         }
+
+        // 1 min left is red
         if(currTime < 60)
         {
             countdownText.color = Color.red;
         }
+
+        // Timer is 0
         if(currTime <= 0)
         {
             currTime = 0;
         }
+
+        // Stop timer when all targets are found
         if(gun.GetComponent<Destroy_Bullet>().bullets_found == 30)
         {
             countdown = false;
         }
 	}
 
+    // Start count down when hand grabs gun
     public void StartCountDown()
     {
         Debug.Log("Hand is touching");
         countdown = true;
     }
 
+    // Error check if anything other than hand touches gun first
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("Entered Trigger");
