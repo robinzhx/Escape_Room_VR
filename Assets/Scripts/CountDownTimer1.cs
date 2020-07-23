@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CountDownTimer : MonoBehaviour {
+public class CountDownTimer1 : MonoBehaviour {
 
     float currTime = 0f;
-    float startTime = 600f;
+    float startTime = 300f;
     public Text countdownText;
     public AudioClip clockNormal;
     public AudioClip clockFaster;
