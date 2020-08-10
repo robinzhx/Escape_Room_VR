@@ -485,8 +485,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.037966017, y: 0.0014918662, z: 0.008155582}
-  m_Center: {x: 0.0000000012461859, y: -0.009972989, z: 0.016769119}
+  m_Size: {x: 0.037966017, y: 0.0014918654, z: 0.008785134}
+  m_Center: {x: 0.0000000012493623, y: -0.009972985, z: 0.017083898}
 --- !u!65 &10600296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6299,7 +6299,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!23 &296538772
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8390,7 +8390,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!4 &393549384
 Transform:
   m_ObjectHideFlags: 0
@@ -13556,7 +13556,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!23 &608063528
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14031,6 +14031,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114363691458641278, guid: 82371367c2f3b4d4badb4216f4880cdb,
+        type: 3}
+      propertyPath: Rigidbody
+      value: 
+      objectReference: {fileID: 1351029161}
+    - target: {fileID: 114528124847192170, guid: 82371367c2f3b4d4badb4216f4880cdb,
+        type: 3}
+      propertyPath: Rigidbody
+      value: 
+      objectReference: {fileID: 393549383}
     - target: {fileID: 114707433638931006, guid: 82371367c2f3b4d4badb4216f4880cdb,
         type: 3}
       propertyPath: scriptAliasLeftController
@@ -21818,7 +21828,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!23 &1158960680
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25443,7 +25453,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!1 &1352370502
 GameObject:
   m_ObjectHideFlags: 0
@@ -26743,7 +26753,6 @@ GameObject:
   - component: {fileID: 1392428302}
   - component: {fileID: 1392428301}
   - component: {fileID: 1392428300}
-  - component: {fileID: 1392428299}
   - component: {fileID: 1392428298}
   - component: {fileID: 1392428295}
   - component: {fileID: 1392428297}
@@ -26843,20 +26852,6 @@ MonoBehaviour:
   OnEndInteraction:
     m_PersistentCalls:
       m_Calls: []
---- !u!64 &1392428299
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1392428294}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300028, guid: 6f9fa8e6a95d9fb4f91b8bf45fb7a0d6, type: 3}
 --- !u!64 &1392428300
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30358,7 +30353,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!23 &1541995144
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -40371,7 +40366,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 521889244}
   m_HandleRect: {fileID: 521889243}
   m_Direction: 2
-  m_Value: 0.9999999
+  m_Value: 1
   m_Size: 0.27266666
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -44370,8 +44365,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 546030475}
   m_HandleRect: {fileID: 546030474}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 1
+  m_Value: 0
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
