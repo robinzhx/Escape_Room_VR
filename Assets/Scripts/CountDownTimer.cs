@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CountDownTimer : MonoBehaviour {
 
     float currTime = 0f;
-    float startTime = 600f;
+    public float startTime = 600f;
     public Text countdownText;
     public AudioClip clockNormal;
     public AudioClip clockFaster;
