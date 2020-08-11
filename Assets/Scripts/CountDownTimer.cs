@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CountDownTimer : MonoBehaviour {
 
-    float currTime = 0f;
+    public float currTime = 0f;
     public float startTime = 600f;
     public Text countdownText;
     public AudioClip clockNormal;
@@ -41,7 +41,7 @@ public class CountDownTimer : MonoBehaviour {
         if(currTime < 60)
         {
             countdownText.color = Color.red;
-            if (clockFaster != null)
+            if (clockFaster != null && theAM.clockSound.clip != clockFaster)
             {
                 theAM.ChangeClockLoop(clockFaster);
             }
@@ -52,7 +52,7 @@ public class CountDownTimer : MonoBehaviour {
         {
             currTime = 0;
 
-            if (clockFail != null)
+            if (clockFail != null && theAM.clockSound.clip != clockFail)
             {
                 theAM.ChangeClock(clockFail);
             }
@@ -64,7 +64,7 @@ public class CountDownTimer : MonoBehaviour {
         if(gun.GetComponent<Destroy_Bullet>().bullets_found == 30)
         {
             countdown = false;
-            if (clockSuccess != null)
+            if (clockSuccess != null && theAM.clockSound.clip != clockSuccess)
             {
                 theAM.ChangeClock(clockSuccess);
             }

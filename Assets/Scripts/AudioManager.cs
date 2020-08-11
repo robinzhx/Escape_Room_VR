@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
         clockSound.clip = music;
         clockSound.Play();
         clockSound.loop = false;
-        clockSound.Stop();
+        //clockSound.Stop();
     }
 
     // Play the ticking sound for bullet room
