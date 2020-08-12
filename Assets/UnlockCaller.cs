@@ -18,17 +18,17 @@ public class UnlockCaller : MonoBehaviour {
 		
 	}
 
-    void OnCollisionEnter(Collision col)
-    {
-        if (unlockManager != null && key != null && col.gameObject.name == key.name )
-        {
-            unlockManager.unlock(unlockIndex);
-        } else if (unlockManager != null)
-        {
+    //void OnCollisionEnter(Collision col)
+    //{
+    //    if (unlockManager != null && key != null && col.gameObject.name == key.name )
+    //    {
+    //        unlockManager.unlock(unlockIndex);
+    //    } else if (unlockManager != null)
+    //    {
 
-            unlockManager.lockback(unlockIndex);
-        }
-    }
+    //        unlockManager.lockback(unlockIndex);
+    //    }
+    //}
 
     void OnTriggerEnter(Collider col)
     {
