@@ -21,6 +21,7 @@ public class ProEyeGazeVST : MonoBehaviour
     public string folderName = "EscapeRoomData";
 
     public TrackingMap trackingMap;
+    public Heatmap heatMapManager;
 
     // Use this for initialization
     void Start()
@@ -76,6 +77,8 @@ public class ProEyeGazeVST : MonoBehaviour
         {
             Application.Quit();
         }
+
+        
 
         if (SRanipal_Eye_Framework.Status != SRanipal_Eye_Framework.FrameworkStatus.WORKING &&
             SRanipal_Eye_Framework.Status != SRanipal_Eye_Framework.FrameworkStatus.NOT_SUPPORT) return;
@@ -170,6 +173,15 @@ public class ProEyeGazeVST : MonoBehaviour
 
         RaycastHit hit;
         Physics.Raycast(lighter.transform.position, lighter.transform.forward, out hit);
+
+        if (heatMapManager)
+        {
+            //RaycastHit hittest;
+            //Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hittest);
+
+            heatMapManager.GazeAt(hit.point, Time.fixedDeltaTime);
+            //Debug.Log(Time.fixedDeltaTime);
+        }
 
         _writer.WriteLine(String.Format("{0:HH:mm:ss.fff}", DateTime.Now) + " - " + Time.time.ToString() +
                           ": 2DEyeL " + pupilPos_L +
