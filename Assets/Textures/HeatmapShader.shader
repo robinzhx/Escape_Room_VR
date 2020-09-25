@@ -100,6 +100,7 @@ Shader "HeatmapShader"
                 half scale = _MaxVal - _MinVal;
                 int size = sizeX * sizeY * sizeZ;
                 half count = 0;
+
                 [loop]
                 for (int i = X0 - rangeX; i < X0 + rangeX; i++)
                 {

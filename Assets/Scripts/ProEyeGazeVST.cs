@@ -78,7 +78,14 @@ public class ProEyeGazeVST : MonoBehaviour
             Application.Quit();
         }
 
-        
+        //if (heatMapManager)
+        //{
+        //    RaycastHit hittest;
+        //    Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hittest);
+
+        //    heatMapManager.GazeAt(hittest.point, Time.fixedDeltaTime);
+        //    //Debug.Log(Time.fixedDeltaTime);
+        //}
 
         if (SRanipal_Eye_Framework.Status != SRanipal_Eye_Framework.FrameworkStatus.WORKING &&
             SRanipal_Eye_Framework.Status != SRanipal_Eye_Framework.FrameworkStatus.NOT_SUPPORT) return;

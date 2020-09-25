@@ -189,8 +189,10 @@ public class Heatmap : MonoBehaviour
 
         //h += hi * (_Properties[i].w - _MinVal) / scale;
         //h += hi * (_Properties[i].w) / smoothness;
-
-        heatData.SetPixelData(data, 0);
-        heatData.Apply();
+        if (!enableHeatmap)
+        {
+            heatData.SetPixelData(data, 0);
+            heatData.Apply();
+        }
     }
 }
