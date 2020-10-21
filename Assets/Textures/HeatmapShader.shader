@@ -49,6 +49,10 @@ Shader "HeatmapShader"
             int sizeY;
             int sizeZ;
 
+            int rangeX;
+            int rangeY;
+            int rangeZ;
+
             float affectingRadius;
             float smoothness;
 
@@ -86,9 +90,9 @@ Shader "HeatmapShader"
                 float3 worldspace = i.worldDirection * depth + _WorldSpaceCameraPos;
 
                 // range affected 
-                int rangeX = int(ceil(affectingRadius / stepX)) * 2;
-                int rangeY = int(ceil(affectingRadius / stepY)) * 2;
-                int rangeZ = int(ceil(affectingRadius / stepZ)) * 2;
+                //int rangeX = int(ceil(affectingRadius / stepX)) * 2;
+                //int rangeY = int(ceil(affectingRadius / stepY)) * 2;
+                //int rangeZ = int(ceil(affectingRadius / stepZ)) * 2;
 
                 // starting xyz in index
                 int X0 = int(floor((worldspace.x - startX) / stepX));
@@ -139,7 +143,7 @@ Shader "HeatmapShader"
 
                 half4 colorLow = half4(41 / 255, 199 / 255, 46 / 255, 0);
                 half4 colorMid = half4(1, 1, 0, 0.09);
-                half4 colorHigh = half4(1, 0, 0, 0.8);
+                half4 colorHigh = half4(1, 0, 0, 0.5);
 
                 // Converts (0-1) according to the heat texture
                 h = saturate(h);

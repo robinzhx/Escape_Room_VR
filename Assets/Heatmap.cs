@@ -112,6 +112,14 @@ public class Heatmap : MonoBehaviour
         mat.SetFloat("_MinVal", minValue);
         mat.SetFloat("_MaxVal", maxValue);
 
+        int rangeX = Mathf.CeilToInt(affectingRadius / step.x);
+        int rangeY = Mathf.CeilToInt(affectingRadius / step.y);
+        int rangeZ = Mathf.CeilToInt(affectingRadius / step.z);
+
+        mat.SetInt("rangeX", rangeX);
+        mat.SetInt("rangeY", rangeY);
+        mat.SetInt("rangeZ", rangeZ);
+
         if (enableHeatmap)
         {
             Graphics.Blit(source, destination, mat);
