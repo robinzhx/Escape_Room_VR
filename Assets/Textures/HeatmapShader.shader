@@ -138,7 +138,7 @@ Shader "HeatmapShader"
                 h /= scale;
 
                 half4 colorLow = half4(41 / 255, 199 / 255, 46 / 255, 0);
-                half4 colorMid = half4(1, 1, 0, 0.4);
+                half4 colorMid = half4(1, 1, 0, 0.09);
                 half4 colorHigh = half4(1, 0, 0, 0.8);
 
                 // Converts (0-1) according to the heat texture
@@ -147,11 +147,11 @@ Shader "HeatmapShader"
                 // 0 - 0.5: low - mid 
 
                 half4 color;
-                if (h <= 0.5) {
-                  color = lerp(colorLow, colorMid, h * 2);
+                if (h <= 0.2) {
+                  color = lerp(colorLow, colorMid, h / 0.2);
                 }
                 else {
-                  color = lerp(colorMid, colorHigh, (h - 0.5) * 2);
+                  color = lerp(colorMid, colorHigh, (h - 0.2) / 0.8);
                 }
 
                 // Calculates the contribution of each point

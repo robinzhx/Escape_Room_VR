@@ -16629,6 +16629,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1489076313778726, guid: 82371367c2f3b4d4badb4216f4880cdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1823755267546744, guid: 82371367c2f3b4d4badb4216f4880cdb, type: 3}
       propertyPath: m_Name
       value: VRTK_SDKManager (1)
@@ -16639,11 +16643,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4220029442969182, guid: 82371367c2f3b4d4badb4216f4880cdb, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4233703290436394, guid: 82371367c2f3b4d4badb4216f4880cdb, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4297926410362680, guid: 82371367c2f3b4d4badb4216f4880cdb, type: 3}
       propertyPath: m_RootOrder
@@ -16848,6 +16852,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114968781646949128, guid: 82371367c2f3b4d4badb4216f4880cdb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224407368412894222, guid: 82371367c2f3b4d4badb4216f4880cdb,
         type: 3}

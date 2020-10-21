@@ -28,6 +28,9 @@ public class Heatmap : MonoBehaviour
     public RenderTexture rt;
 
     public bool enableHeatmap = false;
+    public bool lastState = false;
+
+    public bool forceUpdate = false;
 
     void Start()
     {
@@ -138,7 +141,7 @@ public class Heatmap : MonoBehaviour
         }
     }
 
-    public void GazeAt(Vector3 gip, float timePassed)
+    public float GazeAt(Vector3 gip, float timePassed)
     {
         // range affected 
         int rangeX = Mathf.CeilToInt(affectingRadius / step.x);
@@ -153,6 +156,7 @@ public class Heatmap : MonoBehaviour
         // Loops over all the points
         float h = 0;
         float scale = maxValue - minValue;
+        float oldValue = 0.0f;
 
         for (int i = X0 - rangeX; i < X0 + rangeX; i++)
         {
@@ -172,10 +176,17 @@ public class Heatmap : MonoBehaviour
                         k * step.z + startingPoint.z);
 
                     float distance = (gip - gridPos).magnitude;
-                    float value = distance > affectingRadius ? 0 : ((1.0f - distance / affectingRadius) * rate * timePassed);
+                    float ratio = 1.0f - distance * distance * distance / affectingRadius;
+                    if (ratio < 0)
+                    {
+                        ratio = 0;
+                    }
+                    float value = (ratio * rate * timePassed);
 
                     int index = k * size.y * size.x + j * size.x + i;
                     //if (index<0 || index>= )
+
+                    oldValue += ratio * data[index];
 
                     data[index] += value;
                 }
@@ -189,10 +200,19 @@ public class Heatmap : MonoBehaviour
 
         //h += hi * (_Properties[i].w - _MinVal) / scale;
         //h += hi * (_Properties[i].w) / smoothness;
-        if (!enableHeatmap)
+        if (lastState != enableHeatmap)
         {
             heatData.SetPixelData(data, 0);
             heatData.Apply();
         }
+
+        if (forceUpdate)
+        {
+            heatData.SetPixelData(data, 0);
+            heatData.Apply();
+        }
+
+        lastState = enableHeatmap;
+        return oldValue;
     }
 }

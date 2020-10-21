@@ -22,6 +22,8 @@ public class ProEyeGazeVST : MonoBehaviour
 
     public TrackingMap trackingMap;
     public Heatmap heatMapManager;
+    public float heatMapValue;
+    public float heatMapThreshold = 0.0f;
 
     // Use this for initialization
     void Start()
@@ -62,9 +64,10 @@ public class ProEyeGazeVST : MonoBehaviour
         // 27 - 3d position of chest IMU
         // 30 - 3d forward direction of chest IMU
         // 33 - 3d velocity of chest IMU
+        // 36 - Exploration percentage 
 
         liblsl.StreamInfo inf =
-            new liblsl.StreamInfo("ProEyeGaze", "Gaze", 36, 50, liblsl.channel_format_t.cf_float32,
+            new liblsl.StreamInfo("ProEyeGaze", "Gaze", 37, 50, liblsl.channel_format_t.cf_float32,
                 "ProEye");
         markerStream = new liblsl.StreamOutlet(inf);
     }
@@ -78,14 +81,23 @@ public class ProEyeGazeVST : MonoBehaviour
             Application.Quit();
         }
 
-        //if (heatMapManager)
-        //{
-        //    RaycastHit hittest;
-        //    Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hittest);
+        if (heatMapManager)
+        {
+            RaycastHit hittest;
+            Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hittest);
 
-        //    heatMapManager.GazeAt(hittest.point, Time.fixedDeltaTime);
-        //    //Debug.Log(Time.fixedDeltaTime);
-        //}
+            heatMapValue = heatMapManager.GazeAt(hittest.point, Time.fixedDeltaTime);
+
+            if (heatMapThreshold > 0)
+            {
+                heatMapValue /= heatMapThreshold;
+                if (heatMapValue > 1.0f)
+                {
+                    heatMapValue = 1.0f;
+                }
+            }
+            //Debug.Log(Time.fixedDeltaTime);
+        }
 
         if (SRanipal_Eye_Framework.Status != SRanipal_Eye_Framework.FrameworkStatus.WORKING &&
             SRanipal_Eye_Framework.Status != SRanipal_Eye_Framework.FrameworkStatus.NOT_SUPPORT) return;
@@ -124,6 +136,13 @@ public class ProEyeGazeVST : MonoBehaviour
             rightOpenness = -1;
         }
 
+        EyeData eyeData = new EyeData();
+        SRanipal_Eye.GetEyeData(ref eyeData);
+
+        if (eyeData.verbose_data.combined.convergence_distance_validity)
+        {
+            Debug.Log(eyeData.verbose_data.combined.convergence_distance_mm);
+        }
 
         Vector3 GazeDirectionCombined = Camera.main.transform.TransformDirection(GazeDirectionCombinedLocal);
         Vector3 camPos = Camera.main.transform.position - Camera.main.transform.up * 0.05f;
@@ -177,6 +196,7 @@ public class ProEyeGazeVST : MonoBehaviour
         // 27 - 3d position of chest IMU
         // 30 - 3d forward direction of chest IMU
         // 33 - 3d velocity of chest IMU
+        // 36 - Exploration percentage 
 
         RaycastHit hit;
         Physics.Raycast(lighter.transform.position, lighter.transform.forward, out hit);
@@ -186,7 +206,16 @@ public class ProEyeGazeVST : MonoBehaviour
             //RaycastHit hittest;
             //Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hittest);
 
-            heatMapManager.GazeAt(hit.point, Time.fixedDeltaTime);
+            heatMapValue = heatMapManager.GazeAt(hit.point, Time.fixedDeltaTime);
+
+            if (heatMapThreshold > 0)
+            {
+                heatMapValue /= heatMapThreshold;
+                if (heatMapValue > 0)
+                {
+                    heatMapValue = 1.0f;
+                }
+            }
             //Debug.Log(Time.fixedDeltaTime);
         }
 
@@ -204,7 +233,8 @@ public class ProEyeGazeVST : MonoBehaviour
                           ", RightEyeOpenness: " + rightOpenness +
                           ", ChestPosition:" + chestPosition +
                           ", ChestForward:" + chestForward +
-                          ", ChestVelocity:" + chestVelocity);
+                          ", ChestVelocity:" + chestVelocity +
+                          ", ExplorationPercentage:" + heatMapValue);
         float[] tempSample =
         {
             pupilPos_L.x,
@@ -243,6 +273,7 @@ public class ProEyeGazeVST : MonoBehaviour
             chestVelocity.x,
             chestVelocity.y,
             chestVelocity.z,
+            heatMapValue
         };
         markerStream.push_sample(tempSample);
     }
