@@ -45,6 +45,20 @@ public class EscapeRoom_PuzzleManager : MonoBehaviour
 
     }*/
 
+    public void SendToggleHeatmapEvent(bool enable)
+    {
+        string[] tempSample;
+        if (enable)
+        {
+            tempSample = new string[] { "Enable Heatmap" };
+        }
+        else
+        {
+            tempSample = new string[] { "Disable Heatmap" };
+        }
+        markerStream.push_sample(tempSample);
+    }
+
     public void unlock(int i)
     {
         print("sucess " + i);

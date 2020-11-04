@@ -81,23 +81,23 @@ public class ProEyeGazeVST : MonoBehaviour
             Application.Quit();
         }
 
-        if (heatMapManager)
-        {
-            RaycastHit hittest;
-            Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hittest);
+        //if (heatMapManager)
+        //{
+        //    RaycastHit hittest;
+        //    Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hittest);
 
-            heatMapValue = heatMapManager.GazeAt(hittest.point, Time.fixedDeltaTime);
+        //    heatMapValue = heatMapManager.GazeAt(hittest.point, Time.fixedDeltaTime);
 
-            if (heatMapThreshold > 0)
-            {
-                heatMapValue /= heatMapThreshold;
-                if (heatMapValue > 1.0f)
-                {
-                    heatMapValue = 1.0f;
-                }
-            }
-            //Debug.Log(Time.fixedDeltaTime);
-        }
+        //    if (heatMapThreshold > 0)
+        //    {
+        //        heatMapValue /= heatMapThreshold;
+        //        if (heatMapValue > 1.0f)
+        //        {
+        //            heatMapValue = 1.0f;
+        //        }
+        //    }
+        //    //Debug.Log(Time.fixedDeltaTime);
+        //}
 
         if (SRanipal_Eye_Framework.Status != SRanipal_Eye_Framework.FrameworkStatus.WORKING &&
             SRanipal_Eye_Framework.Status != SRanipal_Eye_Framework.FrameworkStatus.NOT_SUPPORT) return;
@@ -211,7 +211,7 @@ public class ProEyeGazeVST : MonoBehaviour
             if (heatMapThreshold > 0)
             {
                 heatMapValue /= heatMapThreshold;
-                if (heatMapValue > 0)
+                if (heatMapValue > 1.0f)
                 {
                     heatMapValue = 1.0f;
                 }
