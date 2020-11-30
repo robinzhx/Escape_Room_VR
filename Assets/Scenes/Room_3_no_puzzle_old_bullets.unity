@@ -2703,7 +2703,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75549503eb0c4ca4ba03b97306c20813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currTime: 0
+  startTime: 600
   countdownText: {fileID: 191888507}
+  clockNormal: {fileID: 0}
+  clockFaster: {fileID: 0}
+  clockFail: {fileID: 0}
+  clockSuccess: {fileID: 0}
 --- !u!114 &107823621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7953,7 +7959,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullets_found: 0
-  timer: {fileID: 107823620}
 --- !u!114 &308862631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19458,6 +19463,8 @@ Transform:
   - {fileID: 71681748}
   - {fileID: 2000036774}
   - {fileID: 1202175005}
+  - {fileID: 1387329199}
+  - {fileID: 1636814879}
   m_Father: {fileID: 1502163586}
   m_RootOrder: 137
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20557,8 +20564,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1064326198}
   m_HandleRect: {fileID: 1064326197}
   m_Direction: 2
-  m_Value: 0.99992436
-  m_Size: 0.27266666
+  m_Value: 0.99992377
+  m_Size: 0.27266663
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -36250,6 +36257,9 @@ MonoBehaviour:
   chestIMU: {fileID: 0}
   folderName: VSTData
   trackingMap: {fileID: 855523412}
+  heatMapManager: {fileID: 0}
+  heatMapValue: 0
+  heatMapThreshold: 0
 --- !u!1 &1562316194
 GameObject:
   m_ObjectHideFlags: 0
@@ -36794,12 +36804,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574554406}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1577342104 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4235738683084418, guid: 7a424056bcf7368438c4e231c0fddd5f,
-    type: 3}
-  m_PrefabInstance: {fileID: 535563872}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1580045685 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400070, guid: 7e15121f5f042ed46aba81406403f2d2,
@@ -51411,12 +51415,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931150065}
   m_CullTransparentMesh: 0
---- !u!4 &1934075255 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4235738683084418, guid: 7a424056bcf7368438c4e231c0fddd5f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1087592166}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1938051384
 GameObject:
   m_ObjectHideFlags: 0
