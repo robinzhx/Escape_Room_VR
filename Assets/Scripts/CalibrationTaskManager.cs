@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using LSL;
+using NewtonVR;
 using UnityEngine;
 
 public class CalibrationTaskManager : MonoBehaviour
@@ -23,8 +24,11 @@ public class CalibrationTaskManager : MonoBehaviour
 
     public bool started = false;
 
+    public bool r1Enable = true;
     public List<GameObject> r1Cubes = new List<GameObject>();
+    public bool r2Enable = true;
     public List<GameObject> r2Cubes = new List<GameObject>();
+    public bool r3Enable = true;
     public List<GameObject> r3Cubes = new List<GameObject>();
 
     public GameObject targetSign;
@@ -44,6 +48,11 @@ public class CalibrationTaskManager : MonoBehaviour
     private int cube_index = 0;
     private bool isTarget = false;
 
+    public bool paused = false;
+
+    public NVRHand left;
+    public NVRHand right;
+
     private List<List<GameObject>> rings = new List<List<GameObject>>();
 
     // Start is called before the first frame update
@@ -55,15 +64,27 @@ public class CalibrationTaskManager : MonoBehaviour
         r_odd = new Random();
         targetSign.SetActive(false);
         deviantSign.SetActive(false);
-        rings.Add(r1Cubes);
-        rings.Add(r2Cubes);
-        rings.Add(r3Cubes);
+        if (r1Enable)
+        {
+            rings.Add(r1Cubes);
+        }
+
+        if (r2Enable)
+        {
+            rings.Add(r2Cubes);
+        }
+
+        if (r3Enable)
+        {
+            rings.Add(r3Cubes);
+        }
     }
 
     public void StartCalibration()
     {
         started = true;
         switching = true;
+        paused = false;
         currentState = State.Stop;
         ring_index = 0;
         trial = 0;
@@ -73,11 +94,58 @@ public class CalibrationTaskManager : MonoBehaviour
         markerStream.push_sample(tempSample);
     }
 
+    public void SetPause(bool pause)
+    {
+        paused = pause;
+
+        string[] tempSample;
+        if (paused)
+        {
+            tempSample = new string[] { "Paused" };
+            markerStream.push_sample(tempSample);
+        }
+        else
+        {
+            tempSample = new string[] { "Resumed" };
+            markerStream.push_sample(tempSample);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        // Send trigger event
+        if (left)
+        {
+            if (left.HoldButtonDown)
+            {
+                string[] tempSample;
+                tempSample = new string[] { "Left Trigger is holded" };
+                Debug.Log("left holded");
+                markerStream.push_sample(tempSample);
+            }
+        }
+
+        if (right)
+        {
+            if (right.HoldButtonDown)
+            {
+                string[] tempSample;
+                tempSample = new string[] { "Right Trigger is holded" };
+                markerStream.push_sample(tempSample);
+            }
+        }
+
+
+        // Logic
         if (started)
         {
+            if (paused)
+            {
+                nextSwitchTime += Time.deltaTime;
+                return;
+            }
+
             switch (currentState)
             {
                 case State.Stop:
@@ -109,7 +177,7 @@ public class CalibrationTaskManager : MonoBehaviour
                             ring_index += 1;
                         }
 
-                        if (ring_index >= 3)
+                        if (ring_index >= rings.Count)
                         {
                             // End
                             currentState = State.Stop;
@@ -140,7 +208,7 @@ public class CalibrationTaskManager : MonoBehaviour
                         }
 
                         // Check which cube to show
-                        cube_index = Random.Range(0, 4);
+                        cube_index = Random.Range(0, rings[ring_index].Count);
 
                         // Show corresponding things
                         // Cube
