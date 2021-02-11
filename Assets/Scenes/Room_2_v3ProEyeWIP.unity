@@ -23143,6 +23143,9 @@ MonoBehaviour:
   chestIMU: {fileID: 0}
   folderName: EscapeRoomData
   trackingMap: {fileID: 0}
+  heatMapManager: {fileID: 0}
+  heatMapValue: 0
+  heatMapThreshold: 0
 --- !u!1 &349868071
 GameObject:
   m_ObjectHideFlags: 0
@@ -46272,7 +46275,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1588896576}
   m_Direction: 0
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -99648,6 +99651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ccd984132561b49a2a894c9f157d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 1408711854}
+  right: {fileID: 109582317}
 --- !u!4 &1528404590
 Transform:
   m_ObjectHideFlags: 0

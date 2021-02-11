@@ -33,9 +33,9 @@ class EscapeUtil {
 
     public static bool EulerAngleEpsilonEquals(Vector3 a, Vector3 b, float epsilon)
     {
-        a = ClampAngle(a);
-        b = ClampAngle(b);
-        return EpsilonEquals(a, b, epsilon);
+        Quaternion left = Quaternion.Euler(a);
+        Quaternion right = Quaternion.Euler(b);
+        return Quaternion.Angle(left, right) <= epsilon;
     }
 
     public static bool LessThan(Vector3 a, Vector3 b)
