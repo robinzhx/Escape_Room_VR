@@ -65,9 +65,11 @@ public class ProEyeGazeVST : MonoBehaviour
         // 30 - 3d forward direction of chest IMU
         // 33 - 3d velocity of chest IMU
         // 36 - Exploration percentage 
+        // 37 - Pupil diameter of left eye in mm
+        // 38 - Pupil diameter of right eye
 
         liblsl.StreamInfo inf =
-            new liblsl.StreamInfo("ProEyeGaze", "Gaze", 37, 50, liblsl.channel_format_t.cf_float32,
+            new liblsl.StreamInfo("ProEyeGaze", "Gaze", 39, 50, liblsl.channel_format_t.cf_float32,
                 "ProEye");
         markerStream = new liblsl.StreamOutlet(inf);
     }
@@ -106,6 +108,8 @@ public class ProEyeGazeVST : MonoBehaviour
         Vector3 GazeOriginRightLocal, GazeDirectionRightLocal;
         float leftOpenness;
         float rightOpenness;
+        float leftDiameter = 0;
+        float rightDiameter = 0;
 
         SRanipal_Eye.GetGazeRay(GazeIndex.COMBINE, out GazeOriginCombinedLocal, out GazeDirectionCombinedLocal);
         if (SRanipal_Eye.GetGazeRay(GazeIndex.LEFT, out GazeOriginLeftLocal, out GazeDirectionLeftLocal))
@@ -143,6 +147,8 @@ public class ProEyeGazeVST : MonoBehaviour
         {
             Debug.Log(eyeData.verbose_data.combined.convergence_distance_mm);
         }
+        leftDiameter = eyeData.verbose_data.left.pupil_diameter_mm;
+        rightDiameter = eyeData.verbose_data.right.pupil_diameter_mm;
 
         Vector3 GazeDirectionCombined = Camera.main.transform.TransformDirection(GazeDirectionCombinedLocal);
         Vector3 camPos = Camera.main.transform.position - Camera.main.transform.up * 0.05f;
@@ -234,7 +240,9 @@ public class ProEyeGazeVST : MonoBehaviour
                           ", ChestPosition:" + chestPosition +
                           ", ChestForward:" + chestForward +
                           ", ChestVelocity:" + chestVelocity +
-                          ", ExplorationPercentage:" + heatMapValue);
+                          ", ExplorationPercentage:" + heatMapValue +
+                          ", LeftPupilDiameter:" + leftDiameter + 
+                          ", RightPupilDiameter:" + rightDiameter);
         float[] tempSample =
         {
             pupilPos_L.x,
@@ -273,7 +281,9 @@ public class ProEyeGazeVST : MonoBehaviour
             chestVelocity.x,
             chestVelocity.y,
             chestVelocity.z,
-            heatMapValue
+            heatMapValue,
+            leftDiameter,
+            rightDiameter
         };
         markerStream.push_sample(tempSample);
     }
