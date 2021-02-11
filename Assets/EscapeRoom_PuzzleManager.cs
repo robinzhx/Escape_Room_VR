@@ -59,6 +59,8 @@ public class EscapeRoom_PuzzleManager : MonoBehaviour
         markerStream.push_sample(tempSample);
     }
 
+    
+
     public void unlock(int i)
     {
         print("sucess " + i);

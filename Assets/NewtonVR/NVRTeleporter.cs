@@ -29,6 +29,8 @@ namespace NewtonVR
         public float ArcStrength = 5;
         public float ArcMaxLength = 30;
         public float SampleFrequency = 0.2f;
+
+        public GrabStreamerPuzzle puzzleManager;
         
         private int samplePoints
         {
@@ -67,6 +69,8 @@ namespace NewtonVR
 			{
 				Debug.Log("NVR Player is Null");
 			}
+
+            puzzleManager = GameObject.Find("GrabStreamer")?.GetComponent<GrabStreamerPuzzle>();
 		}
 
 		private void OnValidate()
@@ -253,6 +257,11 @@ namespace NewtonVR
 		/// <param name="teleportPosition"></param>
 		public void TeleportPlayer(Vector3 teleportPosition)
 		{
+            Debug.Log("Teleport:" + Time.time);
+            if (puzzleManager)
+            {
+                puzzleManager.SendTeleportationEvent(true, player.transform.position);
+            }
             if (TunnelTeleport)
             {
                 StartCoroutine(DoTunnelTeleport(teleportPosition));
@@ -360,6 +369,11 @@ namespace NewtonVR
 
             yield return null;
             NVRVignette.instance.SetAmount(0);
+            Debug.Log("Teleport:" + Time.time);
+            if (puzzleManager)
+            {
+                puzzleManager.SendTeleportationEvent(false, player.transform.position);
+            }
         }
 
 		private Vector3 CurveDerivitive(Vector3 velocity, Vector3 acceleration, float time)

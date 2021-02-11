@@ -42,4 +42,19 @@ public class GrabStreamerPuzzle : MonoBehaviour {
         markerStream.push_sample(tempSample);
     }
 
+    public void SendTeleportationEvent(bool start, Vector3 pos)
+    {
+        string[] tempSample;
+        if (start)
+        {
+            tempSample = new string[] { "Start of teleportation:" + pos };
+        }
+        else
+        {
+            tempSample = new string[] { "End of teleportation:" + pos };
+        }
+        Debug.Log(pos);
+        markerStream.push_sample(tempSample);
+    }
+
 }

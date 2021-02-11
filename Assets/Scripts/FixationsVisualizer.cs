@@ -15,6 +15,7 @@ public class FixationsVisualizer : MonoBehaviour
     public TextAsset File;
     public GameObject FixationPrefab;
     public GameObject List;
+    public Vector3 scale = Vector3.one;
 
     private List<Fixation> fixations;
     private List<GameObject> fixationObjects;
@@ -54,7 +55,8 @@ public class FixationsVisualizer : MonoBehaviour
             Fixation fix = new Fixation();
             fix.startingTime = float.Parse(tokens[0].Replace(" ", ""));
             fix.duration = float.Parse(tokens[1].Replace(" ", ""));
-            fix.position = new Vector3(float.Parse(tokens[2].Replace(" ", "")), float.Parse(tokens[3].Replace(" ", "")), float.Parse(tokens[4].Replace(" ", "")));
+            fix.position = new Vector3(float.Parse(tokens[2].Replace(" ", "")) * scale.x, float.Parse(tokens[3].Replace(" ", "")) * scale.y, float.Parse(tokens[4].Replace(" ", "")) * scale.z);
+           
             fixations.Add(fix);
 
             if (fix.duration > maxDuration)

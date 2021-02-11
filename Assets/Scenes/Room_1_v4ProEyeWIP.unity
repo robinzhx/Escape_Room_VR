@@ -4638,14 +4638,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78494004}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 525997380f1fea14991a04722755eb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  File: {fileID: 4900000, guid: d19e2419b64f15d4987dc39d5281851d, type: 3}
+  File: {fileID: 4900000, guid: 4280df78a0e9ab44f9e93e1db8f4d5f8, type: 3}
   FixationPrefab: {fileID: 778428414}
   List: {fileID: 381919250}
+  scale: {x: 1, y: 1, z: 1}
 --- !u!4 &78494006
 Transform:
   m_ObjectHideFlags: 0
@@ -14456,8 +14457,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1810467443}
   m_HandleRect: {fileID: 1810467442}
   m_Direction: 2
-  m_Value: 0.99999624
-  m_Size: 0.81799996
+  m_Value: 0.99999666
+  m_Size: 0.818
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -41353,7 +41354,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1588896577}
   m_HandleRect: {fileID: 1588896576}
   m_Direction: 0
-  m_Value: 1.0000015
+  m_Value: 1.000001
   m_Size: 0.74347126
   m_NumberOfSteps: 0
   m_OnValueChanged:

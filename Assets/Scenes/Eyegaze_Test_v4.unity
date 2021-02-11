@@ -2030,8 +2030,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trial_count: 120
   odd: 0.2
-  duration: 1
-  rest_duration: 1.5
+  duration: 2
+  rest_duration: 2
   starting_time: 0
   started: 0
   r1Enable: 1
