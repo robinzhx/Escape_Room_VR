@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using ViveSR.anipal.Eye;
 using VRTK;
+using System.Runtime.InteropServices;
 
 public class ProEyeGazeVST : MonoBehaviour
 {
@@ -24,6 +25,13 @@ public class ProEyeGazeVST : MonoBehaviour
     public Heatmap heatMapManager;
     public float heatMapValue;
     public float heatMapThreshold = 0.0f;
+
+    static float leftDiameter = 0;
+    static float rightDiameter = 0;
+
+    bool eye_callback_registered = false;
+
+    //private VerboseData eyeData = new VerboseData();
 
     // Use this for initialization
     void Start()
@@ -74,6 +82,12 @@ public class ProEyeGazeVST : MonoBehaviour
         markerStream = new liblsl.StreamOutlet(inf);
     }
 
+    private static void EyeCallback(ref EyeData eye_data)
+    {
+        leftDiameter = eye_data.verbose_data.left.pupil_diameter_mm;
+        rightDiameter = eye_data.verbose_data.left.pupil_diameter_mm;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -108,8 +122,12 @@ public class ProEyeGazeVST : MonoBehaviour
         Vector3 GazeOriginRightLocal, GazeDirectionRightLocal;
         float leftOpenness;
         float rightOpenness;
-        float leftDiameter = 0;
-        float rightDiameter = 0;
+
+        if (SRanipal_Eye_Framework.Instance.EnableEyeDataCallback == true && eye_callback_registered == false)
+        {
+            SRanipal_Eye.WrapperRegisterEyeDataCallback(Marshal.GetFunctionPointerForDelegate((SRanipal_Eye.CallbackBasic)EyeCallback));
+            eye_callback_registered = true;
+        }
 
         SRanipal_Eye.GetGazeRay(GazeIndex.COMBINE, out GazeOriginCombinedLocal, out GazeDirectionCombinedLocal);
         if (SRanipal_Eye.GetGazeRay(GazeIndex.LEFT, out GazeOriginLeftLocal, out GazeDirectionLeftLocal))
@@ -130,6 +148,7 @@ public class ProEyeGazeVST : MonoBehaviour
             rightOpenness = -1;
         }
 
+
         if (!SRanipal_Eye.GetPupilPosition(EyeIndex.LEFT, out pupilPos_L))
         {
             leftOpenness = -1;
@@ -140,15 +159,14 @@ public class ProEyeGazeVST : MonoBehaviour
             rightOpenness = -1;
         }
 
-        EyeData eyeData = new EyeData();
-        SRanipal_Eye.GetEyeData(ref eyeData);
+        //SRanipal_Eye.GetVerboseData(out eyeData);
 
-        if (eyeData.verbose_data.combined.convergence_distance_validity)
-        {
-            Debug.Log(eyeData.verbose_data.combined.convergence_distance_mm);
-        }
-        leftDiameter = eyeData.verbose_data.left.pupil_diameter_mm;
-        rightDiameter = eyeData.verbose_data.right.pupil_diameter_mm;
+        //if (eyeData.verbose_data.combined.convergence_distance_validity)
+        //{
+        //    Debug.Log(eyeData.verbose_data.combined.convergence_distance_mm);
+        //}
+        //leftDiameter = eyeData.left.pupil_diameter_mm;
+        //rightDiameter = eyeData.right.pupil_diameter_mm;
 
         Vector3 GazeDirectionCombined = Camera.main.transform.TransformDirection(GazeDirectionCombinedLocal);
         Vector3 camPos = Camera.main.transform.position - Camera.main.transform.up * 0.05f;

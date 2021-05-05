@@ -1030,6 +1030,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnableEye: 1
+  EnableEyeDataCallback: 1
+  EnableEyeVersion: 0
 --- !u!4 &490410582
 Transform:
   m_ObjectHideFlags: 0
@@ -3642,6 +3644,8 @@ MonoBehaviour:
   folderName: EscapeRoomData
   trackingMap: {fileID: 0}
   heatMapManager: {fileID: 0}
+  heatMapValue: 0
+  heatMapThreshold: 0
 --- !u!1 &2053164747
 GameObject:
   m_ObjectHideFlags: 0

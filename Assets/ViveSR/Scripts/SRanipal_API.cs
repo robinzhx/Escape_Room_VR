@@ -1,4 +1,4 @@
-﻿//========= Copyright 2018, HTC Corporation. All rights reserved. ===========
+//========= Copyright 2019, HTC Corporation. All rights reserved. ===========
 using System;
 using System.Runtime.InteropServices;
 
@@ -13,7 +13,7 @@ namespace ViveSR
             /// </summary>
             /// <param name="anipalType">The index of an anipal module.</param>
             /// <param name="config">Indicates the resulting ViveSR.Error status of this method.</returns>
-            /// <returns></returns>
+            /// <returns>Indicates the resulting ViveSR.Error status of this method.</returns>
             [DllImport("SRanipal")]
             public static extern Error Initial(int anipalType, IntPtr config);
 
@@ -29,7 +29,7 @@ namespace ViveSR
             /// Gets the status of an anipal module.
             /// </summary>
             /// <param name="anipalType">The index of an anipal module.</param>
-            /// <param name="status">The status of an anipal module. </param>
+            /// <param name="status">The status of an anipal module.</param>
             /// <returns>Indicates the resulting ViveSR.Error status of this method.</returns>
             [DllImport("SRanipal")]
             public static extern Error GetStatus(int anipalType, out AnipalStatus status);

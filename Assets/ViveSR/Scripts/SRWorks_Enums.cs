@@ -1,4 +1,4 @@
-﻿//========= Copyright 2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2019, HTC Corporation. All rights reserved. ===========
 namespace ViveSR
 {
     /// <summary>
