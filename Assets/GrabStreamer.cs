@@ -45,6 +45,7 @@ public class GrabStreamer : MonoBehaviour {
         markerStream.push_sample(tempSample);
     }
 
+    
 
     private void startTimer(NVRInteractable interactable)
     {

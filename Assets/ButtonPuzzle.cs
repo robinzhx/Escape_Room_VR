@@ -7,6 +7,7 @@ public class ButtonPuzzle : MonoBehaviour
     public List<int> correctAnswer = new List<int> {3, 4, 5};
     public GameObject table;
     public AudioSource source;
+    public EscapeRoom_PuzzleManager puzzleManager;
     private List<int> currentAnswer = new List<int>();
 
     // Start is called before the first frame update
@@ -22,6 +23,11 @@ public class ButtonPuzzle : MonoBehaviour
             currentAnswer.RemoveAt(0);
         }
         currentAnswer.Add(number);
+
+        if (puzzleManager)
+        {
+            puzzleManager.SendButton(number);
+        }
 
         CheckComplete();
     }

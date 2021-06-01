@@ -59,7 +59,18 @@ public class EscapeRoom_PuzzleManager : MonoBehaviour
         markerStream.push_sample(tempSample);
     }
 
-    
+    public void SendButton(int index)
+    {
+        /*
+         *  1 4
+         *  5 2
+         *  3 6
+         */
+        string markerString = "Button " + index + " is pressed";
+        Debug.Log(markerString);
+        string[] tempSample = { markerString };
+        markerStream.push_sample(tempSample);
+    }
 
     public void unlock(int i)
     {
