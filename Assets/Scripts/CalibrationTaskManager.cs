@@ -10,7 +10,14 @@ public class CalibrationTaskManager : MonoBehaviour
     {
         Stop,
         Center,
-        ShowTarget
+        ShowTarget,
+        SecondCube, // only relavant in two_step mode
+    }
+
+    public enum Mode
+    {
+        original = 0,
+        two_step
     }
 
     public int trial_count = 120;
@@ -23,6 +30,7 @@ public class CalibrationTaskManager : MonoBehaviour
     public float starting_time = 0;
 
     public bool started = false;
+    public bool resetted = true;
 
     public bool r1Enable = true;
     public List<GameObject> r1Cubes = new List<GameObject>();
@@ -31,8 +39,14 @@ public class CalibrationTaskManager : MonoBehaviour
     public bool r3Enable = true;
     public List<GameObject> r3Cubes = new List<GameObject>();
 
+    public Mode mode = Mode.original;
+
     public GameObject targetSign;
     public GameObject deviantSign;
+
+    // only relavant if two_step mode
+    public GameObject secondCube;
+    public float distance = 0.2f;
 
     private Random r_index;
     private Random r_odd;
@@ -48,7 +62,10 @@ public class CalibrationTaskManager : MonoBehaviour
     private int cube_index = 0;
     private bool isTarget = false;
 
+    private Vector3 lastPosition;
+
     public bool paused = false;
+    public bool ssvep = false;
 
     public NVRHand left;
     public NVRHand right;
@@ -64,6 +81,10 @@ public class CalibrationTaskManager : MonoBehaviour
         r_odd = new Random();
         targetSign.SetActive(false);
         deviantSign.SetActive(false);
+        r1Cubes.ForEach(x => x.SetActive(false));
+        r2Cubes.ForEach(x => x.SetActive(false));
+        r3Cubes.ForEach(x => x.SetActive(false));
+        secondCube.SetActive(false);
         if (r1Enable)
         {
             rings.Add(r1Cubes);
@@ -111,6 +132,25 @@ public class CalibrationTaskManager : MonoBehaviour
         }
     }
 
+    public void SetSSVEP(bool ssvep)
+    {
+        this.ssvep = ssvep;
+
+        string[] tempSample;
+        if (this.ssvep)
+        {
+            tempSample = new string[] { "SSVEP enabled" };
+            markerStream.push_sample(tempSample);
+        }
+        else
+        {
+            tempSample = new string[] { "SSVEP disabled" };
+            markerStream.push_sample(tempSample);
+        }
+
+        started = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -140,147 +180,406 @@ public class CalibrationTaskManager : MonoBehaviour
         // Logic
         if (started)
         {
+            resetted = false;
             if (paused)
             {
                 nextSwitchTime += Time.deltaTime;
                 return;
             }
 
-            switch (currentState)
+            switch (mode)
             {
-                case State.Stop:
-                    if (switching)
+                case Mode.original: 
+                    switch (currentState)
                     {
-                        nextSwitchTime = Time.time + rest_duration;
-                        switching = false;
+                        case State.Stop:
+                            if (switching)
+                            {
+                                nextSwitchTime = Time.time + rest_duration;
+                                switching = false;
+                            }
+
+                            if (Time.time > nextSwitchTime)
+                            {
+                                currentState = State.Center;
+                                switching = true;
+                            }
+
+                            break;
+                        case State.Center:
+                            if (switching)
+                            {
+                                nextSwitchTime = Time.time + rest_duration;
+                                switching = false;
+                            }
+
+                            if (Time.time > nextSwitchTime)
+                            {
+                                if (trial >= trial_count)
+                                {
+                                    // Increment ring
+                                    trial = 0;
+                                    ring_index += 1;
+                                }
+
+                                if (ring_index >= rings.Count)
+                                {
+                                    // End
+                                    currentState = State.Stop;
+                                    started = false;
+                                }
+                                else
+                                {
+                                    currentState = State.ShowTarget;
+                                }
+
+                                switching = true;
+                            }
+
+                            break;
+                        case State.ShowTarget:
+
+                            if (switching)
+                            {
+                                // Show stuff
+
+                                // Check standard or deviant
+                                float o = Random.Range(0.0f, 1.0f);
+                                if (o >= odd)
+                                {
+                                    isTarget = false;
+                                }
+                                else
+                                {
+                                    isTarget = true;
+                                }
+
+                                // Check which cube to show
+                                cube_index = Random.Range(0, rings[ring_index].Count);
+
+                                // Show corresponding things
+                                // Cube
+                                GameObject c = rings[ring_index][cube_index];
+                                c.SetActive(true);
+                                if (c.GetComponent<SSVEPCue>())
+                                {
+                                    c.GetComponent<SSVEPCue>().Toggle(ssvep);
+                                }
+
+                                // Sign
+                                if (isTarget)
+                                {
+                                    targetSign.SetActive(true);
+                                    // Move Sign
+                                    Vector3 pos = c.transform.position;
+                                    pos.z += (-0.06f);
+                                    targetSign.transform.position = pos;
+                                }
+                                else
+                                {
+                                    deviantSign.SetActive(true);
+                                    // Move Sign
+                                    Vector3 pos = c.transform.position;
+                                    pos.z += (-0.06f);
+                                    deviantSign.transform.position = pos;
+                                }
+
+                                // Send event message
+                                string[] tempSample;
+                                if (isTarget)
+                                {
+                                    tempSample = new string[]
+                                    {
+                                        "Ring " + ring_index + "; Trial " + trial + "; Standard cube: " +
+                                        c.transform.position.ToString("G4")
+                                    };
+                                }
+                                else
+                                {
+                                    tempSample = new string[]
+                                    {
+                                        "Ring " + ring_index + "; Trial " + trial + "; Deviant cube: " +
+                                        c.transform.position.ToString("G4")
+                                    };
+                                }
+
+                                Debug.Log(tempSample[0]);
+                                markerStream.push_sample(tempSample);
+
+                                nextSwitchTime = Time.time + duration;
+                                switching = false;
+                            }
+
+                            if (Time.time > nextSwitchTime)
+                            {
+                                // Hide everything
+                                // Cube
+                                GameObject c = rings[ring_index][cube_index];
+                                c.SetActive(false);
+
+                                if (isTarget)
+                                {
+                                    targetSign.SetActive(false);
+                                }
+                                else
+                                {
+                                    deviantSign.SetActive(false);
+                                }
+
+                                // Increment Trial
+                                trial += 1;
+
+                                // Send event message
+                                string[] tempSample;
+                                tempSample = new string[] {"End Trial"};
+                                Debug.Log(tempSample[0]);
+                                markerStream.push_sample(tempSample);
+
+                                currentState = State.Center;
+                                switching = true;
+                            }
+
+                            break;
                     }
 
-                    if (Time.time > nextSwitchTime)
-                    {
-                        currentState = State.Center;
-                        switching = true;
-                    }
                     break;
-                case State.Center:
-                    if (switching)
+                case Mode.two_step:
+                    switch (currentState)
                     {
-                        nextSwitchTime = Time.time + rest_duration;
-                        switching = false;
+                        case State.Stop:
+                            if (switching)
+                            {
+                                nextSwitchTime = Time.time + rest_duration;
+                                switching = false;
+                            }
+
+                            if (Time.time > nextSwitchTime)
+                            {
+                                currentState = State.Center;
+                                switching = true;
+                            }
+
+                            break;
+                        case State.Center:
+                            if (switching)
+                            {
+                                nextSwitchTime = Time.time + rest_duration;
+                                switching = false;
+                            }
+
+                            if (Time.time > nextSwitchTime)
+                            {
+                                if (trial >= trial_count)
+                                {
+                                    // Increment ring
+                                    trial = 0;
+                                    ring_index += 1;
+                                }
+
+                                if (ring_index >= rings.Count)
+                                {
+                                    // End
+                                    currentState = State.Stop;
+                                    started = false;
+                                }
+                                else
+                                {
+                                    currentState = State.ShowTarget;
+                                }
+
+                                switching = true;
+                            }
+
+                            break;
+                        case State.ShowTarget:
+
+                            if (switching)
+                            {
+                                // Show stuff
+
+                                // Check standard or deviant
+                                float o = Random.Range(0.0f, 1.0f);
+                                if (o >= odd)
+                                {
+                                    isTarget = false;
+                                }
+                                else
+                                {
+                                    isTarget = true;
+                                }
+
+                                // Check which cube to show
+                                cube_index = Random.Range(0, rings[ring_index].Count);
+
+                                // Show corresponding things
+                                // Cube
+                                GameObject c = rings[ring_index][cube_index];
+                                c.SetActive(true);
+                                if (c.GetComponent<SSVEPCue>())
+                                {
+                                    c.GetComponent<SSVEPCue>().Toggle(ssvep);
+                                }
+
+                                // Sign
+                                if (isTarget)
+                                {
+                                    targetSign.SetActive(true);
+                                    // Move Sign
+                                    Vector3 pos = c.transform.position;
+                                    pos.z += (-0.06f);
+                                    targetSign.transform.position = pos;
+                                }
+                                else
+                                {
+                                    deviantSign.SetActive(true);
+                                    // Move Sign
+                                    Vector3 pos = c.transform.position;
+                                    pos.z += (-0.06f);
+                                    deviantSign.transform.position = pos;
+                                }
+
+                                // Send event message
+                                string[] tempSample;
+                                if (isTarget)
+                                {
+                                    tempSample = new string[]
+                                    {
+                                        "Ring " + ring_index + "; Trial " + trial + "; Standard cube: " +
+                                        c.transform.position.ToString("G4")
+                                    };
+                                }
+                                else
+                                {
+                                    tempSample = new string[]
+                                    {
+                                        "Ring " + ring_index + "; Trial " + trial + "; Deviant cube: " +
+                                        c.transform.position.ToString("G4")
+                                    };
+                                }
+
+                                Debug.Log(tempSample[0]);
+                                markerStream.push_sample(tempSample);
+
+                                nextSwitchTime = Time.time + duration;
+                                switching = false;
+                            }
+
+                            if (Time.time > nextSwitchTime)
+                            {
+                                // Hide everything
+                                // Cube
+                                GameObject c = rings[ring_index][cube_index];
+
+                                // save last position
+                                lastPosition = c.transform.position;
+                                c.SetActive(false);
+
+                                if (isTarget)
+                                {
+                                    targetSign.SetActive(false);
+                                }
+                                else
+                                {
+                                    deviantSign.SetActive(false);
+                                }
+
+                                // Increment Trial
+                                //trial += 1;
+
+
+                                // Send event message
+                                string[] tempSample;
+                                tempSample = new string[] { "First Cube End" };
+                                Debug.Log(tempSample[0]);
+                                markerStream.push_sample(tempSample);
+
+                                currentState = State.SecondCube;
+                                switching = true;
+                            }
+
+                            break;
+                        case State.SecondCube:
+                            if (switching)
+                            {
+                                // randomize direction
+                                float o = Random.Range(0.0f, 4.0f);
+                                Vector3 targetPos = lastPosition;
+                                string[] tempSample;
+                                if (o < 1.0f)
+                                {
+                                    // left
+                                    targetPos.x -= distance;
+                                    
+                                }
+                                else if (o >= 1.0f && o < 2.0f)
+                                {
+                                    // top
+                                    targetPos.y += distance;
+                                }
+                                else if (o >= 2.0f && o < 3.0f)
+                                {
+                                    // right
+                                    targetPos.x += distance;
+                                }
+                                else if (o >= 3.0f && o < 4.0f)
+                                {
+                                    // bottom
+                                    targetPos.y -= distance;
+                                }
+
+                                tempSample = new string[]
+                                {
+                                    "Ring " + ring_index + "; Trial " + trial + "; Second cube: " +
+                                    targetPos.ToString("G4")
+                                };
+
+                                secondCube.transform.parent = null;
+                                secondCube.transform.position = targetPos;
+                                secondCube.SetActive(true);
+                                secondCube.transform.parent = Camera.main.gameObject.transform;
+
+                                Debug.Log(tempSample[0]);
+                                markerStream.push_sample(tempSample);
+
+                                nextSwitchTime = Time.time + duration;
+                                switching = false;
+                            }
+
+                            if (Time.time > nextSwitchTime)
+                            {
+                                // Hide everything
+                                // Cube
+                                secondCube.SetActive(false);
+
+                                // Increment Trial
+                                trial += 1;
+
+                                // Send event message
+                                string[] tempSample;
+                                tempSample = new string[] { "End Trial" };
+                                Debug.Log(tempSample[0]);
+                                markerStream.push_sample(tempSample);
+
+                                currentState = State.Center;
+                                switching = true;
+                            }
+
+                            break;
                     }
 
-                    if (Time.time > nextSwitchTime)
-                    {
-                        if (trial >= trial_count)
-                        {
-                            // Increment ring
-                            trial = 0;
-                            ring_index += 1;
-                        }
-
-                        if (ring_index >= rings.Count)
-                        {
-                            // End
-                            currentState = State.Stop;
-                            started = false;
-                        }
-                        else
-                        {
-                            currentState = State.ShowTarget;
-                        }
-                        switching = true;
-                    }
-                    break;
-                case State.ShowTarget:
-
-                    if (switching)
-                    {
-                        // Show stuff
-
-                        // Check standard or deviant
-                        float o = Random.Range(0.0f, 1.0f);
-                        if (o >= odd)
-                        {
-                            isTarget = false;
-                        }
-                        else
-                        {
-                            isTarget = true;
-                        }
-
-                        // Check which cube to show
-                        cube_index = Random.Range(0, rings[ring_index].Count);
-
-                        // Show corresponding things
-                        // Cube
-                        GameObject c = rings[ring_index][cube_index];
-                        c.SetActive(true);
-
-                        // Sign
-                        if (isTarget)
-                        {
-                            targetSign.SetActive(true);
-                            // Move Sign
-                            Vector3 pos = c.transform.position;
-                            pos.z += (-0.06f);
-                            targetSign.transform.position = pos;
-                        }
-                        else
-                        {
-                            deviantSign.SetActive(true);
-                            // Move Sign
-                            Vector3 pos = c.transform.position;
-                            pos.z += (-0.06f);
-                            deviantSign.transform.position = pos;
-                        }
-
-                        // Send event message
-                        string[] tempSample;
-                        if (isTarget)
-                        {
-                            tempSample = new string[] { "Ring " + ring_index + "; Trial " + trial + "; Standard cube: " + c.transform.position.ToString("G4")};
-                        }
-                        else
-                        {
-                            tempSample = new string[] { "Ring " + ring_index + "; Trial " + trial + "; Deviant cube: " + c.transform.position.ToString("G4") };
-                        }
-                        Debug.Log(tempSample[0]);
-                        markerStream.push_sample(tempSample);
-
-                        nextSwitchTime = Time.time + duration;
-                        switching = false;
-                    }
-
-                    if (Time.time > nextSwitchTime)
-                    {
-                        // Hide everything
-                        // Cube
-                        GameObject c = rings[ring_index][cube_index];
-                        c.SetActive(false);
-
-                        if (isTarget)
-                        {
-                            targetSign.SetActive(false);
-                        }
-                        else
-                        {
-                            deviantSign.SetActive(false);
-                        }
-
-                        // Increment Trial
-                        trial += 1;
-
-                        // Send event message
-                        string[] tempSample;
-                        tempSample = new string[] { "End Trial" };
-                        Debug.Log(tempSample[0]);
-                        markerStream.push_sample(tempSample);
-
-                        currentState = State.Center;
-                        switching = true;
-                    }
                     break;
             }
 
+        }
+        else
+        {
+            if (!resetted)
+            {
+                targetSign.SetActive(false);
+                deviantSign.SetActive(false);
+                rings.ForEach(x => x.ForEach(y => y.SetActive(false)));
+                resetted = true;
+            }
         }
     }
 }
