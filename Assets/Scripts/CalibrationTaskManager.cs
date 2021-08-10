@@ -534,6 +534,7 @@ public class CalibrationTaskManager : MonoBehaviour
                                 };
 
                                 secondCube.transform.parent = null;
+                                secondCube.transform.rotation = Quaternion.identity;
                                 secondCube.transform.position = targetPos;
                                 secondCube.SetActive(true);
                                 secondCube.transform.parent = Camera.main.gameObject.transform;
