@@ -423,7 +423,7 @@ public class CalibrationTaskManager : MonoBehaviour
                                 // Sign
                                 if (isTarget)
                                 {
-                                    targetSign.SetActive(true);
+                                    //targetSign.SetActive(true);
                                     // Move Sign
                                     Vector3 pos = c.transform.position;
                                     pos.z += (-0.06f);
@@ -431,7 +431,7 @@ public class CalibrationTaskManager : MonoBehaviour
                                 }
                                 else
                                 {
-                                    deviantSign.SetActive(true);
+                                    //deviantSign.SetActive(true);
                                     // Move Sign
                                     Vector3 pos = c.transform.position;
                                     pos.z += (-0.06f);
