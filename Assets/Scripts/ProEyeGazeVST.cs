@@ -85,7 +85,7 @@ public class ProEyeGazeVST : MonoBehaviour
     private static void EyeCallback(ref EyeData eye_data)
     {
         leftDiameter = eye_data.verbose_data.left.pupil_diameter_mm;
-        rightDiameter = eye_data.verbose_data.left.pupil_diameter_mm;
+        rightDiameter = eye_data.verbose_data.right.pupil_diameter_mm;
     }
 
     // Update is called once per frame
