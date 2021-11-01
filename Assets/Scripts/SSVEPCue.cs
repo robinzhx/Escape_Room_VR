@@ -20,32 +20,53 @@ public class SSVEPCue : MonoBehaviour
     private Material _cloneMat;
     private bool _currState = false;
 
+    public Flicky flickyController;
+
     public void Toggle(bool flag)
     {
+        /*
         isEnable = flag;
         if (isEnable)
         {
             if(_cloneMat)
                 _cloneMat.color = offColor;
         }
+        */
+        isEnable = flag;
+        if (isEnable)
+        {
+            flickyController = GetComponent<Flicky>();
+            //flickyController.Initialize();
+            flickyController.SetMainColor(Color.black);
+            flickyController.SetBlinkColor(Color.white);
+            flickyController.SetFrequency(10);
+        }
+        else
+        {
+            flickyController.PauseFlickering();
+        }
+
     }
     
     // Start is called before the first frame update
     void Start()
     {
-        if (!selfRenderer)
-        {
-            selfRenderer = this.gameObject.GetComponent<Renderer>();
-        }
-        _cloneMat = Instantiate(selfRenderer.material);
-        selfRenderer.material = _cloneMat;
-        oldColor = _cloneMat.color;
+        //if (!selfRenderer)
+        //{
+        //    selfRenderer = this.gameObject.GetComponent<Renderer>();
+       // }
+        //_cloneMat = Instantiate(selfRenderer.material);
+        //selfRenderer.material = _cloneMat;
+        //oldColor = _cloneMat.color;
         step = 1.0f / frequency;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(false)
         if (isEnable)
         {
             //if (_currState)

@@ -455,6 +455,7 @@ MonoBehaviour:
   onColor: {r: 1, g: 1, b: 1, a: 1}
   offColor: {r: 0, g: 0, b: 0, a: 1}
   oldColor: {r: 0, g: 0, b: 0, a: 0}
+  flickyController: {fileID: 0}
 --- !u!1 &64861052
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,6 +916,7 @@ MonoBehaviour:
   onColor: {r: 1, g: 1, b: 1, a: 1}
   offColor: {r: 0, g: 0, b: 0, a: 1}
   oldColor: {r: 0, g: 0, b: 0, a: 0}
+  flickyController: {fileID: 0}
 --- !u!1 &241872921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,6 +1336,7 @@ MonoBehaviour:
   onColor: {r: 1, g: 1, b: 1, a: 1}
   offColor: {r: 0, g: 0, b: 0, a: 1}
   oldColor: {r: 0, g: 0, b: 0, a: 0}
+  flickyController: {fileID: 0}
 --- !u!1 &401219742
 GameObject:
   m_ObjectHideFlags: 0
@@ -2176,7 +2179,7 @@ MonoBehaviour:
   starting_time: 0
   started: 0
   resetted: 1
-  r1Enable: 0
+  r1Enable: 1
   r1Cubes:
   - {fileID: 2019175694}
   - {fileID: 1437524003}
@@ -2188,13 +2191,13 @@ MonoBehaviour:
   - {fileID: 1384298586}
   - {fileID: 241230619}
   - {fileID: 1301263916}
-  r3Enable: 1
+  r3Enable: 0
   r3Cubes:
   - {fileID: 1385864438}
   - {fileID: 57130705}
   - {fileID: 1545180248}
   - {fileID: 401147622}
-  mode: 1
+  mode: 0
   targetSign: {fileID: 288192079}
   deviantSign: {fileID: 2102124776}
   secondCube: {fileID: 900177480}
@@ -2606,6 +2609,7 @@ MonoBehaviour:
   onColor: {r: 1, g: 1, b: 1, a: 1}
   offColor: {r: 0, g: 0, b: 0, a: 1}
   oldColor: {r: 0, g: 0, b: 0, a: 0}
+  flickyController: {fileID: 0}
 --- !u!1 &967853954
 GameObject:
   m_ObjectHideFlags: 0
@@ -2619,6 +2623,7 @@ GameObject:
   - component: {fileID: 967853957}
   - component: {fileID: 967853956}
   - component: {fileID: 967853959}
+  - component: {fileID: 967853960}
   m_Layer: 0
   m_Name: Bottom
   m_TagString: Untagged
@@ -2671,7 +2676,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3897d2b41b2e43c47a530837ac2c47d7, type: 2}
+  - {fileID: 2100000, guid: f38f7744b6477b645a5bb850f2a2e95c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2720,6 +2725,19 @@ MonoBehaviour:
   onColor: {r: 1, g: 1, b: 1, a: 1}
   offColor: {r: 0, g: 0, b: 0, a: 1}
   oldColor: {r: 0, g: 0, b: 0, a: 0}
+  flickyController: {fileID: 967853960}
+--- !u!114 &967853960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967853954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 261ac384cf70d9e4895a07e38ecabbf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &976173603
 GameObject:
   m_ObjectHideFlags: 0
@@ -3033,6 +3051,7 @@ GameObject:
   - component: {fileID: 1207297208}
   - component: {fileID: 1207297207}
   - component: {fileID: 1207297210}
+  - component: {fileID: 1207297211}
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
@@ -3085,7 +3104,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3897d2b41b2e43c47a530837ac2c47d7, type: 2}
+  - {fileID: 2100000, guid: f38f7744b6477b645a5bb850f2a2e95c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3134,6 +3153,19 @@ MonoBehaviour:
   onColor: {r: 1, g: 1, b: 1, a: 1}
   offColor: {r: 0, g: 0, b: 0, a: 1}
   oldColor: {r: 0, g: 0, b: 0, a: 0}
+  flickyController: {fileID: 1207297211}
+--- !u!114 &1207297211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207297205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 261ac384cf70d9e4895a07e38ecabbf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1213439800
 GameObject:
   m_ObjectHideFlags: 0
@@ -3462,6 +3494,7 @@ MonoBehaviour:
   onColor: {r: 1, g: 1, b: 1, a: 1}
   offColor: {r: 0, g: 0, b: 0, a: 1}
   oldColor: {r: 0, g: 0, b: 0, a: 0}
+  flickyController: {fileID: 0}
 --- !u!1 &1384298586
 GameObject:
   m_ObjectHideFlags: 0
@@ -3576,6 +3609,7 @@ MonoBehaviour:
   onColor: {r: 1, g: 1, b: 1, a: 1}
   offColor: {r: 0, g: 0, b: 0, a: 1}
   oldColor: {r: 0, g: 0, b: 0, a: 0}
+  flickyController: {fileID: 0}
 --- !u!1 &1385864438
 GameObject:
   m_ObjectHideFlags: 0
@@ -3690,6 +3724,7 @@ MonoBehaviour:
   onColor: {r: 1, g: 1, b: 1, a: 1}
   offColor: {r: 0, g: 0, b: 0, a: 1}
   oldColor: {r: 0, g: 0, b: 0, a: 0}
+  flickyController: {fileID: 0}
 --- !u!1 &1437524003
 GameObject:
   m_ObjectHideFlags: 0
@@ -3703,6 +3738,7 @@ GameObject:
   - component: {fileID: 1437524006}
   - component: {fileID: 1437524005}
   - component: {fileID: 1437524008}
+  - component: {fileID: 1437524009}
   m_Layer: 0
   m_Name: Up
   m_TagString: Untagged
@@ -3755,7 +3791,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3897d2b41b2e43c47a530837ac2c47d7, type: 2}
+  - {fileID: 2100000, guid: f38f7744b6477b645a5bb850f2a2e95c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3804,6 +3840,19 @@ MonoBehaviour:
   onColor: {r: 1, g: 1, b: 1, a: 1}
   offColor: {r: 0, g: 0, b: 0, a: 1}
   oldColor: {r: 0, g: 0, b: 0, a: 0}
+  flickyController: {fileID: 1437524009}
+--- !u!114 &1437524009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437524003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 261ac384cf70d9e4895a07e38ecabbf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1459599248
 GameObject:
   m_ObjectHideFlags: 0
@@ -3991,6 +4040,7 @@ MonoBehaviour:
   onColor: {r: 1, g: 1, b: 1, a: 1}
   offColor: {r: 0, g: 0, b: 0, a: 1}
   oldColor: {r: 0, g: 0, b: 0, a: 0}
+  flickyController: {fileID: 0}
 --- !u!1 &1560227152
 GameObject:
   m_ObjectHideFlags: 0
@@ -5219,6 +5269,7 @@ GameObject:
   - component: {fileID: 2019175697}
   - component: {fileID: 2019175696}
   - component: {fileID: 2019175699}
+  - component: {fileID: 2019175700}
   m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
@@ -5271,7 +5322,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3897d2b41b2e43c47a530837ac2c47d7, type: 2}
+  - {fileID: 2100000, guid: f38f7744b6477b645a5bb850f2a2e95c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5320,6 +5371,19 @@ MonoBehaviour:
   onColor: {r: 1, g: 1, b: 1, a: 1}
   offColor: {r: 0, g: 0, b: 0, a: 1}
   oldColor: {r: 0, g: 0, b: 0, a: 0}
+  flickyController: {fileID: 2019175700}
+--- !u!114 &2019175700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019175694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 261ac384cf70d9e4895a07e38ecabbf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2053164747
 GameObject:
   m_ObjectHideFlags: 0
@@ -5581,6 +5645,7 @@ MonoBehaviour:
   onColor: {r: 1, g: 1, b: 1, a: 1}
   offColor: {r: 0, g: 0, b: 0, a: 1}
   oldColor: {r: 0, g: 0, b: 0, a: 0}
+  flickyController: {fileID: 0}
 --- !u!1 &2102124776
 GameObject:
   m_ObjectHideFlags: 0
